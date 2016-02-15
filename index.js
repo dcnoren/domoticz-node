@@ -2,11 +2,11 @@ var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
+app.use(express.static('static'));
+
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
 });
-
-app.use(express.static('static'));
 
 io.on('connection', function(socket){
   socket.on('chat message', function(msg){
