@@ -27,16 +27,16 @@ client.on('connect', function() { // When connected
       console.log("idx " + idx);
       if (jsonobj.dtype === "Light/Switch") {
            var idbba = idx.toString();
-           io.emit('push',
-            {
-                "lights":{
+           
+           var abcdef = '"lights":{
                   "idbba":{
                      "Status":"On",
                      "Level":100,
                      "Type":"Light\/Switch",
                      "Name":jsonobj.name
-                  }}
-            });
+                  }}';
+           
+           io.emit('push',{abcdef});
       }
     });
   });
