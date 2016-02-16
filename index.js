@@ -34,15 +34,17 @@ client.on('connect', function() { // When connected
            
            //io.emit('push',abcdef);
            
+           var ii = 0;
+           
            var annoying = {};
            
            annoying = {
                    "lights":{
-                      [] : {
-                         "Status":"On",
-                         "Level":100,
-                         "Type":"Light\/Switch",
-                         "Name":jsonobj.name
+                      idx : {
+                         Status:"On",
+                         Level:100,
+                         Type:"Light\/Switch",
+                         Name:jsonobj.name
                       }
                    },
                    "meta":{
