@@ -1,16 +1,8 @@
 var socket = io.connect();
 
 $(document).ready(function(){
-
-	
-	
-	
-	
-	var lightHash;
 	
 	socket.on('push', function(data){
-        
-		lightHash = data.meta.md5;
 
 				var lightItems = [];
 
