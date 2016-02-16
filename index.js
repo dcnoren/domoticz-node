@@ -30,7 +30,7 @@ client.on('connect', function() { // When connected
            
            var abcdef = '"lights":{"idbba":{"Status":"On","Level":100,"Type":"Light\/Switch","Name":jsonobj.name}}';
            
-           io.emit('push',{abcdef});
+           io.emit('push',abcdef);
       }
     });
   });
