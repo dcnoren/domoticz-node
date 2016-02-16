@@ -5,11 +5,15 @@ var io = require('socket.io')(http);
 
 var mqtt = require('mqtt'), url = require('url');
 
+var mqttoptions = {
+    host: "m10.cloudmqtt.com",
+    port: 12556,
+    username: "soaring",
+    password: "password"
+};
+
 // Create a client connection
-var client = mqtt.createClient("12556", "m10.cloudmqtt.com", {
-  username: "soaring",
-  password: "password" 
-});
+var client = mqtt.connect(mqttoptions);
 
 client.on('connect', function() { // When connected
 
