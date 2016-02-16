@@ -25,6 +25,19 @@ client.on('connect', function() { // When connected
       jsonobj = JSON.parse(message);
       var idx = jsonobj.idx;
       console.log("idx " + idx);
+      if jsonobj.dtype = "Light/Switch" {
+           socket.emit('push',
+            {
+                "lights":{
+                  "idx":{
+                     "Status":"On",
+                     "Level":100,
+                     "Type":"Light\/Switch",
+                     "Name":"jsonobj.name"
+                  }}
+            });
+      }
+      }
     });
   });
 
