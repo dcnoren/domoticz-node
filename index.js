@@ -30,7 +30,7 @@ client.on('connect', function() { // When connected
            io.emit('push',
             {
                 "lights":{
-                  id:{
+                  jsonobj.idx.toString():{
                      "Status":"On",
                      "Level":100,
                      "Type":"Light\/Switch",
