@@ -38,7 +38,7 @@ client.on('connect', function() { // When connected
            
            annoying = {
                    "lights":{
-                      idx : {
+                      [] : {
                          "Status":"On",
                          "Level":100,
                          "Type":"Light\/Switch",
