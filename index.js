@@ -62,7 +62,7 @@ io.on('connection', function(socket){
       }
   });
   
-  socket.emit('initial', initialAPI);
+  socket.emit('initial', APIResponse);
 });
 
 http.listen(80, function(){
