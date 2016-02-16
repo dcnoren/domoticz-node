@@ -26,11 +26,11 @@ client.on('connect', function() { // When connected
       var idx = jsonobj.idx;
       console.log("idx " + idx);
       if (jsonobj.dtype === "Light/Switch") {
-           var id = idx.toString();
+           var idbba = idx.toString();
            io.emit('push',
             {
                 "lights":{
-                  jsonobj.idx.toString():{
+                  idbba:{
                      "Status":"On",
                      "Level":100,
                      "Type":"Light\/Switch",
