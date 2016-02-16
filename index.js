@@ -26,6 +26,21 @@ client.on('connect', function() { // When connected
       var jsonobj = JSON.parse(message);
       var idx = jsonobj.idx;
       var idxname = jsonobj.name;
+      var status = jsonobj.nvalue;
+      var cstatus = "";
+      
+      if (status === "0"){
+          cstatus = "Off";
+      }
+      
+      if (status === "1"){
+          cstatus = "Transition";
+      }
+      
+      if (status === "2"){
+          cstatus = "On";
+      }
+      
       if (jsonobj.dtype === "Light/Switch") {
            var abcdef = "";
            var abcdef = '{"lights":{"' + idx + '":{"Status":"On","Level":100,"Type":"Light\/Switch","Name":"' + idxname + '"}}}';
