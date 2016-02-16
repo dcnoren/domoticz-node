@@ -1,5 +1,7 @@
 $(document).ready(function(){
 
+	var socket = io();
+	
 	var lightHash;
 
 	(function getAllStatus(){
