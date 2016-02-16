@@ -57,13 +57,8 @@ io.on('connection', function(socket){
          "Type":"Light\/Switch",
          "Name":"Breakfast Room"
       }
-   }/*,
-   "meta":{
-      "md5":"a8e2f0b630ad5d9a2dfa7c68a3df3ee3",
-      "lightd5":"39d511329000c66158ab327172d647b5",
-      "timestamp":"2016-02-15T19:37:59-05:00"
-   }*/
-}
+   }
+    }
   );
 });
 
