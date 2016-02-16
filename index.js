@@ -28,7 +28,7 @@ client.on('connect', function() { // When connected
       if (jsonobj.dtype === "Light/Switch") {
            var idbba = idx.toString();
            
-           var abcdef = '"lights":{"' + idbba + '":{"Status":"On","Level":100,"Type":"Light\/Switch","Name":"' + jsonobj.name + '"}}';
+           var abcdef = '{"lights":{"' + idbba + '":{"Status":"On","Level":100,"Type":"Light\/Switch","Name":"' + jsonobj.name + '"}}}';
            
            io.emit('push',abcdef);
       }
