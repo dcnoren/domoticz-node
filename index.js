@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
+var request = require('request');
 
 var mqtt = require('mqtt'), url = require('url');
 
@@ -48,18 +49,20 @@ app.get('/', function(req, res){
 });
 
 io.on('connection', function(socket){
-  socket.emit('initial', 
-  {
-   "lights":{
-      "47":{
-         "Status":"On",
-         "Level":100,
-         "Type":"Light\/Switch",
-         "Name":"Breakfast Room"
+  
+  var initialAPI = "";
+  
+  var url = 'https://davidnoren.com/soaring/ajax/ajax.php?action=getAllStatus';
+  request(url, function (error, response, body) {
+      if (!error && response.statusCode == 200) {
+        var APIResponse = JSON.parse(body);
+        console.log("Got a response: ", fbResponse.picture);
+      } else {
+        console.log("Got an error: ", error, ", status code: ", response.statusCode);
       }
-   }
-    }
-  );
+  });
+  
+  socket.emit('initial', APIResponse);
 });
 
 http.listen(80, function(){
