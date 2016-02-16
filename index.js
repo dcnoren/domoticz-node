@@ -34,8 +34,9 @@ client.on('connect', function() { // When connected
            
            //io.emit('push',abcdef);
            
-           io.emit('push', 
-                  {
+           var annoying = {};
+           
+           annoying = {
                    "lights":{
                       [jsonobj.idx]:{
                          "Status":"On",
@@ -49,7 +50,9 @@ client.on('connect', function() { // When connected
                       "lightd5":"39d511329000c66158ab327172d647b5",
                       "timestamp":"2016-02-15T19:37:59-05:00"
                    }
-                }
+                };
+           
+           io.emit('push', annoying);
             
             /*io.emit('push', 
                   {
@@ -67,7 +70,7 @@ client.on('connect', function() { // When connected
                       "timestamp":"2016-02-15T19:37:59-05:00"
                    }
                 }*/
-  );
+  
       }
     });
   });
