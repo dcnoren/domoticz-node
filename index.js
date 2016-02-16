@@ -22,6 +22,8 @@ client.on('connect', function() { // When connected
     // when a message arrives, do something with it
     client.on('message', function(topic, message, packet) {
       console.log("Received '" + message + "' on '" + topic + "'");
+      var idx = message.idx;
+      console.log("idx " + idx);
     });
   });
 
