@@ -42,7 +42,7 @@ client.on('connect', function() { // When connected
                          "Status":"On",
                          "Level":100,
                          "Type":"Light\/Switch",
-                         "Name":jsonobj.Name
+                         "Name":jsonobj.name
                       }
                    },
                    "meta":{
