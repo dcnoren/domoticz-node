@@ -56,9 +56,9 @@ $(document).ready(function(){
 
 				if (data.lights){
 				$.each(data.lights, function(key, val) {
-					lightItems.push('<div class="ui-block-b"><div id="' + key + '" class="light ui-bar ui-bar-a ' + val.Status + '" style="height:80px"><center><h1>' + val.Name + '</h1></center></div></div>');
+					lightItems.push('<div id="' + key + '" class="light ui-bar ui-bar-a ' + val.Status + '" style="height:80px"><center><h1>' + val.Name + '</h1></center></div>');
 				});
-				$('#lightBoard').html(lightItems).enhanceWithin();
+				$('#key').replaceWith(lightItems).enhanceWithin();
 				}
 
 				var doorItems = [];
