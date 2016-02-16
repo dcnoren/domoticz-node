@@ -37,7 +37,7 @@ client.on('connect', function() { // When connected
                   }}
             });
       }
-      }
+      });
     });
   });
 
