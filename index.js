@@ -30,7 +30,7 @@ client.on('connect', function() { // When connected
            io.emit('push',
             {
                 "lights":{
-                  idbba:{
+                  "idbba":{
                      "Status":"On",
                      "Level":100,
                      "Type":"Light\/Switch",
