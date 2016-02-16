@@ -7,7 +7,6 @@ var mqtt    = require('mqtt');
 var client  = mqtt.connect('mqtt://m10.cloudmqtt.org:12556', {
   username: 'soaring',
   password: new Buffer('password')
-}
 });
 
 client.on('connect', function () {
