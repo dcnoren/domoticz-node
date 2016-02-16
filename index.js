@@ -3,21 +3,29 @@ var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
-var mqtt    = require('mqtt');
-var client  = mqtt.connect('mqtt://m10.cloudmqtt.org:12556', {
-  username: 'soaring',
-  password: new Buffer('password')
+var mqtt = require('mqtt'), url = require('url');
+
+// Create a client connection
+var client = mqtt.createClient("12556", "m10.cloudmqtt.com", {
+  username: "soaring",
+  password: "password" 
 });
 
-client.on('connect', function () {
-  client.subscribe('domoticz/out');
-  client.publish('domoticz/out', 'Hello mqtt');
-});
+client.on('connect', function() { // When connected
 
-client.on('message', function (topic, message) {
-  // message is Buffer
-  console.log(message.toString());
-  client.end();
+  // subscribe to a topic
+  client.subscribe('domoticz/out', function() {
+    // when a message arrives, do something with it
+    client.on('message', function(topic, message, packet) {
+      console.log("Received '" + message + "' on '" + topic + "'");
+    });
+  });
+
+  // publish a message to a topic
+  client.publish('domoticz/out', 'my message', function() {
+    console.log("Message is published");
+    client.end(); // Close the connection when published
+  });
 });
 
 app.use(express.static('static'));
