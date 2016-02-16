@@ -50,7 +50,7 @@ $(document).ready(function(){
 				}
       });
       
-      socket.on('push', function(data){
+      socket.on('update', function(data){
 
 				var lightItems = [];
 
