@@ -22,7 +22,7 @@ client.on('connect', function() { // When connected
     // when a message arrives, do something with it
     client.on('message', function(topic, message, packet) {
       console.log("Received '" + message + "' on '" + topic + "'");
-      jsonobj = JSON.parse(message);
+      var jsonobj = JSON.parse(message);
       var idx = jsonobj.idx;
       console.log("idx " + idx);
       if (jsonobj.dtype === "Light/Switch") {
