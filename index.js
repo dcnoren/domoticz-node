@@ -29,15 +29,15 @@ client.on('connect', function() { // When connected
       var status = jsonobj.nvalue;
       var cstatus = "";
       
-      if (status === "0"){
+      if (status === 0){
           cstatus = "Off";
       }
       
-      if (status === "1"){
+      if (status === 1){
           cstatus = "Transition";
       }
       
-      if (status === "2"){
+      if (status === 2){
           cstatus = "On";
       }
       
