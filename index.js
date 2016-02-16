@@ -25,7 +25,7 @@ client.on('connect', function() { // When connected
       jsonobj = JSON.parse(message);
       var idx = jsonobj.idx;
       console.log("idx " + idx);
-      if jsonobj.dtype === "Light/Switch" {
+      if (jsonobj.dtype === "Light/Switch") {
            socket.emit('push',
             {
                 "lights":{
