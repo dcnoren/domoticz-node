@@ -56,7 +56,7 @@ app.get('/', function(req, res){
 io.on('connection', function(socket){
   socket.emit('push', 
   {
-   "doors":{
+   /*"doors":{
       "28":{
          "Status":"Closed",
          "Type":"Lighting 2",
@@ -116,9 +116,9 @@ io.on('connection', function(socket){
          "Name":"Arm Home",
          "Status":"disabled"
       }
-   },
+   },*/
    "lights":{
-      "7":{
+     /* "7":{
          "Status":"On",
          "Level":100,
          "Type":"Light\/Switch",
@@ -159,14 +159,14 @@ io.on('connection', function(socket){
          "Level":"0",
          "Type":"Light\/Switch",
          "Name":"Landing"
-      },
+      }, */
       "47":{
          "Status":"On",
          "Level":100,
          "Type":"Light\/Switch",
          "Name":"Breakfast Room"
       }
-   },
+   }/*,
    "fans":{
       "37":{
          "Status":"Off",
@@ -205,7 +205,7 @@ io.on('connection', function(socket){
       "md5":"a8e2f0b630ad5d9a2dfa7c68a3df3ee3",
       "lightd5":"39d511329000c66158ab327172d647b5",
       "timestamp":"2016-02-15T19:37:59-05:00"
-   }
+   }*/
 }
   );
 });
