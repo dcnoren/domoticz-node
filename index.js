@@ -26,28 +26,47 @@ client.on('connect', function() { // When connected
       var idx = jsonobj.idx;
       console.log("idx " + idx);
       if (jsonobj.dtype === "Light/Switch") {
-           var idbba = idx.toString();
+           //var idbba = idx.toString();
            
-           var abcdef = '{"lights":{"' + idbba + '":{"Status":"On","Level":100,"Type":"Light\/Switch","Name":"' + jsonobj.name + '"}},"meta":{"md5":"a8e2f0b630ad5d9a2dfa7c68a3df3ee3","lightd5":"39d511329000c66158ab327172d647b5","timestamp":"2016-02-15T19:37:59-05:00"}}';
+           //var jsonpush = {};
+           
+           //var abcdef = '{"lights":{"' + idbba + '":{"Status":"On","Level":100,"Type":"Light\/Switch","Name":"' + jsonobj.name + '"}},"meta":{"md5":"a8e2f0b630ad5d9a2dfa7c68a3df3ee3","lightd5":"39d511329000c66158ab327172d647b5","timestamp":"2016-02-15T19:37:59-05:00"}}';
            
            //io.emit('push',abcdef);
            
            io.emit('push', 
-  {
-   "lights":{
-      "55":{
-         "Status":"On",
-         "Level":100,
-         "Type":"Light\/Switch",
-         "Name":"Testing"
-      }
-   },
-   "meta":{
-      "md5":"a8e2f0b630ad5d9a2dfa7c68a3df3ee3",
-      "lightd5":"39d511329000c66158ab327172d647b5",
-      "timestamp":"2016-02-15T19:37:59-05:00"
-   }
-}
+                  {
+                   "lights":{
+                      [jsonobj.idx]:{
+                         "Status":"On",
+                         "Level":100,
+                         "Type":"Light\/Switch",
+                         "Name":jsonobj.Name
+                      }
+                   },
+                   "meta":{
+                      "md5":"a8e2f0b630ad5d9a2dfa7c68a3df3ee3",
+                      "lightd5":"39d511329000c66158ab327172d647b5",
+                      "timestamp":"2016-02-15T19:37:59-05:00"
+                   }
+                }
+            
+            /*io.emit('push', 
+                  {
+                   "lights":{
+                      "55":{
+                         "Status":"On",
+                         "Level":100,
+                         "Type":"Light\/Switch",
+                         "Name":"Testing"
+                      }
+                   },
+                   "meta":{
+                      "md5":"a8e2f0b630ad5d9a2dfa7c68a3df3ee3",
+                      "lightd5":"39d511329000c66158ab327172d647b5",
+                      "timestamp":"2016-02-15T19:37:59-05:00"
+                   }
+                }*/
   );
       }
     });
