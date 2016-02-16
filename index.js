@@ -24,17 +24,18 @@ client.on('connect', function() { // When connected
       console.log("Received '" + message + "' on '" + topic + "'");
       var jsonobj = JSON.parse(message);
       var idx = jsonobj.idx;
+      var idxname = jsonobj.name;
       console.log("idx " + idx);
       if (jsonobj.dtype === "Light/Switch") {
            //var idbba = idx.toString();
            
            //var jsonpush = {};
+           var abcdef = "";
+           var abcdef = '{"lights":{"' + idx + '":{"Status":"On","Level":100,"Type":"Light\/Switch","Name":"' + idxname + '"}},"meta":{"md5":"a8e2f0b630ad5d9a2dfa7c68a3df3ee3","lightd5":"39d511329000c66158ab327172d647b5","timestamp":"2016-02-15T19:37:59-05:00"}}';
            
-           //var abcdef = '{"lights":{"' + idbba + '":{"Status":"On","Level":100,"Type":"Light\/Switch","Name":"' + jsonobj.name + '"}},"meta":{"md5":"a8e2f0b630ad5d9a2dfa7c68a3df3ee3","lightd5":"39d511329000c66158ab327172d647b5","timestamp":"2016-02-15T19:37:59-05:00"}}';
+           io.emit('push',abcdef);
            
-           //io.emit('push',abcdef);
-           
-           var ii = 0;
+           /*var ii = 0;
            
            var annoying = {};
            
@@ -54,7 +55,7 @@ client.on('connect', function() { // When connected
                    }
                 };
            
-           io.emit('push', annoying);
+           io.emit('push', annoying);*/
             
             /*io.emit('push', 
                   {
