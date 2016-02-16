@@ -2,19 +2,13 @@ $(document).ready(function(){
 
 	var socket = io();
 	
+	
+	
 	var lightHash;
-
-	(function getAllStatus(){
-		setTimeout(function(){
-		$.ajax({
-			type: "GET",
-			dataType: "json",
-			url: 'ajax/ajax.php?action=getAllStatus&md5=' + lightHash,
-			async: true,
-
-			success: function(data) {
-
-				lightHash = data.meta.md5;
+	
+	socket.on('push', function(data){
+        
+		lightHash = data.meta.md5;
 
 				var lightItems = [];
 
@@ -60,13 +54,7 @@ $(document).ready(function(){
 				});
 				$('#fanBoard').html(fanItems).enhanceWithin();
 				}
-
-			},
-			complete: getAllStatus
-		})
-
-		}, 100);
-	})();
+      });
 
 
 	$(document).on('click', '.light.Off', function() {
