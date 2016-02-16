@@ -29,7 +29,7 @@ client.on('connect', function() { // When connected
            var abcdef = "";
            var abcdef = '{"lights":{"' + idx + '":{"Status":"On","Level":100,"Type":"Light\/Switch","Name":"' + idxname + '"}}}';
            var jsonABC = JSON.parse(abcdef);
-           io.emit('push',jsonABC);
+           io.emit('update',jsonABC);
       }
     });
   });
@@ -48,7 +48,7 @@ app.get('/', function(req, res){
 });
 
 io.on('connection', function(socket){
-  socket.emit('push', 
+  socket.emit('initial', 
   {
    "lights":{
       "47":{
