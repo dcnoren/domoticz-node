@@ -29,11 +29,11 @@ client.on('connect', function() { // When connected
            io.emit('push',
             {
                 "lights":{
-                  "idx":{
+                  \"idx\":{
                      "Status":"On",
                      "Level":100,
                      "Type":"Light\/Switch",
-                     "Name":"jsonobj.name"
+                     "Name":\"jsonobj.name\"
                   }}
             });
       }
