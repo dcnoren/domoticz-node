@@ -1,6 +1,8 @@
+var socket = io();
+
 $(document).ready(function(){
 
-	var socket = io();
+	
 	
 	
 	
