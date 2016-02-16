@@ -57,12 +57,13 @@ io.on('connection', function(socket){
       if (!error && response.statusCode == 200) {
         var APIResponse = JSON.parse(body);
         console.log("Got a response: ", APIResponse);
+        return APIResponse;
       } else {
         console.log("Got an error: ", error, ", status code: ", response.statusCode);
       }
   });
   
-  socket.emit('initial', APIResponse);
+  socket.emit('initial', initialAPI);
 });
 
 http.listen(80, function(){
