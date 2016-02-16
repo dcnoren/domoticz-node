@@ -58,7 +58,7 @@ $(document).ready(function(){
 				$.each(data.lights, function(key, val) {
 					lightItems.push('<div id="' + key + '" class="light ui-bar ui-bar-a ' + val.Status + '" style="height:80px"><center><h1>' + val.Name + '</h1></center></div>');
 				});
-				$('#key').replaceWith(lightItems).enhanceWithin();
+				$('#' + key).replaceWith(lightItems).enhanceWithin();
 				}
 
 				var doorItems = [];
