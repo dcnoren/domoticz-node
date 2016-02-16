@@ -27,7 +27,7 @@ client.on('connect', function() { // When connected
       var idxname = jsonobj.name;
       if (jsonobj.dtype === "Light/Switch") {
            var abcdef = "";
-           var abcdef = '{"lights":{"' + idx + '":{"Status":"On","Level":100,"Type":"Light\/Switch","Name":"' + idxname + '"}},"meta":{"md5":"a8e2f0b630ad5d9a2dfa7c68a3df3ee3","lightd5":"39d511329000c66158ab327172d647b5","timestamp":"2016-02-15T19:37:59-05:00"}}';
+           var abcdef = '{"lights":{"' + idx + '":{"Status":"On","Level":100,"Type":"Light\/Switch","Name":"' + idxname + '"}}}';
            var jsonABC = JSON.parse(abcdef);
            io.emit('push',jsonABC);
       }
