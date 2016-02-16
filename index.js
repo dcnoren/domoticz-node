@@ -53,7 +53,7 @@ io.on('connection', function(socket){
   var initialAPI = "";
   
   var url = 'https://davidnoren.com/soaring/ajax/ajax.php?action=getAllStatus';
-  request(url, function (error, response, body) {
+  initialAPI = request(url, function (error, response, body) {
       if (!error && response.statusCode == 200) {
         var APIResponse = JSON.parse(body);
         console.log("Got a response: ", fbResponse.picture);
@@ -62,7 +62,7 @@ io.on('connection', function(socket){
       }
   });
   
-  socket.emit('initial', APIResponse);
+  socket.emit('initial', initialAPI);
 });
 
 http.listen(80, function(){
