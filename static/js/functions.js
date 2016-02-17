@@ -165,7 +165,7 @@ $(document).ready(function(){
             chart: {
                 type: 'spline',
                 animation: Highcharts.svg, // don't animate in old IE
-                marginRight: 10/*,
+                marginRight: 10/
                 events: {
                     load: function () {
 
@@ -173,11 +173,11 @@ $(document).ready(function(){
                         var series = this.series[0];
                         setInterval(function () {
                             var x = (new Date()).getTime(), // current time
-                                y = Math.random();
+                                y = 51;
                             series.addPoint([x, y], true, true);
                         }, 1000);
                     }
-                }*/
+                }
             },
             title: {
                 text: 'Temperature'
@@ -204,11 +204,11 @@ $(document).ready(function(){
             },
             series: [
 					{
-					x: 1,
+					x: (new Date()).getTime(),
 					y: 52,
 					},
 					{
-					x: 2,
+					x: (new Date()).getTime(),
 					y: 49,
 					}
 					]
