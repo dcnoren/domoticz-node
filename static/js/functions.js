@@ -114,7 +114,7 @@ $(document).ready(function(){
 		$(this).addClass("Transition").removeClass("On");
 		myidx = $(this).attr("id");
 		var myCommand = "";
-		myCommand = '{"command": "switchlight", "idx": ' + myidx + ', "switchcmd": "Off", "level": 100 }';
+		myCommand = '{"command": "switchlight", "idx": ' + myidx + ', "switchcmd": "Off", "level": 0 }';
 		socket.emit('command', myCommand);
 		myCommand = '{"command": "getdeviceinfo", "idx": ' + myidx + ' }';
 		socket.emit('poll', myCommand);
@@ -125,7 +125,7 @@ $(document).ready(function(){
 		$(this).addClass("Transition").removeClass("On");
 		myidx = $(this).attr("id");
 		var myCommand = "";
-		myCommand = '{"command": "switchlight", "idx": ' + myidx + ', "switchcmd": "Off", "level": 100 }';
+		myCommand = '{"command": "switchlight", "idx": ' + myidx + ', "switchcmd": "Off", "level": 0 }';
 		socket.emit('command', myCommand);
 		myCommand = '{"command": "getdeviceinfo", "idx": ' + myidx + ' }';
 		socket.emit('poll', myCommand);
