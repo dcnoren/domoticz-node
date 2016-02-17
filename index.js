@@ -167,13 +167,6 @@ io.on('connection', function(socket){
 		mqttClient.publish('domoticz/in', msg);
 
 	});
-  
-	socket.on('switchPoll', function(msg){
-
-		console.log('message: ' + msg);
-		mqttClient.publish('domoticz/in', msg);
-
-	});
 
 });
 

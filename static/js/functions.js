@@ -139,8 +139,6 @@ $(document).ready(function(){
 		var myCommand = "";
 		myCommand = '{"command": "switchlight", "idx": ' + myidx + ', "switchcmd": "On" }';
 		socket.emit('switchCommand', myCommand);
-		myCommand = '{"command": "getdeviceinfo", "idx": ' + myidx + ' }';
-		socket.emit('switchPoll', myCommand);
 		return false;
 	});
 
@@ -150,8 +148,6 @@ $(document).ready(function(){
 		var myCommand = "";
 		myCommand = '{"command": "switchlight", "idx": ' + myidx + ', "switchcmd": "Off" }';
 		socket.emit('switchCommand', myCommand);
-		myCommand = '{"command": "getdeviceinfo", "idx": ' + myidx + ' }';
-		socket.emit('switchPoll', myCommand);
 		return false;
 	});
 	
