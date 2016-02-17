@@ -33,7 +33,7 @@ mqttClient.on('connect', function() {
             var status = jsonobj.nvalue;
             var level = jsonobj.svalue1;
           
-            if (jsonobj.dtype === "Light/Switch") {
+            if (jsonobj.dtype === "Light/Switch" && jsonobj.switchType === "Dimmer") {
           
                 var cstatus = "";
                   
@@ -59,6 +59,26 @@ mqttClient.on('connect', function() {
                 var jsonABC = JSON.parse(abcdef);
                 io.emit('update',jsonABC);
             }
+			
+			
+			if (jsonobj.dtype === "Light/Switch" && jsonobj.switchType === "On/Off") {
+          
+                var cstatus = "";
+                  
+                if (status === 0){
+                    cstatus = "Off";
+                }
+                  
+                if (status === 1){
+                    cstatus = "On";
+                }
+              
+                var abcdef = "";
+                var abcdef = '{"fans":{"' + idx + '":{"Status":"' + cstatus + '","Name":"' + idxname + '"}}}';
+                var jsonABC = JSON.parse(abcdef);
+                io.emit('update',jsonABC);
+            }
+			
 			
 			if (jsonobj.switchType === "Contact") {
           
