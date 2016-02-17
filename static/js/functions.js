@@ -105,9 +105,9 @@ $(document).ready(function(){
 		myidx = $(this).attr("id");
 		var myCommand = "";
 		myCommand = '{"command": "switchlight", "idx": ' + myidx + ', "switchcmd": "On", "level": 100 }';
-		socket.emit('command', myCommand);
+		socket.emit('dimCommand', myCommand);
 		myCommand = '{"command": "getdeviceinfo", "idx": ' + myidx + ' }';
-		socket.emit('poll', myCommand);
+		socket.emit('dimPoll', myCommand);
 		return false;
 	});
 
@@ -116,9 +116,9 @@ $(document).ready(function(){
 		myidx = $(this).attr("id");
 		var myCommand = "";
 		myCommand = '{"command": "switchlight", "idx": ' + myidx + ', "switchcmd": "Off", "level": 0 }';
-		socket.emit('command', myCommand);
+		socket.emit('dimCommand', myCommand);
 		myCommand = '{"command": "getdeviceinfo", "idx": ' + myidx + ' }';
-		socket.emit('poll', myCommand);
+		socket.emit('dimPoll', myCommand);
 		return false;
 	});
 
@@ -127,9 +127,9 @@ $(document).ready(function(){
 		myidx = $(this).attr("id");
 		var myCommand = "";
 		myCommand = '{"command": "switchlight", "idx": ' + myidx + ', "switchcmd": "Off", "level": 0 }';
-		socket.emit('command', myCommand);
+		socket.emit('dimCommand', myCommand);
 		myCommand = '{"command": "getdeviceinfo", "idx": ' + myidx + ' }';
-		socket.emit('poll', myCommand);
+		socket.emit('dimPoll', myCommand);
 		return false;
 	});
 
