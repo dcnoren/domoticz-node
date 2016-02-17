@@ -50,11 +50,7 @@ client.on('connect', function() { // When connected
     });
   });
 
-  // publish a message to a topic
-  //client.publish('domoticz/out', 'my message', function() {
-    //console.log("Message is published");
-    //client.end(); // Close the connection when published
-  //});
+  
 });
 
 app.use(express.static('static'));
@@ -74,6 +70,15 @@ io.on('connection', function(socket){
       } else {
         console.log("Got an error: ", error, ", status code: ", response.statusCode);
       }
+  });
+  
+  socket.on('command', function(msg){
+    console.log('message: ' + msg);
+    
+    // publish a message to a topic
+    client.publish('domoticz/in', 'msg', function() {
+        console.log("Message is published");
+    });
   });
   
 });
