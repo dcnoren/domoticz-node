@@ -172,7 +172,7 @@ $(document).ready(function(){
                         // set up the updating of the chart each second
                         var series = this.series[0];
                         setInterval(function () {
-                            var x = (new Date()).getTime(), // current time
+                            var x = 1, // current time
                                 y = 51;
                             series.addPoint([x, y], true, true);
                         }, 1000);
@@ -204,11 +204,11 @@ $(document).ready(function(){
             },
             series: [
 					{
-					x: (new Date()).getTime(),
+					x: 1,
 					y: 52,
 					},
 					{
-					x: (new Date()).getTime(),
+					x: 1,
 					y: 49,
 					}
 					]
