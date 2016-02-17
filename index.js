@@ -72,17 +72,21 @@ io.on('connection', function(socket){
       }
   });
   
-});
-
-  io.on('command', function(msg){
-    var mymsg1 = JSON.parse(msg);
-    console.log('message: ' + mymsg1);
+  
+  socket.on('command', function(msg){
+    //var mymsg1 = JSON.parse(msg);
+    console.log('message: ' + msg);
     
     // publish a message to a topic
     client.publish('domoticz/in', 'mymsg1', function() {
         console.log("Message is published");
     });
   });
+  
+  
+});
+
+  
 
 http.listen(80, function(){
   console.log('listening on *:80');
