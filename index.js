@@ -21,7 +21,7 @@ var mqttOptions = {
 var dimmers = [7, 8, 9, 10, 34, 36, 38, 47];
 var fans = [37];
 var doors = [28, 29, 30];
-var scenes = [1, 2, 3, 4, 5, 6, 7];
+//var scenes = [1, 2, 3, 4, 5, 6, 7]; //These aren't real IDXes, so can't do this...
 
 // Create a client connection
 var mqttClient = mqtt.connect(mqttOptions);
@@ -134,10 +134,10 @@ io.on('connection', function(socket){
 		mqttClient.publish('domoticz/in', myCommand);
 	});
 	
-	scenes.forEach(function(item) {
+	/*scenes.forEach(function(item) {
 		myCommand = '{"command": "getdeviceinfo", "idx": ' + item + ' }';
 		mqttClient.publish('domoticz/in', myCommand);
-	});
+	});*/
   
   
 	socket.on('dimCommand', function(msg){
