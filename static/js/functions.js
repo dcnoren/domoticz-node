@@ -55,30 +55,52 @@ $(document).ready(function(){
 				var lightItems = [];
 
 				if (data.lights){
-				$.each(data.lights, function(key, val) {
-					//lightItems.push('<div id="' + key + '" class="light ui-bar ui-bar-a ' + val.Status + '" style="height:80px"><center><h1>' + val.Name + '</h1></center></div>');
-					
-					//$("#" + key + "").replaceWith(lightItems).enhanceWithin();
-					
-					if($('#lightBoard').find("#" + key + "").length>0){
-						 lightItems.push('<div id="' + key + '" class="light ui-bar ui-bar-a ' + val.Status + '" style="height:80px"><center><h1>' + val.Name + '</h1></center></div>');
-						 $("#" + key + "").replaceWith(lightItems).enhanceWithin();
-					}else{
-						 lightItems.push('<div class="ui-block-b"><div id="' + key + '" class="light ui-bar ui-bar-a ' + val.Status + '" style="height:80px"><center><h1>' + val.Name + '</h1></center></div></div>');
-						 $('#lightBoard').prepend(lightItems).enhanceWithin();
-					}
-					
-				});
+					$.each(data.lights, function(key, val) {
+
+						if ($('#lightBoard').find("#" + key + "").length>0) {
+							 lightItems.push('<div id="' + key + '" class="light ui-bar ui-bar-a ' + val.Status + '" style="height:80px"><center><h1>' + val.Name + '</h1></center></div>');
+							 $("#" + key + "").replaceWith(lightItems).enhanceWithin();
+						} else {
+							 lightItems.push('<div class="ui-block-b"><div id="' + key + '" class="light ui-bar ui-bar-a ' + val.Status + '" style="height:80px"><center><h1>' + val.Name + '</h1></center></div></div>');
+							 $('#lightBoard').append(lightItems).enhanceWithin();
+						}
+						
+					});
 				}
 
-				var doorItems = [];
+				/*var doorItems = [];
 				
 				if (data.doors){
 				$.each(data.doors, function(key, val) {
 					doorItems.push('<div id="' + key + '" class="door ui-bar ui-bar-a ' + val.Status + '" style="height:80px"><center><h1>' + val.Name + '</h1></center></div>');
 					$("#" + key + "").replaceWith(doorItems).enhanceWithin();
 				});
+				}*/
+				
+				
+				
+				
+				
+				var doorItems = [];
+
+				if (data.doors){
+					$.each(data.doors, function(key, val) {
+
+						if ($('#lightBoard').find("#" + key + "").length>0) {
+							 doorItems.push('<div id="' + key + '" class="door ui-bar ui-bar-a ' + val.Status + '" style="height:80px"><center><h1>' + val.Name + '</h1></center></div>');
+							 $("#" + key + "").replaceWith(doorItems).enhanceWithin();
+						} else {
+							 doorItems.push('<div class="ui-block-b"><div id="' + key + '" class="door ui-bar ui-bar-a ' + val.Status + '" style="height:80px"><center><h1>' + val.Name + '</h1></center></div></div>');
+							 $('#lightBoard').append(doorItems).enhanceWithin();
+						}
+						
+					});
 				}
+				
+				
+				
+				
+				
 				
 				var securityItems = [];
 
