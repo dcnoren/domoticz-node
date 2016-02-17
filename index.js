@@ -125,6 +125,53 @@ io.on('connection', function(socket){
     
   });
   
+  socket.on('poll', function(msg){
+
+    console.log('message: ' + msg);
+    client.publish('domoticz/in', msg);
+    
+    setTimeout(function(str1) {
+        client.publish('domoticz/in', str1);
+    }, 1000, msg);
+    
+    setTimeout(function(str1) {
+        client.publish('domoticz/in', str1);
+    }, 1500, msg);
+    
+    setTimeout(function(str1) {
+        client.publish('domoticz/in', str1);
+    }, 2000, msg);
+    
+    setTimeout(function(str1) {
+        client.publish('domoticz/in', str1);
+    }, 2500, msg);
+    
+    setTimeout(function(str1) {
+        client.publish('domoticz/in', str1);
+    }, 3500, msg);
+    
+    setTimeout(function(str1) {
+        client.publish('domoticz/in', str1);
+    }, 4000, msg);
+    
+    setTimeout(function(str1) {
+        client.publish('domoticz/in', str1);
+    }, 4500, msg);
+    
+    setTimeout(function(str1) {
+        client.publish('domoticz/in', str1);
+    }, 5000, msg);
+    
+    setTimeout(function(str1) {
+        client.publish('domoticz/in', str1);
+    }, 5500, msg);
+    
+    setTimeout(function(str1) {
+        client.publish('domoticz/in', str1);
+    }, 6000, msg);
+    
+  });
+  
   
 });
 
