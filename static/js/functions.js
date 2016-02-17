@@ -180,7 +180,7 @@ $(document).ready(function(){
                 }
             },
             title: {
-                text: 'Live random data'
+                text: 'Temperature'
             },
             xAxis: {
                 type: 'datetime',
@@ -188,10 +188,10 @@ $(document).ready(function(){
             },
             yAxis: {
                 title: {
-                    text: 'Value'
+                    text: 'Fahrenheit'
                 },
                 plotLines: [{
-                    value: 0,
+                    value: 32,
                     width: 1,
                     color: '#808080'
                 }]
