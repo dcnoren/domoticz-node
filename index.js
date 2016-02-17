@@ -65,7 +65,7 @@ io.on('connection', function(socket){
   initialAPI = request(url, function (error, response, body) {
       if (!error && response.statusCode == 200) {
         var APIResponse = JSON.parse(body);
-        console.log("Got a response: ", APIResponse);
+        //console.log("Got a response: ", APIResponse);
         socket.emit('initial', APIResponse);
       } else {
         console.log("Got an error: ", error, ", status code: ", response.statusCode);
