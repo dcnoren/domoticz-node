@@ -104,7 +104,7 @@ $(document).ready(function(){
 		myidx = $(this).attr("id");
 		//$.get('ajax/ajax.php?action=setDimmerStatus&idx=' + myidx + '&command=On&Level=100');
 		var myCommand = "";
-		myCommand = '{"idx":"' + myidx + '", "nvalue":"2", "svalue1":"100"}';
+		myCommand = '{"command": "switchlight", "idx": 34, "switchcmd": "On", "level": 100 }';
 		var myJsonCommand = JSON.parse(myCommand);
 		socket.emit('command', myJsonCommand);
 		return false;
