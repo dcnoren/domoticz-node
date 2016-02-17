@@ -140,6 +140,21 @@ io.on('connection', function(socket){
 		}, 4000, msg);
 
 	});
+	
+	socket.on('switchCommand', function(msg){
+
+		console.log('message: ' + msg);
+		mqttClient.publish('domoticz/in', msg);
+
+	});
+  
+	socket.on('switchPoll', function(msg){
+
+		console.log('message: ' + msg);
+		mqttClient.publish('domoticz/in', msg);
+
+	});
+
 });
 
 
