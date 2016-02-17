@@ -17,6 +17,7 @@ var mqttOptions = {
     password: "password"
 };
 
+//Specify the items you care about here
 var dimmers = [7, 8, 9, 10, 34, 36, 38, 47];
 var fans = [37];
 var doors = [28, 29, 30];
