@@ -107,9 +107,10 @@ mqttClient.on('connect', function() {
 			
 			
 			if (jsonobj.dtype === "Temp") {
-
+				
+				var nowTime = (new Date()).getTime();
                 var abcdef = "";
-                var abcdef = '{"temp":{"' + idx + '":{"Value":"' + level + '","Name":"' + idxname + '"}}}';
+                var abcdef = '{"temp":{"' + idx + '":{"Time":"' + nowTime + '", "Value":"' + level + '","Name":"' + idxname + '"}}}';
                 var jsonABC = JSON.parse(abcdef);
                 io.emit('chart',jsonABC);
 				
