@@ -87,7 +87,7 @@ io.on('connection', function(socket){
         client.publish('domoticz/in', str1);
     }, 1000, msg);
     
-    setTimeout(function(str1) {
+    /*setTimeout(function(str1) {
         client.publish('domoticz/in', str1);
     }, 2000, msg);
     
@@ -99,9 +99,9 @@ io.on('connection', function(socket){
         client.publish('domoticz/in', str1);
     }, 3500, msg);
     
-    /*setTimeout(function(str1) {
+    setTimeout(function(str1) {
         client.publish('domoticz/in', str1);
-    }, 4000, msg);
+    }, 4000, msg);*/
     
     setTimeout(function(str1) {
         client.publish('domoticz/in', str1);
@@ -109,7 +109,7 @@ io.on('connection', function(socket){
     
     setTimeout(function(str1) {
         client.publish('domoticz/in', str1);
-    }, 6000, msg);*/
+    }, 6000, msg);
     
   });
   
