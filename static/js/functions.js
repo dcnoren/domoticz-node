@@ -105,7 +105,8 @@ $(document).ready(function(){
 		//$.get('ajax/ajax.php?action=setDimmerStatus&idx=' + myidx + '&command=On&Level=100');
 		var myCommand = "";
 		myCommand = '{"idx":"' + myidx + '", "nvalue":"2", "svalue1":"100"}';
-		socket.emit('command', myCommand);
+		var myJsonCommand = JSON.parse(myCommand);
+		socket.emit('command', myJsonCommand);
 		return false;
 	});
 
