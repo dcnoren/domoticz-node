@@ -158,5 +158,22 @@ $(document).ready(function(){
 		});
 	});
 
+	
+	
+	
+	var chart;
+	
+	chart = new Highcharts.Chart({
+chart: {
+renderTo: 'chartsBoard',
+type: 'bar'
+},
+ 
+title: {
+text: 'Voice and SMS Voting'
+}
+	
+	
+	
 
 });
