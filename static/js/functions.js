@@ -102,7 +102,11 @@ $(document).ready(function(){
 	$(document).on('click', '.light.Off', function() {
 		$(this).addClass("Transition").removeClass("Off");
 		myidx = $(this).attr("id");
-		$.get('ajax/ajax.php?action=setDimmerStatus&idx=' + myidx + '&command=On&Level=100');
+		//$.get('ajax/ajax.php?action=setDimmerStatus&idx=' + myidx + '&command=On&Level=100');
+		var myCommand = "";
+		myCommand = '{"idx":"' + myidx + '", "nvalue":"2", "svalue1":"100"}';
+		socket.emit('command', myCommand);
+		return false;
 	});
 
 	$(document).on('click', '.light.On', function() {
