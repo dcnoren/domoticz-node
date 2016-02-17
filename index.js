@@ -91,6 +91,10 @@ io.on('connection', function(socket){
         client.publish('domoticz/in', str1);
     }, 3000, msg);
     
+    setTimeout(function(str1) {
+        client.publish('domoticz/in', str1);
+    }, 3500, msg);
+    
   });
   
   socket.on('poll', function(msg){
@@ -116,7 +120,7 @@ io.on('connection', function(socket){
     
     setTimeout(function(str1) {
         client.publish('domoticz/in', str1);
-    }, 3500, msg);
+    }, 4000, msg);
     
   });
   
