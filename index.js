@@ -38,7 +38,7 @@ mqttClient.on('connect', function() {
             var status = jsonobj.nvalue;
             var level = jsonobj.svalue1;
           
-            if (jsonobj.dtype === "Light/Switch" && jsonobj.switchType === "Dimmer") {
+            if (jsonobj.switchType === "Dimmer") {
           
                 var cstatus = "";
                   
