@@ -74,23 +74,13 @@ io.on('connection', function(socket){
   
   
   socket.on('command', function(msg){
+
+    console.log('message: ' + msg);
+    client.publish('domoticz/in', msg);
     
-    function1(funcmsg1) {
-        // stuff you want to happen right away
-        console.log('message: ' + funcmsg1);
-        client.publish('domoticz/in', funcmsg1);
-    }
-    
-    function2(funcmsg2) {
-        // all the stuff you want to happen after that pause
-        client.publish('domoticz/in', funcmsg2);
-    }
-    
-    // call the first chunk of code right away
-    function1(msg);
-    
-    // call the rest of the code and have it execute after 3 seconds
-    setTimeout(function2, 1000, msg);
+    setTimeout(function(str1) {
+        client.publish('domoticz/in', str1);
+    }, 1000, msg);
     
   });
   
