@@ -72,7 +72,9 @@ io.on('connection', function(socket){
       }
   });
   
-  socket.on('command', function(msg){
+});
+
+  io.on('command', function(msg){
     var mymsg1 = JSON.parse(msg);
     console.log('message: ' + mymsg1);
     
@@ -81,8 +83,6 @@ io.on('connection', function(socket){
         console.log("Message is published");
     });
   });
-  
-});
 
 http.listen(80, function(){
   console.log('listening on *:80');
