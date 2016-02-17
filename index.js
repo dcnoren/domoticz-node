@@ -85,6 +85,18 @@ io.on('connection', function(socket){
     
     setTimeout(function(str1) {
         client.publish('domoticz/in', str1);
+    }, 1000, msg);
+    
+    setTimeout(function(str1) {
+        client.publish('domoticz/in', str1);
+    }, 2000, msg);
+    
+    setTimeout(function(str1) {
+        client.publish('domoticz/in', str1);
+    }, 3000, msg);
+    
+    setTimeout(function(str1) {
+        client.publish('domoticz/in', str1);
     }, 3500, msg);
     
   });
