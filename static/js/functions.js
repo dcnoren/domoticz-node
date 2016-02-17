@@ -211,20 +211,10 @@ $(document).ready(function(){
             },
             series: [{
                 name: 'Random data',
-                data: (function () {
-                    // generate an array of random data
-                    var data = [],
-                        time = (new Date()).getTime(),
-                        i;
-
-                    for (i = -19; i <= 0; i += 1) {
-                        data.push({
-                            x: time + i * 1000,
-                            y: Math.random()
-                        });
-                    }
-                    return data;
-                }())
+                data: {
+					x: 1,
+					y: 5
+				}
             }]
         });
 	
