@@ -37,7 +37,9 @@ mqttClient.on('connect', function() {
             var idxname = jsonobj.name;
             var status = jsonobj.nvalue;
             var level = jsonobj.svalue1;
-          
+			
+			//if (jsonobj.dtype === "Light/Switch" && jsonobj.switchType === "Dimmer") { //This will filter out the MB Runner Light - D
+			
             if (jsonobj.switchType === "Dimmer") {
           
                 var cstatus = "";
