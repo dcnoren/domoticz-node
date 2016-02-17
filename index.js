@@ -18,6 +18,10 @@ var mqttOptions = {
     password: "password"
 };
 
+var dimmers = [7, 8, 9, 10, 34, 36, 38, 47];
+var fans = [37];
+var doors = [28, 29, 30];
+
 // Create a client connection
 var mqttClient = mqtt.connect(mqttOptions);
 
@@ -112,6 +116,12 @@ io.on('connection', function(socket){
 		} else {
 			console.log("Got an error: ", error, ", status code: ", response.statusCode);
 		}
+	});
+	
+	lights.forEach(function(item) {
+		myCommand = '{"command": "getdeviceinfo", "idx": ' + item + ' }';
+		mqttClient.publish('domoticz/in', myCommand);
+		//socket.emit('initial', APIResponse);
 	});
   
   
