@@ -48,7 +48,7 @@ client.on('connect', function() { // When connected
       
       if (jsonobj.dtype === "Light/Switch") {
            var abcdef = "";
-           var abcdef = '{"lights":{"' + idx + '":{"Status":"' + cstatus + '","Level":100,"Type":"Light\/Switch","Name":"' + idxname + '"}}}';
+           var abcdef = '{"lights":{"' + idx + '":{"Status":"' + cstatus + '","Level":' + level + ',"Type":"Light\/Switch","Name":"' + idxname + '"}}}';
            var jsonABC = JSON.parse(abcdef);
            io.emit('update',jsonABC);
       }
