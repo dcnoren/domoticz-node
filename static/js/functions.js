@@ -89,13 +89,14 @@ $(document).ready(function(){
 				}
 
 				var fanItems = [];
-
+				
 				if (data.fans){
 				$.each(data.fans, function(key, val) {
-					fanItems.push('<div class="ui-block-b"><div id="' + key + '" class="fan ui-bar ui-bar-a ' + val.Status + '" style="height:80px"><center><h1>' + val.Name + '</h1></center></div></div>');
+					fanItems.push('<div id="' + key + '" class="light ui-bar ui-bar-a ' + val.Status + '" style="height:80px"><center><h1>' + val.Name + '</h1></center></div>');
+					$("#" + key + "").replaceWith(fanItems).enhanceWithin();
 				});
-				$('#fanBoard').html(fanItems).enhanceWithin();
 				}
+
       });
 
 
