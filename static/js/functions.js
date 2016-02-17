@@ -62,12 +62,12 @@ $(document).ready(function(){
 				}
 
 				var doorItems = [];
-
+				
 				if (data.doors){
 				$.each(data.doors, function(key, val) {
-					doorItems.push('<div class="ui-block-b"><div id="' + key + '" class="door ui-bar ui-bar-a ' + val.Status + '" style="height:80px"><center><h1>' + val.Name + '</h1></center></div></div>');
+					doorItems.push('<div id="' + key + '" class="light ui-bar ui-bar-a ' + val.Status + '" style="height:80px"><center><h1>' + val.Name + '</h1></center></div>');
+					$("#" + key + "").replaceWith(doorItems).enhanceWithin();
 				});
-				$('#doorBoard').html(doorItems).enhanceWithin();
 				}
 				
 				var securityItems = [];
