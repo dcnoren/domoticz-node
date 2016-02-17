@@ -80,7 +80,7 @@ io.on('connection', function(socket){
     
     setTimeout(function(str1) {
         client.publish('domoticz/in', str1);
-    }, 2000, msg);
+    }, 3500, msg);
     
   });
   
