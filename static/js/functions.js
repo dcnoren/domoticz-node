@@ -105,7 +105,8 @@ $(document).ready(function(){
 		//$.get('ajax/ajax.php?action=setDimmerStatus&idx=' + myidx + '&command=On&Level=100');
 		var myCommand = "";
 		myCommand = '{"command": "switchlight", "idx": 34, "switchcmd": "On", "level": 100 }';
-		var myJsonCommand = JSON.parse(myCommand);
+		//var myJsonCommand = JSON.parse(myCommand);
+		var myJsonCommand = myCommand;
 		socket.emit('command', myJsonCommand);
 		return false;
 	});
