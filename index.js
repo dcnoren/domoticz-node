@@ -22,7 +22,7 @@ client.on('connect', function() { // When connected
   client.subscribe('domoticz/out', function() {
     // when a message arrives, do something with it
     client.on('message', function(topic, message, packet) {
-      console.log("Received '" + message + "' on '" + topic + "'");
+      //console.log("Received '" + message + "' on '" + topic + "'");
       var jsonobj = JSON.parse(message);
       var idx = jsonobj.idx;
       var idxname = jsonobj.name;
