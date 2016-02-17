@@ -103,7 +103,7 @@ $(document).ready(function(){
 		$(this).addClass("Transition").removeClass("Off");
 		myidx = $(this).attr("id");
 		var myCommand = "";
-		myCommand = '{"command": "setlevel", "idx": 34, "switchcmd": "On", "level": 100 }';
+		myCommand = '{"command": "switchlight", "idx": 34, "switchcmd": "On", "level": 100 }';
 		socket.emit('command', myCommand);
 		return false;
 	});
@@ -112,7 +112,7 @@ $(document).ready(function(){
 		$(this).addClass("Transition").removeClass("On");
 		myidx = $(this).attr("id");
 		var myCommand = "";
-		myCommand = '{"command": "setlevel", "idx": 34, "switchcmd": "Off", "level": 100 }';
+		myCommand = '{"command": "switchlight", "idx": 34, "switchcmd": "Off", "level": 100 }';
 		socket.emit('command', myCommand);
 		return false;
 	});
@@ -121,7 +121,7 @@ $(document).ready(function(){
 		$(this).addClass("Transition").removeClass("On");
 		myidx = $(this).attr("id");
 		var myCommand = "";
-		myCommand = '{"command": "setlevel", "idx": 34, "switchcmd": "Off", "level": 100 }';
+		myCommand = '{"command": "switchlight", "idx": 34, "switchcmd": "Off", "level": 100 }';
 		socket.emit('command', myCommand);
 		return false;
 	});
