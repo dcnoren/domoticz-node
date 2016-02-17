@@ -136,13 +136,23 @@ $(document).ready(function(){
 	$(document).on('click', '.fan.Off', function() {
 		$(this).addClass("Transition").removeClass("Off");
 		myidx = $(this).attr("id");
-		$.get('ajax/ajax.php?action=setStatus&idx=' + myidx + '&command=On');
+		var myCommand = "";
+		myCommand = '{"command": "switchlight", "idx": ' + myidx + ', "switchcmd": "On" }';
+		socket.emit('switchCommand', myCommand);
+		myCommand = '{"command": "getdeviceinfo", "idx": ' + myidx + ' }';
+		socket.emit('switchPoll', myCommand);
+		return false;
 	});
 
 	$(document).on('click', '.fan.On', function() {
 		$(this).addClass("Transition").removeClass("On");
 		myidx = $(this).attr("id");
-		$.get('ajax/ajax.php?action=setStatus&idx=' + myidx + '&command=Off');
+		var myCommand = "";
+		myCommand = '{"command": "switchlight", "idx": ' + myidx + ', "switchcmd": "Off" }';
+		socket.emit('switchCommand', myCommand);
+		myCommand = '{"command": "getdeviceinfo", "idx": ' + myidx + ' }';
+		socket.emit('switchPoll', myCommand);
+		return false;
 	});
 	
 	$(document).on('click', '.security.disabled', function() {
