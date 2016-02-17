@@ -127,6 +127,11 @@ io.on('connection', function(socket){
 		myCommand = '{"command": "getdeviceinfo", "idx": ' + item + ' }';
 		mqttClient.publish('domoticz/in', myCommand);
 	});
+	
+	fans.forEach(function(item) {
+		myCommand = '{"command": "getdeviceinfo", "idx": ' + item + ' }';
+		mqttClient.publish('domoticz/in', myCommand);
+	});
   
   
 	socket.on('dimCommand', function(msg){

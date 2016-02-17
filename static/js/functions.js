@@ -67,18 +67,6 @@ $(document).ready(function(){
 						
 					});
 				}
-
-				/*var doorItems = [];
-				
-				if (data.doors){
-				$.each(data.doors, function(key, val) {
-					doorItems.push('<div id="' + key + '" class="door ui-bar ui-bar-a ' + val.Status + '" style="height:80px"><center><h1>' + val.Name + '</h1></center></div>');
-					$("#" + key + "").replaceWith(doorItems).enhanceWithin();
-				});
-				}*/
-				
-				
-				
 				
 				
 				var doorItems = [];
@@ -98,6 +86,35 @@ $(document).ready(function(){
 				}
 				
 				
+				
+				
+				/*var fanItems = [];
+				
+				if (data.fans){
+				$.each(data.fans, function(key, val) {
+					fanItems.push('<div id="' + key + '" class="fan ui-bar ui-bar-a ' + val.Status + '" style="height:80px"><center><h1>' + val.Name + '</h1></center></div>');
+					$("#" + key + "").replaceWith(fanItems).enhanceWithin();
+				});
+				}*/
+				
+				
+				
+				
+				var fanItems = [];
+
+				if (data.fans){
+					$.each(data.fans, function(key, val) {
+
+						if ($('#fanBoard').find("#" + key + "").length>0) {
+							 fanItems.push('<div id="' + key + '" class="fan ui-bar ui-bar-a ' + val.Status + '" style="height:80px"><center><h1>' + val.Name + '</h1></center></div>');
+							 $("#" + key + "").replaceWith(fanItems).enhanceWithin();
+						} else {
+							 fanItems.push('<div class="ui-block-b"><div id="' + key + '" class="fan ui-bar ui-bar-a ' + val.Status + '" style="height:80px"><center><h1>' + val.Name + '</h1></center></div></div>');
+							 $('#fanBoard').append(fanItems).enhanceWithin();
+						}
+						
+					});
+				}
 				
 				
 				
@@ -120,14 +137,7 @@ $(document).ready(function(){
 				$('#scenesBoard').html(sceneItems).enhanceWithin();
 				}
 
-				var fanItems = [];
-				
-				if (data.fans){
-				$.each(data.fans, function(key, val) {
-					fanItems.push('<div id="' + key + '" class="fan ui-bar ui-bar-a ' + val.Status + '" style="height:80px"><center><h1>' + val.Name + '</h1></center></div>');
-					$("#" + key + "").replaceWith(fanItems).enhanceWithin();
-				});
-				}
+
 
       });
 
