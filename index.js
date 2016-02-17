@@ -1,4 +1,4 @@
-require('./config.js');
+require('config.js');
 var express = require('express');
 var app = express();
 var http = require('http').Server(app);
