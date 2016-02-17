@@ -55,6 +55,7 @@ $(document).ready(function(){
 				}
 
 				
+				//THIS DOES NOT WORK
 				var sceneItems = [];
 
 				if (data.scenes){

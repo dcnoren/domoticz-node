@@ -2,7 +2,6 @@ var express = require('express');
 var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
-var request = require('request');
 var mqtt = require('mqtt'), url = require('url');
 
 app.use(express.static('static'));
@@ -108,16 +107,6 @@ mqttClient.on('connect', function() {
 });
 
 io.on('connection', function(socket){
-  
-	/*var url = 'https://davidnoren.com/soaring/ajax/ajax.php?action=getAllStatus';
-	initialAPI = request(url, function (error, response, body) {
-		if (!error && response.statusCode == 200) {
-			var APIResponse = JSON.parse(body);
-			socket.emit('initial', APIResponse);
-		} else {
-			console.log("Got an error: ", error, ", status code: ", response.statusCode);
-		}
-	});*/
 	
 	dimmers.forEach(function(item) {
 		myCommand = '{"command": "getdeviceinfo", "idx": ' + item + ' }';
