@@ -59,6 +59,25 @@ mqttClient.on('connect', function() {
                 var jsonABC = JSON.parse(abcdef);
                 io.emit('update',jsonABC);
             }
+			
+			if (jsonobj.switchType === "Contact") {
+          
+                var cstatus = "";
+                  
+                if (status === 0){
+                    cstatus = "Closed";
+                }
+                  
+                if (status === 1){
+                    cstatus = "Open";
+                }
+              
+                var abcdef = "";
+                var abcdef = '{"doors":{"' + idx + '":{"Status":"' + cstatus + '","Name":"' + idxname + '"}}}';
+                var jsonABC = JSON.parse(abcdef);
+                io.emit('update',jsonABC);
+            }
+			
         });
     });
 });
