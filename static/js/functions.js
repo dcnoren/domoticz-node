@@ -165,7 +165,7 @@ $(document).ready(function(){
             chart: {
                 type: 'spline',
                 animation: Highcharts.svg, // don't animate in old IE
-                marginRight: 10,
+                marginRight: 10/*,
                 events: {
                     load: function () {
 
@@ -177,7 +177,7 @@ $(document).ready(function(){
                             series.addPoint([x, y], true, true);
                         }, 1000);
                     }
-                }
+                }*/
             },
             title: {
                 text: 'Temperature'
@@ -196,36 +196,29 @@ $(document).ready(function(){
                     color: '#808080'
                 }]
             },
-            tooltip: {
-                formatter: function () {
-                    return '<b>' + this.series.name + '</b><br/>' +
-                        Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) + '<br/>' +
-                        Highcharts.numberFormat(this.y, 2);
-                }
-            },
             legend: {
                 enabled: false
             },
             exporting: {
                 enabled: false
             },
-            series: [{
-                name: 'Random data',
-                data: (function () {
-                    // generate an array of random data
-                    var data = [],
-                        time = (new Date()).getTime(),
-                        i;
-
-                    for (i = -19; i <= 0; i += 1) {
-                        data.push({
-                            x: time + i * 1000,
-                            y: Math.random()
-                        });
-                    }
-                    return data;
-                }())
-            }]
+            series: [
+					{
+					"id": 1,
+					"name": "foo",
+					"votes": 0
+					},
+					{
+					"id": 2,
+					"name": "bar",
+					"votes": 0
+					},
+					{
+					"id": 3,
+					"name": "baz",
+					"votes": 0
+					}
+					]
         });
 	
 	
