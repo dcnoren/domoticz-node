@@ -105,6 +105,16 @@ mqttClient.on('connect', function() {
                 io.emit('update',jsonABC);
             }
 			
+			
+			if (jsonobj.dtype === "Temp") {
+
+                var abcdef = "";
+                var abcdef = '{"temp":{"' + idx + '":{"Value":"' + level + '","Name":"' + idxname + '"}}}';
+                var jsonABC = JSON.parse(abcdef);
+                io.emit('chart',jsonABC);
+				
+            }
+			
         });
     });
 });
