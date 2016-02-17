@@ -108,7 +108,7 @@ mqttClient.on('connect', function() {
 
 io.on('connection', function(socket){
   
-	var url = 'https://davidnoren.com/soaring/ajax/ajax.php?action=getAllStatus';
+	/*var url = 'https://davidnoren.com/soaring/ajax/ajax.php?action=getAllStatus';
 	initialAPI = request(url, function (error, response, body) {
 		if (!error && response.statusCode == 200) {
 			var APIResponse = JSON.parse(body);
@@ -116,7 +116,7 @@ io.on('connection', function(socket){
 		} else {
 			console.log("Got an error: ", error, ", status code: ", response.statusCode);
 		}
-	});
+	});*/
 	
 	dimmers.forEach(function(item) {
 		myCommand = '{"command": "getdeviceinfo", "idx": ' + item + ' }';

@@ -56,8 +56,18 @@ $(document).ready(function(){
 
 				if (data.lights){
 				$.each(data.lights, function(key, val) {
-					lightItems.push('<div id="' + key + '" class="light ui-bar ui-bar-a ' + val.Status + '" style="height:80px"><center><h1>' + val.Name + '</h1></center></div>');
-					$("#" + key + "").replaceWith(lightItems).enhanceWithin();
+					//lightItems.push('<div id="' + key + '" class="light ui-bar ui-bar-a ' + val.Status + '" style="height:80px"><center><h1>' + val.Name + '</h1></center></div>');
+					
+					//$("#" + key + "").replaceWith(lightItems).enhanceWithin();
+					
+					if($('#lightBoard').find("#" + key + "").length>0){
+						 lightItems.push('<div id="' + key + '" class="light ui-bar ui-bar-a ' + val.Status + '" style="height:80px"><center><h1>' + val.Name + '</h1></center></div>');
+						 $("#" + key + "").replaceWith(lightItems).enhanceWithin();
+					}else{
+						 lightItems.push('<div class="ui-block-b"><div id="' + key + '" class="light ui-bar ui-bar-a ' + val.Status + '" style="height:80px"><center><h1>' + val.Name + '</h1></center></div></div>');
+						 $('#lightBoard').prepend(lightItems).enhanceWithin();
+					}
+					
 				});
 				}
 
