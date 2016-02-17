@@ -118,7 +118,7 @@ io.on('connection', function(socket){
 		}
 	});
 	
-	lights.forEach(function(item) {
+	dimmers.forEach(function(item) {
 		myCommand = '{"command": "getdeviceinfo", "idx": ' + item + ' }';
 		mqttClient.publish('domoticz/in', myCommand);
 		//socket.emit('initial', APIResponse);
