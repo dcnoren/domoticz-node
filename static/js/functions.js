@@ -102,25 +102,28 @@ $(document).ready(function(){
 	$(document).on('click', '.light.Off', function() {
 		$(this).addClass("Transition").removeClass("Off");
 		myidx = $(this).attr("id");
-		//$.get('ajax/ajax.php?action=setDimmerStatus&idx=' + myidx + '&command=On&Level=100');
 		var myCommand = "";
 		myCommand = '{"command": "switchlight", "idx": 34, "switchcmd": "On", "level": 100 }';
-		//var myJsonCommand = JSON.parse(myCommand);
-		var myJsonCommand = myCommand;
-		socket.emit('command', myJsonCommand);
+		socket.emit('command', myCommand);
 		return false;
 	});
 
 	$(document).on('click', '.light.On', function() {
 		$(this).addClass("Transition").removeClass("On");
 		myidx = $(this).attr("id");
-		$.get('ajax/ajax.php?action=setDimmerStatus&idx=' + myidx + '&command=Off');
+		var myCommand = "";
+		myCommand = '{"command": "switchlight", "idx": 34, "switchcmd": "Off", "level": 100 }';
+		socket.emit('command', myCommand);
+		return false;
 	});
 
 	$(document).on('click', '.light.Transition', function() {
 		$(this).addClass("Transition").removeClass("On");
 		myidx = $(this).attr("id");
-		$.get('ajax/ajax.php?action=setDimmerStatus&idx=' + myidx + '&command=Off');
+		var myCommand = "";
+		myCommand = '{"command": "switchlight", "idx": 34, "switchcmd": "Off", "level": 100 }';
+		socket.emit('command', myCommand);
+		return false;
 	});
 
 	$(document).on('click', '.fan.Off', function() {
