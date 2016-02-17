@@ -27,6 +27,7 @@ client.on('connect', function() { // When connected
       var idx = jsonobj.idx;
       var idxname = jsonobj.name;
       var status = jsonobj.nvalue;
+      var level = jsonobj.svalue1;
       var cstatus = "";
       
       if (status === 0){
@@ -34,10 +35,14 @@ client.on('connect', function() { // When connected
       }
       
       if (status === 1){
+          cstatus = "On";
+      }
+      
+      if (status === 2 && level != 100){
           cstatus = "Transition";
       }
       
-      if (status === 2){
+      if (status === 2 && level === 100){
           cstatus = "On";
       }
       
