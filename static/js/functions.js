@@ -172,6 +172,7 @@ type: 'bar'
 title: {
 text: 'Voice and SMS Voting'
 }
+	});
 	
 	
 	
