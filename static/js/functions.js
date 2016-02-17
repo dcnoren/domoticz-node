@@ -204,19 +204,12 @@ $(document).ready(function(){
             },
             series: [
 					{
-					"id": 1,
-					"name": "foo",
-					"votes": 0
+					x: 1,
+					y: 52,
 					},
 					{
-					"id": 2,
-					"name": "bar",
-					"votes": 0
-					},
-					{
-					"id": 3,
-					"name": "baz",
-					"votes": 0
+					x: 2,
+					y: 49,
 					}
 					]
         });
