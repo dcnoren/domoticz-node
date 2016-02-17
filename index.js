@@ -95,7 +95,7 @@ io.on('connection', function(socket){
 	});
   
   
-	socket.on('command', function(msg){
+	socket.on('dimCommand', function(msg){
 
 		console.log('message: ' + msg);
 		mqttClient.publish('domoticz/in', msg);
@@ -114,7 +114,7 @@ io.on('connection', function(socket){
 
 	});
   
-	socket.on('poll', function(msg){
+	socket.on('dimPoll', function(msg){
 
 		console.log('message: ' + msg);
 		mqttClient.publish('domoticz/in', msg);
