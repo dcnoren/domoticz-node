@@ -1,54 +1,6 @@
 var socket = io.connect();
 
 $(document).ready(function(){
-	
-	socket.on('initial', function(data){
-
-				var lightItems = [];
-
-				if (data.lights){
-				$.each(data.lights, function(key, val) {
-					lightItems.push('<div class="ui-block-b"><div id="' + key + '" class="light ui-bar ui-bar-a ' + val.Status + '" style="height:80px"><center><h1>' + val.Name + '</h1></center></div></div>');
-				});
-				$('#lightBoard').html(lightItems).enhanceWithin();
-				}
-
-				var doorItems = [];
-
-				if (data.doors){
-				$.each(data.doors, function(key, val) {
-					doorItems.push('<div class="ui-block-b"><div id="' + key + '" class="door ui-bar ui-bar-a ' + val.Status + '" style="height:80px"><center><h1>' + val.Name + '</h1></center></div></div>');
-				});
-				$('#doorBoard').html(doorItems).enhanceWithin();
-				}
-				
-				var securityItems = [];
-
-				if (data.security){
-				$.each(data.security, function(key, val) {
-					securityItems.push('<div class="ui-block-b"><div id="' + key + '" class="security ui-bar ui-bar-a ' + val.Status + '" style="height:80px"><center><h1>' + val.Name + '</h1></center></div></div>');
-				});
-				$('#securityBoard').html(securityItems).enhanceWithin();
-				}
-
-				var sceneItems = [];
-
-				if (data.scenes){
-				$.each(data.scenes, function(key, val) {
-					sceneItems.push('<div class="ui-block-b"><div id="' + key + '" class="scene ui-bar ui-bar-a ' + val.Status + '" style="height:80px"><center><h1>' + val.Name + '</h1></center></div></div>');
-				});
-				$('#scenesBoard').html(sceneItems).enhanceWithin();
-				}
-
-				var fanItems = [];
-
-				if (data.fans){
-				$.each(data.fans, function(key, val) {
-					fanItems.push('<div class="ui-block-b"><div id="' + key + '" class="fan ui-bar ui-bar-a ' + val.Status + '" style="height:80px"><center><h1>' + val.Name + '</h1></center></div></div>');
-				});
-				$('#fanBoard').html(fanItems).enhanceWithin();
-				}
-      });
       
       socket.on('update', function(data){
 
@@ -86,20 +38,6 @@ $(document).ready(function(){
 				}
 				
 				
-				
-				
-				/*var fanItems = [];
-				
-				if (data.fans){
-				$.each(data.fans, function(key, val) {
-					fanItems.push('<div id="' + key + '" class="fan ui-bar ui-bar-a ' + val.Status + '" style="height:80px"><center><h1>' + val.Name + '</h1></center></div>');
-					$("#" + key + "").replaceWith(fanItems).enhanceWithin();
-				});
-				}*/
-				
-				
-				
-				
 				var fanItems = [];
 
 				if (data.fans){
@@ -115,10 +53,25 @@ $(document).ready(function(){
 						
 					});
 				}
+
 				
+				var sceneItems = [];
+
+				if (data.scenes){
+					$.each(data.scenes, function(key, val) {
+
+						if ($('#sceneBoard').find("#" + key + "").length>0) {
+							 sceneItems.push('<div id="' + key + '" class="scene ui-bar ui-bar-a ' + val.Status + '" style="height:80px"><center><h1>' + val.Name + '</h1></center></div>');
+							 $("#" + key + "").replaceWith(sceneItems).enhanceWithin();
+						} else {
+							 sceneItems.push('<div class="ui-block-b"><div id="' + key + '" class="scene ui-bar ui-bar-a ' + val.Status + '" style="height:80px"><center><h1>' + val.Name + '</h1></center></div></div>');
+							 $('#sceneBoard').append(sceneItems).enhanceWithin();
+						}
+						
+					});
+				}
 				
-				
-				
+				//ONLY ONE NOT DONE
 				var securityItems = [];
 
 				if (data.security){
@@ -128,14 +81,6 @@ $(document).ready(function(){
 				$('#securityBoard').html(securityItems).enhanceWithin();
 				}
 
-				var sceneItems = [];
-
-				if (data.scenes){
-				$.each(data.scenes, function(key, val) {
-					sceneItems.push('<div class="ui-block-b"><div id="' + key + '" class="scene ui-bar ui-bar-a ' + val.Status + '" style="height:80px"><center><h1>' + val.Name + '</h1></center></div></div>');
-				});
-				$('#scenesBoard').html(sceneItems).enhanceWithin();
-				}
 
 
 
