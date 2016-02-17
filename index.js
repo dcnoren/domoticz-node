@@ -78,7 +78,7 @@ io.on('connection', function(socket){
     console.log('message: ' + msg);
     var mymsg1 = msg;
     // publish a message to a topic
-    client.publish('domoticz/in', mymsg1, function() {
+    client.publish('domoticz/in', msg, function() {
         console.log("Message is published");
     });
   });
