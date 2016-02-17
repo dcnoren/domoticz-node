@@ -103,7 +103,7 @@ $(document).ready(function(){
 		$(this).addClass("Transition").removeClass("Off");
 		myidx = $(this).attr("id");
 		var myCommand = "";
-		myCommand = '{"command": "switchlight", "idx": 34, "switchcmd": "On", "level": 100 }';
+		myCommand = '{"command": "switchlight", "idx": 34, "switchcmd": "On" }';
 		socket.emit('command', myCommand);
 		return false;
 	});
