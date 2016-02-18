@@ -111,7 +111,7 @@ mqttClient.on('connect', function() {
 				var x = new Date().getTime();
 
                 var f = parseFloat(level);
-                var f = y * 9 / 5 + 32;
+                var f = f * 9 / 5 + 32;
                 f = f.toFixed(1);
 				
 				io.emit('chart', {
