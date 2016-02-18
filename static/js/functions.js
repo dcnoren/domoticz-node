@@ -190,7 +190,7 @@ $(document).ready(function(){
                     text: 'Temp'
                 },
 				tickInterval: 10,
-            min: 0,
+            min: 25,
             max: 100,
                 plotLines: [{
                     value: 0,
