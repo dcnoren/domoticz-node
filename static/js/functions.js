@@ -181,7 +181,9 @@ $(document).ready(function(){
             },
             xAxis: {
                 type: 'datetime',
-                tickPixelInterval: 100
+                tickPixelInterval: 100,
+                min: new Date().setHours(new Date().getHours()-1),
+                max: new Date().getTime()
             },
             yAxis: {
                 title: {
@@ -210,7 +212,8 @@ $(document).ready(function(){
                 enabled: false
             },
             series: [{
-            name: 'Random data'/*,
+            name: 'Random data',
+            data: [null,null] /*,
             data: (function() {
                 // generate some points to render before real samples arrive from feed
                 var data = [],
