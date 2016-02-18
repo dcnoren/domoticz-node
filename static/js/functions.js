@@ -214,6 +214,7 @@ $(document).ready(function(){
             data: [
                 [(new Date()).getTime(), 0]
             ]
+        }]
         });
 	
 	socket.on('chart', function(data){
