@@ -177,7 +177,7 @@ $(document).ready(function(){
                 }
             },
             title: {
-                text: 'Live random data'
+                text: 'Temperatures'
             },
             xAxis: {
                 type: 'datetime',
@@ -187,7 +187,7 @@ $(document).ready(function(){
             },
             yAxis: {
                 title: {
-                    text: 'Value'
+                    text: 'Temp'
                 },
 				tickInterval: 10,
             min: 0,
