@@ -219,7 +219,7 @@ $(document).ready(function(){
                 // 20 samples, starting 19 ms ago up to present time when feed starts plotting
                 for (i = -19; i <= 0; i++) {
                     data.push({
-                        x: new Date().setMinutes(new Date().getMinutes()-i),
+                        x: new Date().setMinutes(new Date().getMinutes()+i),
                         y: i+20
                     });
                 }
