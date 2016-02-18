@@ -110,14 +110,14 @@ mqttClient.on('connect', function() {
 				
 				var x = new Date().getTime();
                 //var y = math.round(level);
-                var y = level;
+                var y = parseInt(level);
 				
 				io.emit('chart', {
 						x: x,
 						y: y
 					});
 					
-				console.log('charted');
+				console.log('charted x: ' + x ' y: ' + y);
 				
 				/*var abcdef = "";
                 var abcdef = '{"temp":{"' + idx + '":{"Time":"' + nowTime + '", "Value":"' + level + '","Name":"' + idxname + '"}}}';
