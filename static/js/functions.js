@@ -220,12 +220,12 @@ $(document).ready(function(){
             ]
         }, {
             name: 'Winter 2013-2014',
-            data: data: [
+            data: [
                 [(new Date()).getTime(), 0]
             ]
         }, {
             name: 'Winter 2014-2015',
-            data: data: [
+            data: [
                 [(new Date()).getTime(), 0]
             ]
         }]
