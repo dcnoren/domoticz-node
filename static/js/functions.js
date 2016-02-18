@@ -210,13 +210,21 @@ $(document).ready(function(){
                 enabled: false
             },
             series: [{
-            name: 'Winter 2012-2013',
-            // Define the data points. All series have a dummy year
-            // of 1970/71 in order to be compared on the same x axis. Note
-            // that in JavaScript, months start at 0 for January, 1 for February etc.
-            data: [
-                [(new Date()).getTime(), 0]
-            ]
+            name: 'Random data',
+            data: (function() {
+                // generate some points to render before real samples arrive from feed
+                var data = [],
+                    time = (new Date()).getTime(),
+                    i;
+                // 20 samples, starting 19 ms ago up to present time when feed starts plotting
+                for (i = -19; i <= 0; i++) {
+                    data.push({
+                        x: time + (i * 1000),
+                        y: 0
+                    });
+                }
+                return data;
+            })()
         }]
         });
 	
