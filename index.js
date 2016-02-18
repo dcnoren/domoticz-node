@@ -112,6 +112,7 @@ mqttClient.on('connect', function() {
                 //var y = math.round(level);
                 var y = parseFloat(level);
                 var f = y * 9 / 5 + 32;
+                f = f.toFixed(1)
 				
 				io.emit('chart', {
 						x: x,
