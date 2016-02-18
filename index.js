@@ -108,11 +108,28 @@ mqttClient.on('connect', function() {
 			
 			if (jsonobj.dtype === "Temp") {
 				
-				var nowTime = new Date().getTime();
-                var abcdef = "";
+				var x = new Date().getTime();
+                var y = level;
+				
+				socket.emit('chart', {
+						x: x,
+						y: y
+					});
+				
+				/*var abcdef = "";
                 var abcdef = '{"temp":{"' + idx + '":{"Time":"' + nowTime + '", "Value":"' + level + '","Name":"' + idxname + '"}}}';
                 var jsonABC = JSON.parse(abcdef);
                 io.emit('chart',jsonABC);
+				
+				var max = 100
+ 
+			  // generate a sample every second
+				setInterval(function() {
+					var x = (new Date()).getTime(), // current time
+						y = Math.floor((Math.random() * max) + 1);
+					
+					console.info("emitted: [" + x + "," + y + "]");
+				}, 1000);*/
 				
             }
 			
@@ -197,18 +214,7 @@ io.on('connection', function(socket){
 	});
 	
 	
-	var max = 100
- 
-  // generate a sample every second
-    setInterval(function() {
-        var x = (new Date()).getTime(), // current time
-            y = Math.floor((Math.random() * max) + 1);
-        socket.emit('chart', {
-            x: x,
-            y: y
-        });
-        console.info("emitted: [" + x + "," + y + "]");
-    }, 1000);
+	
 
 });
 
