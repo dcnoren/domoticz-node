@@ -109,11 +109,10 @@ mqttClient.on('connect', function() {
 			if (jsonobj.dtype === "Temp") {
 				
 				var x = new Date().getTime();
-                //var y = math.round(level);
+
                 var f = parseFloat(level);
-                //var y = parseFloat(level);
-                //var f = y * 9 / 5 + 32;
-                //f = f.toFixed(1);
+                var f = y * 9 / 5 + 32;
+                f = f.toFixed(1);
 				
 				io.emit('chart', {
 						x: x,
