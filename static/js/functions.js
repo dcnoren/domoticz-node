@@ -181,12 +181,15 @@ $(document).ready(function(){
             },
             xAxis: {
                 type: 'datetime',
-                tickPixelInterval: 150
+                tickPixelInterval: 100
             },
             yAxis: {
                 title: {
                     text: 'Value'
                 },
+				tickInterval: 10,
+            min: 0,
+            max: 100,
                 plotLines: [{
                     value: 0,
                     width: 1,
