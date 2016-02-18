@@ -228,11 +228,5 @@ $(document).ready(function(){
         }]
         });
 	
-	socket.on('chart', function(data){
-	
-	
-    
-	});
-	
 
 });
