@@ -3,7 +3,6 @@ var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var mqtt = require('mqtt'), url = require('url');
-var math = require('math');
 
 app.use(express.static('static'));
 
