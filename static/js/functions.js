@@ -212,17 +212,17 @@ $(document).ready(function(){
             // of 1970/71 in order to be compared on the same x axis. Note
             // that in JavaScript, months start at 0 for January, 1 for February etc.
             data: [
-                [(new Date()).getTime(), 0]
+                
             ]
         }, {
             name: 'Winter 2013-2014',
             data: [
-                [(new Date()).getTime(), 0]
+                
             ]
         }, {
             name: 'Winter 2014-2015',
             data: [
-                [(new Date()).getTime(), 0]
+                
             ]
         }]
         });
