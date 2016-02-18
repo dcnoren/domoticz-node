@@ -210,7 +210,7 @@ $(document).ready(function(){
                 enabled: false
             },
             series: [{
-            name: 'Random data',
+            name: 'Random data'/*,
             data: (function() {
                 // generate some points to render before real samples arrive from feed
                 var data = [],
@@ -225,7 +225,7 @@ $(document).ready(function(){
                 }
                 return data;
             })()
-        }]
+        */}]
         });
 	
 
