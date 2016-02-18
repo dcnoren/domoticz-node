@@ -169,14 +169,10 @@ $(document).ready(function(){
                 events: {
                     load: function () {
 						
-						var chart = this;
-                        // set up the updating of the chart each second
-                        var series = this.series[0];
-                        setInterval(function () {
-                            var x = (new Date()).getTime(), // current time
-                                y = Math.random();
-                            series.addPoint([x, y], true, true);
-                        }, 1000);
+						socket.on('chart', function (sample) {
+                        // when a sample arrives we plot it
+                        series.addPoint([sample.x, sample.y], true, true);
+						});
                     }
                 }
             },
