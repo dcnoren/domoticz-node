@@ -168,7 +168,7 @@ $(document).ready(function(){
                 marginRight: 10,
                 events: {
                     load: function () {
-						
+						var series = this.series[0];
 						socket.on('chart', function (sample) {
                         // when a sample arrives we plot it
                         series.addPoint([sample.x, sample.y], true, true);
