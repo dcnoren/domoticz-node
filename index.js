@@ -117,7 +117,7 @@ mqttClient.on('connect', function() {
 						y: y
 					});
 					
-				console.log('charted x: ' + x ' y: ' + y);
+				console.log('charted x: ' + x + ' y: ' + y);
 				
 				/*var abcdef = "";
                 var abcdef = '{"temp":{"' + idx + '":{"Time":"' + nowTime + '", "Value":"' + level + '","Name":"' + idxname + '"}}}';
