@@ -111,7 +111,7 @@ mqttClient.on('connect', function() {
 				var x = new Date().getTime();
                 var y = level;
 				
-				socket.emit('chart', {
+				io.emit('chart', {
 						x: x,
 						y: y
 					});
