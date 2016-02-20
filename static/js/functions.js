@@ -173,7 +173,7 @@ $(document).ready(function(){
 			socket.on('chart', function (sample) {
                         
                         var series = fart.get(sample.idx);
-                        if (series === "undefined"){
+                        if (series === "null"){
                         	console.log('adding series')
                         	fart.addSeries({
                         		id: sample.idx,
