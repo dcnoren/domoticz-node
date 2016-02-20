@@ -172,8 +172,8 @@ $(document).ready(function(){
                         
                         //if (!series) {
                         	this.addSeries({
-                        		id: series.idx,
-                        		name: series.idxname,
+                        		id: sample.idx,
+                        		name: sample.idxname,
                         		data: [null,null]
                         	});
                         //}
