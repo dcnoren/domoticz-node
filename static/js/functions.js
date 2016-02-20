@@ -168,8 +168,8 @@ $(document).ready(function(){
                 marginRight: 10,
                 events: {
                     load: function () {
-						var series = this.series[0];
-						socket.on('chart', function (sample) {
+			socket.on('chart', function (sample) {
+                        var series = this.series[sample.idx];
                         // when a sample arrives we plot it
                         series.addPoint([sample.x, sample.y], true, false);
                         Highcharts.charts[0].xAxis[0].update({
