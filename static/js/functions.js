@@ -180,9 +180,9 @@ $(document).ready(function(){
                         		name: sample.idxname,
                         		data: [null,null]
                         	});
-                        	fart.isDirtyLegend = true;
-                        	fart.isDirtyBox = true;
-                        	fart.redraw();
+                        	//fart.isDirtyLegend = true;
+                        	//fart.isDirtyBox = true;
+                        	//fart.redraw();
                         }
                         // when a sample arrives we plot it
                         series = fart.get(sample.idx);
