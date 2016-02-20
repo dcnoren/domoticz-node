@@ -172,13 +172,14 @@ $(document).ready(function(){
                     load: function () {
 			socket.on('chart', function (sample) {
                         
-                        //if (!series) {
+                        var series = fart.get(sample.idx);
+                        if (series === "undefined"){
                         	fart.addSeries({
                         		id: sample.idx,
                         		name: sample.idxname,
                         		data: [null,null]
                         	});
-                        //}
+                        }
                         // when a sample arrives we plot it
                         var series = fart.get(sample.idx);
                         series.addPoint([sample.x, sample.y], true, false);
