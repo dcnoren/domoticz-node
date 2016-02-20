@@ -233,11 +233,11 @@ $(document).ready(function(){
             },
             exporting: {
                 enabled: false
-            },
+            }/*,
             series: [{
             name: 'Blank',
             data: [null,null]
-            }]
+            }]*/
         });
 	
 
