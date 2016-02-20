@@ -219,10 +219,11 @@ $(document).ready(function(){
                 }]
             },
             legend: {
-            	layout: 'vertical',
-            	align: 'right',
-        	verticalAlign: 'middle',
-            	borderWidth: 0
+            	align: 'left',
+                verticalAlign: 'bottom',
+                y: 20,
+                floating: true,
+                borderWidth: 0
             },
             plotOptions: {
             	line: {
