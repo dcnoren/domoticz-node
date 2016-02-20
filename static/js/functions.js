@@ -184,6 +184,7 @@ $(document).ready(function(){
                         // when a sample arrives we plot it
                         series = fart.get(sample.idx);
                         series.addPoint([sample.x, sample.y], true, false);
+                        console.log('adding data')
                         Highcharts.charts[0].xAxis[0].update({
     				min: new Date(sample.x - 3600000).getTime(),
                 		max: new Date(sample.x).getTime()
