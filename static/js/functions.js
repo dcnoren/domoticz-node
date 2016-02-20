@@ -209,9 +209,9 @@ $(document).ready(function(){
                 title: {
                     text: 'Temp'
                 },
-				tickInterval: 10,
-            min: 25,
-            max: 100,
+		tickInterval: 10,
+            	min: 25,
+            	max: 100,
                 plotLines: [{
                     value: 0,
                     width: 1,
@@ -219,10 +219,10 @@ $(document).ready(function(){
                 }]
             },
             legend: {
-            layout: 'vertical',
-            align: 'right',
-            verticalAlign: 'middle',
-            borderWidth: 0
+            	layout: 'vertical',
+            	align: 'right',
+        	 verticalAlign: 'middle',
+            	borderWidth: 50
             },
             plotOptions: {
             line: {
