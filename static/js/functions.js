@@ -167,7 +167,7 @@ $(document).ready(function(){
                 type: 'spline',
                 renderTo: 'chartsBoard',
                 animation: Highcharts.svg, // don't animate in old IE
-                marginRight: 150,
+                marginBottom: 30,
                 events: {
                     load: function () {
 			socket.on('chart', function (sample) {
@@ -219,9 +219,9 @@ $(document).ready(function(){
                 }]
             },
             legend: {
-            	align: 'right',
-	        verticalAlign: 'middle',
-	        layout: 'vertical'
+            	align: 'center',
+	        verticalAlign: 'bottom',
+	        layout: 'horizontal'
 	       // x: 0,
 	        //y: 100
             },
