@@ -221,17 +221,17 @@ $(document).ready(function(){
             legend: {
             	layout: 'vertical',
             	align: 'right',
-        	 verticalAlign: 'middle',
-            	borderWidth: 50
+        	verticalAlign: 'middle',
+            	borderWidth: 0
             },
             plotOptions: {
-            line: {
-                dataLabels: {
-                    enabled: true
-                },
-                enableMouseTracking: false
-	            }
-	        },
+            	line: {
+                	dataLabels: {
+                    		enabled: true
+                	},
+        		 enableMouseTracking: false
+	        }
+	    },
             tooltip: {
                 formatter: function () {
                     return '<b>' + this.series.name + '</b><br/>' +
