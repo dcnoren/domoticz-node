@@ -118,7 +118,9 @@ mqttClient.on('connect', function() {
 				
 				io.emit('chart', {
 						x: x,
-						y: f
+						y: f,
+						idx: idx,
+						idxname: idxname
 					});
 					
 				console.log('charted x: ' + x + ' y: ' + f);
