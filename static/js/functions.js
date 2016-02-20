@@ -180,7 +180,7 @@ $(document).ready(function(){
                         	});
                         //}
                         // when a sample arrives we plot it
-                        var series = this.series[sample.idx];
+                        var series = fart.get(sample.idx);
                         series.addPoint([sample.x, sample.y], true, false);
                         Highcharts.charts[0].xAxis[0].update({
     				min: new Date(sample.x - 3600000).getTime(),
