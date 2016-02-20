@@ -173,8 +173,8 @@ $(document).ready(function(){
                         // when a sample arrives we plot it
                         series.addPoint([sample.x, sample.y], true, true);
                         Highcharts.charts[0].xAxis[0].update({
-    				min: new Date(x * 1000).setHours(new Date().getHours()-1),
-                		max: new Date(x * 1000).getTime()
+    				min: new Date(sample.x * 1000).setHours(new Date().getHours()-1),
+                		max: new Date(sample.x * 1000).getTime()
 			});
 						});
                     }
