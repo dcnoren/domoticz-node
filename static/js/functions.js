@@ -172,7 +172,7 @@ $(document).ready(function(){
 						socket.on('chart', function (sample) {
                         // when a sample arrives we plot it
                         series.addPoint([sample.x, sample.y], true, true);
-                        $(this).xAxis.update({
+                        Highcharts.charts[0].xAxis[0].update({
     				min: new Date().setHours(new Date().getHours()-1),
                 		max: new Date().getTime()
 			});
