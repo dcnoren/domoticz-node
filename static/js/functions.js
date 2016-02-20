@@ -180,7 +180,8 @@ $(document).ready(function(){
                         		name: sample.idxname,
                         		data: [null,null]
                         	});
-                        	Highcharts.redraw();
+                        	fart.isDirtyLegend = true;
+                        	fart.redraw();
                         }
                         // when a sample arrives we plot it
                         series = fart.get(sample.idx);
