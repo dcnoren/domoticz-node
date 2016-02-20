@@ -171,7 +171,7 @@ $(document).ready(function(){
 						var series = this.series[0];
 						socket.on('chart', function (sample) {
                         // when a sample arrives we plot it
-                        series.addPoint([sample.x, sample.y], true, true);
+                        series.addPoint([sample.x, sample.y], true, false);
                         Highcharts.charts[0].xAxis[0].update({
     				min: new Date(sample.x - 3600000).getTime(),
                 		max: new Date(sample.x).getTime()
