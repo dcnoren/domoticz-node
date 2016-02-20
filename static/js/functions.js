@@ -174,6 +174,7 @@ $(document).ready(function(){
                         
                         var series = fart.get(sample.idx);
                         if (series === "undefined"){
+                        	console.log('adding series')
                         	fart.addSeries({
                         		id: sample.idx,
                         		name: sample.idxname,
@@ -181,7 +182,7 @@ $(document).ready(function(){
                         	});
                         }
                         // when a sample arrives we plot it
-                        var series = fart.get(sample.idx);
+                        series = fart.get(sample.idx);
                         series.addPoint([sample.x, sample.y], true, false);
                         Highcharts.charts[0].xAxis[0].update({
     				min: new Date(sample.x - 3600000).getTime(),
