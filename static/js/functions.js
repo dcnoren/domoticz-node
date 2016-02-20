@@ -161,9 +161,11 @@ $(document).ready(function(){
 	
 	
 	
-	$('#chartsBoard').highcharts({
+	//$('#chartsBoard').highcharts({
+        fart = new Highcharts.Chart({
             chart: {
                 type: 'spline',
+                renderTo: 'chartsBoard'
                 animation: Highcharts.svg, // don't animate in old IE
                 marginRight: 10,
                 events: {
