@@ -165,7 +165,7 @@ $(document).ready(function(){
         fart = new Highcharts.Chart({
             chart: {
                 type: 'spline',
-                renderTo: 'chartsBoard'
+                renderTo: 'chartsBoard',
                 animation: Highcharts.svg, // don't animate in old IE
                 marginRight: 10,
                 events: {
