@@ -173,7 +173,7 @@ $(document).ready(function(){
 			socket.on('chart', function (sample) {
                         
                         //if (!series) {
-                        	Highcharts.addSeries({
+                        	fart.addSeries({
                         		id: sample.idx,
                         		name: sample.idxname,
                         		data: [null,null]
