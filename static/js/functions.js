@@ -170,7 +170,7 @@ $(document).ready(function(){
                     load: function () {
 			socket.on('chart', function (sample) {
                         var series = this.series[sample.idx];
-                        if !(series) {
+                        if (!series) {
                         	this.addSeries({
                         		id: series.idx,
                         		name: series.idxname,
