@@ -172,7 +172,7 @@ $(document).ready(function(){
 						socket.on('chart', function (sample) {
                         // when a sample arrives we plot it
                         series.addPoint([sample.x, sample.y], true, true);
-                        xAxis.update({
+                        $(this).xAxis.update({
     				min: new Date().setHours(new Date().getHours()-1),
                 		max: new Date().getTime()
 			});
