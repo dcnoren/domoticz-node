@@ -187,7 +187,7 @@ $(document).ready(function(){
                 type: 'datetime',
                 tickPixelInterval: 100,
                 min: new Date().setHours(new Date().getHours()-1),
-                max: new Date().getTime()
+                max: new Date().setMinutes(new Date().getMinutes()+2),
             },
             yAxis: {
                 title: {
