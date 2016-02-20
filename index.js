@@ -106,7 +106,7 @@ mqttClient.on('connect', function() {
             }
 			
 			
-			if (jsonobj.dtype.indexOf(Temp)>=0) {
+			if (jsonobj.dtype.indexOf("Temp")>=0) {
 			//if (jsonobj.dtype === "Temp") {
 				
 				var x = new Date().getTime();
