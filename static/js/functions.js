@@ -221,7 +221,7 @@ $(document).ready(function(){
             legend: {
             	align: 'left',
                 verticalAlign: 'bottom',
-                y: 20,
+                //y: 20,
                 floating: true,
                 borderWidth: 0
             },
