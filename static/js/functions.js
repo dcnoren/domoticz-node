@@ -167,7 +167,7 @@ $(document).ready(function(){
                 type: 'spline',
                 renderTo: 'chartsBoard',
                 animation: Highcharts.svg, // don't animate in old IE
-                marginBottom: 80,
+                marginBottom: 60,
                 events: {
                     load: function () {
 			socket.on('chart', function (sample) {
