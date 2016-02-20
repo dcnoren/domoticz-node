@@ -172,7 +172,7 @@ $(document).ready(function(){
                     load: function () {
 			socket.on('chart', function (sample) {
                         
-                        var series = fart.get(sample.idx);
+                        var series = fart.get(sample.idxname);
                         if (!series){
                         	console.log('adding series')
                         	fart.addSeries({
@@ -182,7 +182,7 @@ $(document).ready(function(){
                         	});
                         }
                         // when a sample arrives we plot it
-                        series = fart.get(sample.idx);
+                        series = fart.get(sample.idxname);
                         series.addPoint([sample.x, sample.y], true, false);
                         console.log('adding data')
                         Highcharts.charts[0].xAxis[0].update({
