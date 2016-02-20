@@ -170,6 +170,13 @@ $(document).ready(function(){
                     load: function () {
 			socket.on('chart', function (sample) {
                         var series = this.series[sample.idx];
+                        if !(series) {
+                        	this.addSeries({
+                        		id: series.idx,
+                        		name: series.idxname,
+                        		data: [null,null]
+                        	});
+                        }
                         // when a sample arrives we plot it
                         series.addPoint([sample.x, sample.y], true, false);
                         Highcharts.charts[0].xAxis[0].update({
@@ -216,23 +223,9 @@ $(document).ready(function(){
                 enabled: false
             },
             series: [{
-            name: 'Random data',
-            data: [null,null] /*,
-            data: (function() {
-                // generate some points to render before real samples arrive from feed
-                var data = [],
-                    time = (new Date()).getTime(),
-                    i;
-                // 20 samples, starting 19 ms ago up to present time when feed starts plotting
-                for (i = -19; i <= 0; i++) {
-                    data.push({
-                        x: new Date().setHours(new Date().getHours()+i),
-                        y: 0
-                    });
-                }
-                return data;
-            })()
-        */}]
+            name: 'Blank',
+            data: [null,null]
+            }]
         });
 	
 
