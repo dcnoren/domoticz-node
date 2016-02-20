@@ -231,9 +231,6 @@ $(document).ready(function(){
                         Highcharts.numberFormat(this.y, 2);
                 }
             },
-            legend: {
-                enabled: false
-            },
             exporting: {
                 enabled: false
             },
