@@ -169,15 +169,16 @@ $(document).ready(function(){
                 events: {
                     load: function () {
 			socket.on('chart', function (sample) {
-                        var series = this.series[sample.idx];
-                        if (!series) {
+                        
+                        //if (!series) {
                         	this.addSeries({
                         		id: series.idx,
                         		name: series.idxname,
                         		data: [null,null]
                         	});
-                        }
+                        //}
                         // when a sample arrives we plot it
+                        var series = this.series[sample.idx];
                         series.addPoint([sample.x, sample.y], true, false);
                         Highcharts.charts[0].xAxis[0].update({
     				min: new Date(sample.x - 3600000).getTime(),
