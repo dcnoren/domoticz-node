@@ -224,6 +224,14 @@ $(document).ready(function(){
             verticalAlign: 'middle',
             borderWidth: 0
             },
+            plotOptions: {
+            line: {
+                dataLabels: {
+                    enabled: true
+                },
+                enableMouseTracking: false
+	            }
+	        },
             tooltip: {
                 formatter: function () {
                     return '<b>' + this.series.name + '</b><br/>' +
