@@ -10,7 +10,7 @@ AWS.config.update({
 });
 
 var docClient = new AWS.DynamoDB.DocumentClient();
-var table = "soaring";
+var table = "soaring-dev";
 
 var abc123 = new Date();
 
