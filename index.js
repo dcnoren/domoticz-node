@@ -5,6 +5,23 @@ var io = require('socket.io')(http);
 var mqtt = require('mqtt'), url = require('url');
 var AWS = require("aws-sdk");
 
+AWS.config.update({
+  region: "us-east"
+});
+
+var docClient = new AWS.DynamoDB.DocumentClient();
+var table = "soaring";
+
+var params = {
+	TableName:table,
+	Item:{
+		"timestamp": new Date(),
+		"title": "test"
+	}
+}
+
+docClient.put(params);
+
 app.use(express.static('static'));
 
 app.get('/', function(req, res){
