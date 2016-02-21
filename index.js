@@ -12,10 +12,12 @@ AWS.config.update({
 var docClient = new AWS.DynamoDB.DocumentClient();
 var table = "soaring";
 
+var abc123 = new Date();
+
 var params = {
 	TableName:table,
 	Item:{
-		"timestamp": new Date(),
+		"timestamp": abc123,
 		"title": "test"
 	}
 }
