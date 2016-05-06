@@ -31,6 +31,14 @@ docClient.put(params, function(err, data) {
     }
 });
 
+var router = express.Router();
+
+app.use('/api', router);
+
+router.get('/', function(req, res) {
+    res.json({ message: 'hooray! welcome to our api!' });   
+});
+
 app.use(express.static('static'));
 
 app.get('/', function(req, res){
