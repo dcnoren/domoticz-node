@@ -39,6 +39,12 @@ router.get('/', function(req, res) {
     res.json({ message: 'hooray! welcome to our api!' });   
 });
 
+router.post('/all/off', function(req, res) {
+    res.json({ message: '200 OK' });
+    myCommand = '{"command": "switchscene", "idx": 2, "switchcmd": "On" }';
+    mqttClient.publish('domoticz/in', myCommand);
+});
+
 app.use(express.static('static'));
 
 app.get('/', function(req, res){
