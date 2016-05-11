@@ -1,4 +1,4 @@
-var config = require('./default-config');
+var config = require('./default-config.js');
 
 var express = require('express');
 var app = express();
