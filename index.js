@@ -261,7 +261,10 @@ io.on('connection', function(socket){
 		console.log('message: ' + msg);
 
     if (msg.intent = "light_on_off") {
-      mqttClient.publish('domoticz/in', "light on off");
+
+      myCommand = '{"command": "switchlight", "idx": ' + "34" + ', "switchcmd": "Off", "level": 0 }';
+
+      mqttClient.publish('domoticz/in', myCommand);
     }
 
 
