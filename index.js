@@ -260,7 +260,7 @@ io.on('connection', function(socket){
 
 		console.log('message: ' + msg);
 
-    if msg.intent == "light_on_off" {
+    if (msg.intent = "light_on_off") {
       mqttClient.publish('domoticz/in', "light on off");
     }
 
