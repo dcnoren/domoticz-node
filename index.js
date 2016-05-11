@@ -54,10 +54,10 @@ app.get('/', function(req, res){
 });
 
 var mqttOptions = {
-    host: "MQTT_HOST",
-    port: MQTT_PORT,
-    username: "MQTT_USERNAME",
-    password: "MQTT_PASSWORD"
+    host: config.mqtt.host,
+    port: config.mqtt.port,
+    username: config.mqtt.username,
+    password: config.mqtt.password
 };
 
 //Specify the items you care about here
