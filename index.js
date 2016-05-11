@@ -36,7 +36,7 @@ var router = express.Router();
 app.use('/api', router);
 
 router.get('/', function(req, res) {
-    res.json({ message: 'hooray! welcome to our api!' });   
+    res.json({ message: 'hooray! welcome to our api!' });
 });
 
 router.get('/all/off', function(req, res) {
@@ -79,128 +79,128 @@ mqttClient.on('connect', function() {
             var idxname = jsonobj.name;
             var status = jsonobj.nvalue;
             var level = jsonobj.svalue1;
-			
+
 			//if (jsonobj.dtype === "Light/Switch" && jsonobj.switchType === "Dimmer") { //This will filter out the MB Runner Light - D
-			
+
             if (jsonobj.switchType === "Dimmer") {
-          
+
                 var cstatus = "";
-                  
+
                 if (status === 0){
                     cstatus = "Off";
                 }
-                  
+
                 if (status === 1){
                     cstatus = "On";
                 }
-                  
+
                 if (status === 2 && level != 100){
                     cstatus = "Transition";
                 }
-                  
+
                 if (status === 2 && level === 100){
                     cstatus = "On";
                 }
-              
-              
+
+
                 var abcdef = "";
                 var abcdef = '{"lights":{"' + idx + '":{"Status":"' + cstatus + '","Level":' + level + ',"Type":"Light\/Switch","Name":"' + idxname + '"}}}';
                 var jsonABC = JSON.parse(abcdef);
                 io.emit('update',jsonABC);
             }
-			
-			
+
+
 			if (jsonobj.dtype === "Light/Switch" && jsonobj.switchType === "On/Off") {
-          
+
                 var cstatus = "";
-                  
+
                 if (status === 0){
                     cstatus = "Off";
                 }
-                  
+
                 if (status === 1){
                     cstatus = "On";
                 }
-              
+
                 var abcdef = "";
                 var abcdef = '{"fans":{"' + idx + '":{"Status":"' + cstatus + '","Name":"' + idxname + '"}}}';
                 var jsonABC = JSON.parse(abcdef);
                 io.emit('update',jsonABC);
             }
-			
-			
+
+
 			if (jsonobj.switchType === "Contact") {
-          
+
                 var cstatus = "";
-                  
+
                 if (status === 0){
                     cstatus = "Closed";
                 }
-                  
+
                 if (status === 1){
                     cstatus = "Open";
                 }
-              
+
                 var abcdef = "";
                 var abcdef = '{"doors":{"' + idx + '":{"Status":"' + cstatus + '","Name":"' + idxname + '"}}}';
                 var jsonABC = JSON.parse(abcdef);
                 io.emit('update',jsonABC);
             }
-			
-			
-			
+
+
+
 			if ((jsonobj.dtype === "Temp" || jsonobj.dtype === "Temp + Humidity" || jsonobj.dtype === "Thermostat") && idxname != "House Temperature Setpoint") {
-				
+
 				var x = new Date().getTime();
 
 		                var f = parseFloat(level);
 		                var f = f * 9 / 5 + 32;
 		                f = f.toFixed(1);
 		                f = parseFloat(f);
-				
+
 				io.emit('chart', {
 						x: x,
 						y: f,
 						idx: idx,
 						idxname: idxname
 					});
-					
+
 				console.log('charted x: ' + x + ' y: ' + f);
 
             }
-			
+
         });
     });
 });
 
 io.on('connection', function(socket){
-	
+
 	dimmers.forEach(function(item) {
 		myCommand = '{"command": "getdeviceinfo", "idx": ' + item + ' }';
 		mqttClient.publish('domoticz/in', myCommand);
 	});
-	
+
 	doors.forEach(function(item) {
 		myCommand = '{"command": "getdeviceinfo", "idx": ' + item + ' }';
 		mqttClient.publish('domoticz/in', myCommand);
 	});
-	
+
 	fans.forEach(function(item) {
 		myCommand = '{"command": "getdeviceinfo", "idx": ' + item + ' }';
 		mqttClient.publish('domoticz/in', myCommand);
 	});
-	
+
 	temps.forEach(function(item) {
 		myCommand = '{"command": "getdeviceinfo", "idx": ' + item + ' }';
 		mqttClient.publish('domoticz/in', myCommand);
 	});
-	
+
 	/*scenes.forEach(function(item) {
 		myCommand = '{"command": "getdeviceinfo", "idx": ' + item + ' }';
 		mqttClient.publish('domoticz/in', myCommand);
 	});*/
-  
-  
+
+
 	socket.on('dimCommand', function(msg){
 
 		console.log('message: ' + msg);
@@ -219,7 +219,7 @@ io.on('connection', function(socket){
 		}, 3500, msg);
 
 	});
-  
+
 	socket.on('dimPoll', function(msg){
 
 		console.log('message: ' + msg);
@@ -246,20 +246,20 @@ io.on('connection', function(socket){
 		}, 4000, msg);
 
 	});
-	
+
 	socket.on('switchCommand', function(msg){
 
 		console.log('message: ' + msg);
 		mqttClient.publish('domoticz/in', msg);
 
 	});
-	
-	
-	
+
+
+
 
 });
 
 
-http.listen(80, function(){
-  console.log('listening on *:80');
+http.listen(3000, function(){
+  console.log('listening on *:3000');
 });
