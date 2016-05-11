@@ -267,7 +267,7 @@ io.on('connection', function(socket){
         "dining" : 34
       }
 
-      var device = devices[msg.room];
+      var device = devices.[msg.room];
 
       myCommand = '{"command": "switchlight", "idx": ' + device + ', "switchcmd": "Off", "level": 0 }';
       console.log('message: ' + myCommand);
