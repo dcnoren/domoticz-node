@@ -1,7 +1,3 @@
-# chat-example
+# About
 
-This is the source code for a very simple chat example used for 
-the [Getting Started](http://socket.io/get-started/chat/) guide 
-of the Socket.IO website.
-
-Please refer to it to learn how to run this application.
+This is a Node.JS project for interfacing with Domoticz, a home automation control panel. This is essentially a replacement UI built for mobile and tablet consumption. It's sole purpose is to build an easy and attractive interface to turn lights, fans, and other switch-based hardware on and off. Has limited support for scenes (work in progress) and security sensors, such as motion and door/window sensors, and finally, support for graphing temperatures.
