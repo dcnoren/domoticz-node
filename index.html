@@ -247,6 +247,10 @@
 			        }
 
 			        document.getElementById("result").innerHTML = r;
+
+							socket.emit('voice', r);
+
+
 			      };
 			      mic.onerror = function (err) {
 			        error("Error: " + err);

@@ -256,6 +256,13 @@ io.on('connection', function(socket){
 
 	});
 
+  socket.on('voice', function(msg){
+
+		console.log('message: ' + msg);
+		mqttClient.publish('domoticz/in', msg);
+
+	});
+
 
 
 
