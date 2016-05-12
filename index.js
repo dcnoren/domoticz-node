@@ -258,8 +258,6 @@ io.on('connection', function(socket){
 
   socket.on('voice', function(msg){
 
-    console.log(msg.outcome.intent);
-
     if (msg.outcome.intent == "light_on_off") {
 
       devices = {
@@ -275,7 +273,7 @@ io.on('connection', function(socket){
         "downstairs hallway" : 7,
         "hallway" : 7,
         "breakfast room" : 47,
-        "breakfast" : 47
+        "breakfast" : 47,
         "upstairs bathroom" : 40,
         "bathroom" : 40
       }
@@ -285,8 +283,6 @@ io.on('connection', function(socket){
       var roomName = msg.outcome.entities.room.value;
       var binaryAction = msg.outcome.entities.binarySwitch.value;
       var device = devices[roomName];
-      console.log(roomName);
-      console.log(device);
 
       if (binaryAction == "on"){
         myCommand = '{"command": "switchlight", "idx": ' + device + ', "switchcmd": "On", "level": 100 }';
