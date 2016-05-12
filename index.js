@@ -267,6 +267,8 @@ io.on('connection', function(socket){
         "dining" : 34
       }
 
+      console.log(msg.room);
+
       var roomName = JSON.stringify(msg.room);
       var device = devices.roomName;
       console.log(roomName);
