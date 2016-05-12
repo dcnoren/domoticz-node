@@ -284,10 +284,10 @@ io.on('connection', function(socket){
       var binaryAction = msg.outcome.entities.binarySwitch.value;
       var device = devices[roomName];
 
-      if (binaryAction == "on"){
+      if (binaryAction == "on") {
         myCommand = '{"command": "switchlight", "idx": ' + device + ', "switchcmd": "On", "level": 100 }';
         mqttClient.publish('domoticz/in', myCommand);
-      } elseif (binaryAction == "off"){
+      } elseif (binaryAction == "off") {
         myCommand = '{"command": "switchlight", "idx": ' + device + ', "switchcmd": "Off", "level": 0 }';
         mqttClient.publish('domoticz/in', myCommand);
       }
