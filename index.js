@@ -269,6 +269,8 @@ io.on('connection', function(socket){
 
       var roomName = JSON.stringify(msg.room);
       var device = devices.roomName;
+      console.log(roomName);
+      console.log(device);
 
       myCommand = '{"command": "switchlight", "idx": ' + device + ', "switchcmd": "Off", "level": 0 }';
       console.log('message: ' + myCommand);
