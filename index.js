@@ -270,7 +270,7 @@ io.on('connection', function(socket){
       console.log(msg.outcome.entities.room.value);
 
       var roomName = msg.outcome.entities.room.value;
-      var device = devices.roomName;
+      var device = devices[roomName];
       console.log(roomName);
       console.log(device);
 
