@@ -261,8 +261,8 @@ io.on('connection', function(socket){
 		console.log('message: ' + msg);
 
 
-    var msgObj = JSON.parse(msg);
-
+    var msgObj = JSON.stringify(msg);
+    console.log(msgObj);
     console.log(msg.intent);
 
     if (msgObj.intent = "light_on_off") {
