@@ -278,11 +278,11 @@ io.on('connection', function(socket){
         "bathroom" : 40
       }
 
-      console.log(msg.outcome.entities.room.value);
+      //console.log(msg.outcome.entities.room.value);
 
       var roomName = msg.outcome.entities.room.value;
       var binaryAction = msg.outcome.entities.binarySwitch.value;
-      console.log(binaryAction);
+      //console.log(binaryAction);
       var device = devices[roomName];
 
       if (binaryAction == "on") {
