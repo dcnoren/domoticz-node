@@ -265,22 +265,22 @@ io.on('connection', function(socket){
     console.log(msgObj);
     console.log(msg.intent);
 
-    if (msgObj.intent = "light_on_off") {
-
-      devices = {
-        "dining room" : 34,
-        "dining" : 34
-      }
-
-      console.log(msgObj.room);
-
-      var roomName = msgObj.room;
-      var device = devices.roomName;
-      console.log(roomName);
-      console.log(device);
-
-      myCommand = '{"command": "switchlight", "idx": ' + device + ', "switchcmd": "Off", "level": 0 }';
-      console.log('message: ' + myCommand);
+    // if (msgObj.intent = "light_on_off") {
+    //
+    //   devices = {
+    //     "dining room" : 34,
+    //     "dining" : 34
+    //   }
+    //
+    //   console.log(msgObj.room);
+    //
+    //   var roomName = msgObj.room;
+    //   var device = devices.roomName;
+    //   console.log(roomName);
+    //   console.log(device);
+    //
+    //   myCommand = '{"command": "switchlight", "idx": ' + device + ', "switchcmd": "Off", "level": 0 }';
+    //   console.log('message: ' + myCommand);
       //mqttClient.publish('domoticz/in', myCommand);
     }
 
