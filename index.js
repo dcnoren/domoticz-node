@@ -287,7 +287,9 @@ io.on('connection', function(socket){
       if (binaryAction == "on") {
         myCommand = '{"command": "switchlight", "idx": ' + device + ', "switchcmd": "On", "level": 100 }';
         mqttClient.publish('domoticz/in', myCommand);
-      } elseif (binaryAction == "off") {
+      }
+
+      if (binaryAction == "off") {
         myCommand = '{"command": "switchlight", "idx": ' + device + ', "switchcmd": "Off", "level": 0 }';
         mqttClient.publish('domoticz/in', myCommand);
       }
