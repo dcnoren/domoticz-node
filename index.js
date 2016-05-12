@@ -264,19 +264,38 @@ io.on('connection', function(socket){
 
       devices = {
         "dining room" : 34,
-        "dining" : 34
+        "dining" : 34,
+        "front porch" : 10,
+        "porch" : 10,
+        "garage" : 8,
+        "entry" : 9,
+        "landing" : 38,
+        "family room" : 36,
+        "family" : 36,
+        "downstairs hallway" : 7,
+        "hallway" : 7,
+        "breakfast room" : 47,
+        "breakfast" : 47
+        "upstairs bathroom" : 40,
+        "bathroom" : 40
       }
 
       console.log(msg.outcome.entities.room.value);
 
       var roomName = msg.outcome.entities.room.value;
+      var binaryAction = msg.outcome.entities.binarySwitch.value;
       var device = devices[roomName];
       console.log(roomName);
       console.log(device);
 
-      myCommand = '{"command": "switchlight", "idx": ' + device + ', "switchcmd": "Off", "level": 0 }';
-      console.log('message: ' + myCommand);
-      mqttClient.publish('domoticz/in', myCommand);
+      if (binaryAction == "on"){
+        myCommand = '{"command": "switchlight", "idx": ' + device + ', "switchcmd": "On", "level": 100 }';
+        mqttClient.publish('domoticz/in', myCommand);
+      } elseif (binaryAction == "off"){
+        myCommand = '{"command": "switchlight", "idx": ' + device + ', "switchcmd": "Off", "level": 0 }';
+        mqttClient.publish('domoticz/in', myCommand);
+      }
+
     }
 
 
