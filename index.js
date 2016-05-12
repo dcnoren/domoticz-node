@@ -91,9 +91,39 @@ function dimLights(msg){
 
 }
 
+function pollLights(msg){
 
+  //console.log('message: ' + msg);
+  mqttClient.publish('domoticz/in', msg);
 
+  setTimeout(function(str1) {
+    mqttClient.publish('domoticz/in', str1);
+  }, 500, msg);
 
+  setTimeout(function(str1) {
+    mqttClient.publish('domoticz/in', str1);
+  }, 1000, msg);
+
+  setTimeout(function(str1) {
+    mqttClient.publish('domoticz/in', str1);
+  }, 1500, msg);
+
+  setTimeout(function(str1) {
+    mqttClient.publish('domoticz/in', str1);
+  }, 2500, msg);
+
+  setTimeout(function(str1) {
+    mqttClient.publish('domoticz/in', str1);
+  }, 4000, msg);
+
+}
+
+function switchLights(msg){
+
+  //console.log('message: ' + msg);
+  mqttClient.publish('domoticz/in', msg);
+
+}
 
 
 
@@ -242,35 +272,13 @@ io.on('connection', function(socket){
 
 	socket.on('dimPoll', function(msg){
 
-		//console.log('message: ' + msg);
-		mqttClient.publish('domoticz/in', msg);
-
-		setTimeout(function(str1) {
-			mqttClient.publish('domoticz/in', str1);
-		}, 500, msg);
-
-		setTimeout(function(str1) {
-			mqttClient.publish('domoticz/in', str1);
-		}, 1000, msg);
-
-		setTimeout(function(str1) {
-			mqttClient.publish('domoticz/in', str1);
-		}, 1500, msg);
-
-		setTimeout(function(str1) {
-			mqttClient.publish('domoticz/in', str1);
-		}, 2500, msg);
-
-		setTimeout(function(str1) {
-			mqttClient.publish('domoticz/in', str1);
-		}, 4000, msg);
+    pollLights(msg);
 
 	});
 
 	socket.on('switchCommand', function(msg){
 
-		console.log('message: ' + msg);
-		mqttClient.publish('domoticz/in', msg);
+		switchLights(msg);
 
 	});
 
