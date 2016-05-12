@@ -167,7 +167,7 @@ mqttClient.on('connect', function() {
 						idxname: idxname
 					});
 
-				console.log('charted x: ' + x + ' y: ' + f);
+				//console.log('charted x: ' + x + ' y: ' + f);
 
             }
 
