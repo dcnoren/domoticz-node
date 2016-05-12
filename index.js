@@ -260,17 +260,19 @@ io.on('connection', function(socket){
 
 		console.log('message: ' + msg);
     console.log(msg.intent);
-    
-    if (msg.intent = "light_on_off") {
+
+    msgObj = JSON.parse(msg);
+
+    if (msgObj.intent = "light_on_off") {
 
       devices = {
         "dining room" : 34,
         "dining" : 34
       }
 
-      console.log(msg.room);
+      console.log(msgObj.room);
 
-      var roomName = JSON.stringify(msg.room);
+      var roomName = msgObj.room;
       var device = devices.roomName;
       console.log(roomName);
       console.log(device);
