@@ -282,6 +282,7 @@ io.on('connection', function(socket){
 
       var roomName = msg.outcome.entities.room.value;
       var binaryAction = JSON.stringify(msg.outcome.entities.binarySwitch.value);
+      console.log(binaryAction);
       var device = devices[roomName];
 
       if (binaryAction == "on") {
