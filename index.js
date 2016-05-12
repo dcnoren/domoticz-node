@@ -259,7 +259,8 @@ io.on('connection', function(socket){
   socket.on('voice', function(msg){
 
 		console.log('message: ' + msg);
-
+    console.log(msg.intent);
+    
     if (msg.intent = "light_on_off") {
 
       devices = {
