@@ -67,6 +67,37 @@ var temps = [43, 15, 22];
 var doors = [28, 29, 30];
 //var scenes = [1, 2, 3, 4, 5, 6, 7]; //These aren't real IDXes, so can't do this...
 
+
+
+
+// LIGHT FUNCTIONS //
+
+function dimLights(msg){
+
+  //console.log('message: ' + msg);
+  mqttClient.publish('domoticz/in', msg);
+
+  setTimeout(function(str1) {
+    mqttClient.publish('domoticz/in', str1);
+  }, 2000, msg);
+
+  setTimeout(function(str1) {
+    mqttClient.publish('domoticz/in', str1);
+  }, 3000, msg);
+
+  setTimeout(function(str1) {
+    mqttClient.publish('domoticz/in', str1);
+  }, 3500, msg);
+
+}
+
+
+
+
+
+
+
+
 // Create a client connection
 var mqttClient = mqtt.connect(mqttOptions);
 
@@ -205,26 +236,13 @@ io.on('connection', function(socket){
 
 	socket.on('dimCommand', function(msg){
 
-		console.log('message: ' + msg);
-		mqttClient.publish('domoticz/in', msg);
-
-		setTimeout(function(str1) {
-			mqttClient.publish('domoticz/in', str1);
-		}, 2000, msg);
-
-		setTimeout(function(str1) {
-			mqttClient.publish('domoticz/in', str1);
-		}, 3000, msg);
-
-		setTimeout(function(str1) {
-			mqttClient.publish('domoticz/in', str1);
-		}, 3500, msg);
+		dimLights(msg);
 
 	});
 
 	socket.on('dimPoll', function(msg){
 
-		console.log('message: ' + msg);
+		//console.log('message: ' + msg);
 		mqttClient.publish('domoticz/in', msg);
 
 		setTimeout(function(str1) {
