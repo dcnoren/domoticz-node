@@ -276,7 +276,7 @@ io.on('connection', function(socket){
 
       myCommand = '{"command": "switchlight", "idx": ' + device + ', "switchcmd": "Off", "level": 0 }';
       console.log('message: ' + myCommand);
-      mqttClient.publish('domoticz/in', myCommand);
+      //mqttClient.publish('domoticz/in', myCommand);
     }
 
 
