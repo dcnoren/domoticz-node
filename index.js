@@ -259,9 +259,11 @@ io.on('connection', function(socket){
   socket.on('voice', function(msg){
 
 		console.log('message: ' + msg);
-    console.log(msg.intent);
 
-    msgObj = JSON.parse(msg);
+
+    var msgObj = JSON.parse(msg);
+
+    console.log(msg.intent);
 
     if (msgObj.intent = "light_on_off") {
 
@@ -279,7 +281,7 @@ io.on('connection', function(socket){
 
       myCommand = '{"command": "switchlight", "idx": ' + device + ', "switchcmd": "Off", "level": 0 }';
       console.log('message: ' + myCommand);
-      mqttClient.publish('domoticz/in', myCommand);
+      //mqttClient.publish('domoticz/in', myCommand);
     }
 
 
