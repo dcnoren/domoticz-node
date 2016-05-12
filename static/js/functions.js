@@ -1,7 +1,7 @@
 var socket = io.connect();
 
 $(document).ready(function(){
-      
+
       socket.on('update', function(data){
 
 				var lightItems = [];
@@ -16,11 +16,11 @@ $(document).ready(function(){
 							 lightItems.push('<div class="ui-block-b"><div id="' + key + '" class="light ui-bar ui-bar-a ' + val.Status + '" style="height:80px"><center><h1>' + val.Name + '</h1></center></div></div>');
 							 $('#lightBoard').append(lightItems).enhanceWithin();
 						}
-						
+
 					});
 				}
-				
-				
+
+
 				var doorItems = [];
 
 				if (data.doors){
@@ -33,11 +33,11 @@ $(document).ready(function(){
 							 doorItems.push('<div class="ui-block-b"><div id="' + key + '" class="door ui-bar ui-bar-a ' + val.Status + '" style="height:80px"><center><h1>' + val.Name + '</h1></center></div></div>');
 							 $('#doorBoard').append(doorItems).enhanceWithin();
 						}
-						
+
 					});
 				}
-				
-				
+
+
 				var fanItems = [];
 
 				if (data.fans){
@@ -50,11 +50,11 @@ $(document).ready(function(){
 							 fanItems.push('<div class="ui-block-b"><div id="' + key + '" class="fan ui-bar ui-bar-a ' + val.Status + '" style="height:80px"><center><h1>' + val.Name + '</h1></center></div></div>');
 							 $('#fanBoard').append(fanItems).enhanceWithin();
 						}
-						
+
 					});
 				}
 
-				
+
 				//THIS DOES NOT WORK
 				var sceneItems = [];
 
@@ -68,10 +68,10 @@ $(document).ready(function(){
 							 sceneItems.push('<div class="ui-block-b"><div id="' + key + '" class="scene ui-bar ui-bar-a ' + val.Status + '" style="height:80px"><center><h1>' + val.Name + '</h1></center></div></div>');
 							 $('#sceneBoard').append(sceneItems).enhanceWithin();
 						}
-						
+
 					});
 				}
-				
+
 				//ONLY ONE NOT DONE
 				var securityItems = [];
 
@@ -94,8 +94,8 @@ $(document).ready(function(){
 		var myCommand = "";
 		myCommand = '{"command": "switchlight", "idx": ' + myidx + ', "switchcmd": "On", "level": 100 }';
 		socket.emit('dimCommand', myCommand);
-		myCommand = '{"command": "getdeviceinfo", "idx": ' + myidx + ' }';
-		socket.emit('dimPoll', myCommand);
+		//myCommand = '{"command": "getdeviceinfo", "idx": ' + myidx + ' }';
+		//socket.emit('dimPoll', myCommand);
 		return false;
 	});
 
@@ -105,8 +105,8 @@ $(document).ready(function(){
 		var myCommand = "";
 		myCommand = '{"command": "switchlight", "idx": ' + myidx + ', "switchcmd": "Off", "level": 0 }';
 		socket.emit('dimCommand', myCommand);
-		myCommand = '{"command": "getdeviceinfo", "idx": ' + myidx + ' }';
-		socket.emit('dimPoll', myCommand);
+		//myCommand = '{"command": "getdeviceinfo", "idx": ' + myidx + ' }';
+		//socket.emit('dimPoll', myCommand);
 		return false;
 	});
 
@@ -116,8 +116,8 @@ $(document).ready(function(){
 		var myCommand = "";
 		myCommand = '{"command": "switchlight", "idx": ' + myidx + ', "switchcmd": "Off", "level": 0 }';
 		socket.emit('dimCommand', myCommand);
-		myCommand = '{"command": "getdeviceinfo", "idx": ' + myidx + ' }';
-		socket.emit('dimPoll', myCommand);
+		//myCommand = '{"command": "getdeviceinfo", "idx": ' + myidx + ' }';
+		//socket.emit('dimPoll', myCommand);
 		return false;
 	});
 
@@ -138,7 +138,7 @@ $(document).ready(function(){
 		socket.emit('switchCommand', myCommand);
 		return false;
 	});
-	
+
 	$(document).on('click', '.security.disabled', function() {
 		mystatus = $(this).attr("id");
 		$.get('ajax/ajax.php?action=setSecurity&command=' + mystatus);
@@ -158,9 +158,9 @@ $(document).ready(function(){
 		});
 	});
 
-	
-	
-	
+
+
+
 	//$('#chartsBoard').highcharts({
         fart = new Highcharts.Chart({
             chart: {
@@ -171,7 +171,7 @@ $(document).ready(function(){
                 events: {
                     load: function () {
 			socket.on('chart', function (sample) {
-                        
+
                         var series = fart.get(sample.idx);
                         if (!series){
                         	//console.log('adding series')
@@ -248,6 +248,6 @@ $(document).ready(function(){
             data: [null,null]
             }]*/
         });
-	
+
 
 });
