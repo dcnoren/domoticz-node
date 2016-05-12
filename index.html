@@ -231,7 +231,7 @@
 			      mic.onaudioend = function () {
 			        info("Recording stopped, processing started");
 			      };
-			      mic.onresult = function (intent, entities) {
+			      mic.onresult = function (a, intent, entities) {
 			        var r = kv("intent", intent);
 
 			        for (var k in entities) {
