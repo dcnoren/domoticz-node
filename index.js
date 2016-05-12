@@ -258,12 +258,7 @@ io.on('connection', function(socket){
 
   socket.on('voice', function(msg){
 
-		console.log('message: ' + msg);
-
-
-    var msgObj = JSON.stringify(msg);
-    console.log(msgObj);
-    console.log(msg.intent);
+    console.log(msg.outcome.intent);
 
     // if (msgObj.intent = "light_on_off") {
     //
