@@ -260,24 +260,24 @@ io.on('connection', function(socket){
 
     console.log(msg.outcome.intent);
 
-    // if (msgObj.intent = "light_on_off") {
-    //
-    //   devices = {
-    //     "dining room" : 34,
-    //     "dining" : 34
-    //   }
-    //
-    //   console.log(msgObj.room);
-    //
-    //   var roomName = msgObj.room;
-    //   var device = devices.roomName;
-    //   console.log(roomName);
-    //   console.log(device);
-    //
-    //   myCommand = '{"command": "switchlight", "idx": ' + device + ', "switchcmd": "Off", "level": 0 }';
-    //   console.log('message: ' + myCommand);
-      //mqttClient.publish('domoticz/in', myCommand);
-    //}
+    if (msg.outcome.intent = "light_on_off") {
+
+      devices = {
+        "dining room" : 34,
+        "dining" : 34
+      }
+
+      console.log(msg.outcome.entities.room.value);
+
+      var roomName = msg.outcome.entities.room.value;
+      var device = devices.roomName;
+      console.log(roomName);
+      console.log(device);
+
+      myCommand = '{"command": "switchlight", "idx": ' + device + ', "switchcmd": "Off", "level": 0 }';
+      console.log('message: ' + myCommand);
+      mqttClient.publish('domoticz/in', myCommand);
+    }
 
 
 
