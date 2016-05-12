@@ -285,12 +285,12 @@ io.on('connection', function(socket){
       console.log(binaryAction);
       var device = devices[roomName];
 
-      if (binaryAction = "on") {
+      if (binaryAction == "on") {
         myCommand = '{"command": "switchlight", "idx": ' + device + ', "switchcmd": "On", "level": 100 }';
         mqttClient.publish('domoticz/in', myCommand);
       }
 
-      if (binaryAction = "off") {
+      if (binaryAction == "off") {
         myCommand = '{"command": "switchlight", "idx": ' + device + ', "switchcmd": "Off", "level": 0 }';
         mqttClient.publish('domoticz/in', myCommand);
       }
