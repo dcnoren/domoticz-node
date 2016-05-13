@@ -88,13 +88,12 @@ $(document).ready(function(){
       });
 
 
-  // socket.on('audio', function(){
-  //   $("#audioBell").play();
-  // });
+  socket.on('audio', function(){
+    $("#audioBell").play();
+  });
 
 
 	$(document).on('click', '.light.Off', function() {
-    $("#audioBell").get(0).play();
     $(this).addClass("Transition").removeClass("Off");
 		myidx = $(this).attr("id");
 		var myCommand = "";
