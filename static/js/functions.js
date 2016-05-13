@@ -88,8 +88,8 @@ $(document).ready(function(){
       });
 
 
-  socket.on('audio', function(data){
-    $("#audio").play();
+  socket.on('audio', function(){
+    $("#audioBell").play();
   });
 
 
