@@ -88,13 +88,14 @@ $(document).ready(function(){
       });
 
 
-  socket.on('audio', function(){
-    $("#audioBell").play();
-  });
+  // socket.on('audio', function(){
+  //   $("#audioBell").play();
+  // });
 
 
 	$(document).on('click', '.light.Off', function() {
-		$(this).addClass("Transition").removeClass("Off");
+    $("#audioBell").play();
+    $(this).addClass("Transition").removeClass("Off");
 		myidx = $(this).attr("id");
 		var myCommand = "";
 		myCommand = '{"command": "switchlight", "idx": ' + myidx + ', "switchcmd": "On", "level": 100 }';
