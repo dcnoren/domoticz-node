@@ -89,7 +89,7 @@ $(document).ready(function(){
 
 
   socket.on('audio', function(){
-    $("#audioBell").play();
+    $("#audioBell").get(0).play();
   });
 
 
