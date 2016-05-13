@@ -208,6 +208,7 @@ mqttClient.on('connect', function() {
                 var abcdef = '{"doors":{"' + idx + '":{"Status":"' + cstatus + '","Name":"' + idxname + '"}}}';
                 var jsonABC = JSON.parse(abcdef);
                 io.emit('update',jsonABC);
+                io.emit('audio',"play");
             }
 
 

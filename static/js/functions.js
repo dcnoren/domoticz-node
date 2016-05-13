@@ -88,6 +88,11 @@ $(document).ready(function(){
       });
 
 
+  socket.on('audio', function(data){
+    $("#audio").play();
+  });
+
+
 	$(document).on('click', '.light.Off', function() {
 		$(this).addClass("Transition").removeClass("Off");
 		myidx = $(this).attr("id");
