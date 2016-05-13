@@ -202,7 +202,7 @@ mqttClient.on('connect', function() {
 
                 if (status === 1){
                     cstatus = "Open";
-                    io.emit('audio',"play");
+                    io.emit('audio');
                 }
 
                 var abcdef = "";
