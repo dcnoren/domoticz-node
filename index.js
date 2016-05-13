@@ -202,13 +202,13 @@ mqttClient.on('connect', function() {
 
                 if (status === 1){
                     cstatus = "Open";
+                    io.emit('audio',"play");
                 }
 
                 var abcdef = "";
                 var abcdef = '{"doors":{"' + idx + '":{"Status":"' + cstatus + '","Name":"' + idxname + '"}}}';
                 var jsonABC = JSON.parse(abcdef);
                 io.emit('update',jsonABC);
-                io.emit('audio',"play");
             }
 
 
