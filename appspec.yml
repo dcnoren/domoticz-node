@@ -1,13 +1,13 @@
-version: 0.0
+version: 0.1
 os: linux
 files:
    - source: /
-     destination: /var/www/html
+     destination: /var/www/domoticz-node
 permissions:
-   - object: /var/www/html
+   - object: /var/www/domoticz-node
      pattern: "**"
-     owner: apache
-     group: apache
+     owner: nobody
+     group: nobody
      mode: 755
      type:
        - file
