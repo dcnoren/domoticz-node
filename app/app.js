@@ -63,7 +63,7 @@ router.get('/all/off', function(req, res) {
 
 app.use(express.static('static'));
 
-app.get('/', authy('dcnoren', 'Coke@123'), function(req, res){
+app.get('/', authy('noren', '0830'), function(req, res){
   res.sendFile(__dirname + '/index.html');
 });
 
