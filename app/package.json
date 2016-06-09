@@ -6,6 +6,7 @@
     "express": "4.10.2",
     "socket.io": "1.2.0",
     "mqtt": "~1.7.0",
-    "aws-sdk": "~2.2.37"
+    "aws-sdk": "~2.2.37",
+    "basic-auth": "2.15.5"
   }
 }
