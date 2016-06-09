@@ -6,6 +6,7 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var mqtt = require('mqtt'), url = require('url');
 var AWS = require("aws-sdk");
+var auth = express.basicAuth('testUser', 'testPass');
 
 AWS.config.update({
   region: "us-east-1"
@@ -49,7 +50,7 @@ router.get('/all/off', function(req, res) {
 
 app.use(express.static('static'));
 
-app.get('/', function(req, res){
+app.get('/', auth, function(req, res){
   res.sendFile(__dirname + '/index.html');
 });
 
