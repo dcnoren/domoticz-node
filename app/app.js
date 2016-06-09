@@ -6,7 +6,20 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var mqtt = require('mqtt'), url = require('url');
 var AWS = require("aws-sdk");
-var auth = express.basicAuth('testUser', 'testPass');
+var basicAuth = require('basic-auth');
+
+authy = function(username, password) {
+  return function(req, res, next) {
+    var user = basicAuth(req);
+
+    if (!user || user.name !== username || user.pass !== password) {
+      res.set('WWW-Authenticate', 'Basic realm=Authorization Required');
+      return res.send(401);
+    }
+
+    next();
+  };
+};
 
 AWS.config.update({
   region: "us-east-1"
@@ -50,7 +63,7 @@ router.get('/all/off', function(req, res) {
 
 app.use(express.static('static'));
 
-app.get('/', auth, function(req, res){
+app.get('/', authy('dcnoren', 'Coke@123'), function(req, res){
   res.sendFile(__dirname + '/index.html');
 });
 
