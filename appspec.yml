@@ -11,3 +11,12 @@ permissions:
      mode: 755
      type:
        - file
+hooks:
+  ApplicationStop:
+    - location: scripts/stop.sh
+      timeout: 10
+      runas: ubuntu
+  ApplicationStart:
+    - location: scripts/start.sh
+      timeout: 60
+      runas: ubuntu
