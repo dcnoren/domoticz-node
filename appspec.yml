@@ -13,10 +13,10 @@ permissions:
        - file
 hooks:
   ApplicationStop:
-    - location: scripts/stop.sh
+    - location: /var/www/domoticz-node/scripts/stop.sh
       timeout: 10
       runas: ubuntu
   ApplicationStart:
-    - location: scripts/start.sh
+    - location: /var/www/domoticz-node/scripts/start.sh
       timeout: 60
       runas: ubuntu
