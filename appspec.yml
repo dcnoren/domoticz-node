@@ -6,8 +6,8 @@ files:
 permissions:
    - object: /var/www/domoticz-node
      pattern: "**"
-     owner: nobody
-     group: nobody
+     owner: www-data
+     group: www-data
      mode: 755
      type:
        - file
