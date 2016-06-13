@@ -5,6 +5,4 @@ This is a Node.JS project for interfacing with Domoticz, a home automation contr
 Utilizes Express for static file serving and API handling, and socket.io for websocket and real-time streaming.
 
 Testing deploy
-
-
-ughhh wtf
+ crazyiness
