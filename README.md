@@ -9,3 +9,5 @@ Needs pm2 and need to start utilizing DOMOTICZ_PORT=3000 (default, can be left o
 Uses some deployment stuff for ease of use.
 
 blah domoticz-node development branch
+
+sudo
