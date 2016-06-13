@@ -7,3 +7,5 @@ Utilizes Express for static file serving and API handling, and socket.io for web
 Needs pm2 and need to start utilizing DOMOTICZ_PORT=3000 (default, can be left off) or other port.
 
 Uses some deployment stuff for ease of use.
+
+blah domoticz-node development branch
