@@ -2,7 +2,14 @@ var config = require('./config.js');
 
 var express = require('express');
 var app = express();
-app.set('port', process.env.DOMOTICZ_PORT || 3000)
+
+if(process.env.DOMOTICZ_PORT) { 
+    var runPort = process.env.DOMOTICZ_PORT;
+}
+else { 
+    var runPort = 3000;
+}
+
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var mqtt = require('mqtt'), url = require('url');
@@ -355,6 +362,6 @@ io.on('connection', function(socket){
 
 
 
-http.createServer(app).listen(app.get('port'), function () {
-  console.log('Domoticz-node listening on port ' + app.get('port'))
-})
+http.listen(runPort, function(){
+  console.log('listening on *:' + runPort);
+});
