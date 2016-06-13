@@ -10,4 +10,4 @@ Uses some deployment stuff for ease of use.
 
 blah domoticz-node development branch
 
-sudo
+test
