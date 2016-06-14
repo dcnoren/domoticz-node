@@ -1,4 +1,5 @@
 var config = require('./config.js');
+var idxMap = require('./idxMap.js');
 
 var express = require('express');
 var app = express();
@@ -22,7 +23,7 @@ authy = function(username, password) {
 
     if (!user || user.name !== username || user.pass !== password) {
       res.set('WWW-Authenticate', 'Basic realm=Authorization Required');
-      return res.send(401);
+      return res.sendStatus(401);
     }
 
     next();
@@ -34,7 +35,7 @@ var router = express.Router();
 app.use('/api', router);
 
 router.get('/', function(req, res) {
-    res.json({ message: 'hooray! welcome to our api!' });
+    res.json({ message: 'domiticz-node api' });
 });
 
 router.get('/all/off', function(req, res) {
@@ -55,13 +56,6 @@ var mqttOptions = {
     username: config.mqtt.username,
     password: config.mqtt.password
 };
-
-//Specify the items you care about here
-var dimmers = [7, 8, 9, 10, 34, 36, 38, 47, 48];
-var fans = [37];
-var temps = [43, 15, 22];
-var doors = [28, 29, 30];
-//var scenes = [1, 2, 3, 4, 5, 6, 7]; //These aren't real IDXes, so can't do this...
 
 
 
@@ -139,8 +133,6 @@ mqttClient.on('connect', function() {
             var status = jsonobj.nvalue;
             var level = jsonobj.svalue1;
 
-			//if (jsonobj.dtype === "Light/Switch" && jsonobj.switchType === "Dimmer") { //This will filter out the MB Runner Light - D
-
             if (jsonobj.switchType === "Dimmer") {
 
                 var cstatus = "";
@@ -209,6 +201,18 @@ mqttClient.on('connect', function() {
 
 
 
+      if (jsonobj.dtype === "Scene") {
+
+                cstatus = "Deactivated";
+
+                var abcdef = "";
+                var abcdef = '{"scenes":{"' + idx + '":{"Status":"' + cstatus + '","Name":"' + idxname + '"}}}';
+                var jsonABC = JSON.parse(abcdef);
+                io.emit('update',jsonABC);
+      }
+
+
+
 			if ((jsonobj.dtype === "Temp" || jsonobj.dtype === "Temp + Humidity" || jsonobj.dtype === "Thermostat") && idxname != "House Temperature Setpoint") {
 
 				var x = new Date().getTime();
@@ -237,30 +241,30 @@ io.on('connection', function(socket){
 
   io.emit('wit', config.wit.key);
 
-  dimmers.forEach(function(item) {
+  idxMap.dimmers.items.forEach(function(item) {
 		myCommand = '{"command": "getdeviceinfo", "idx": ' + item + ' }';
 		mqttClient.publish('domoticz/in', myCommand);
 	});
 
-	doors.forEach(function(item) {
+	idxMap.doors.items.forEach(function(item) {
 		myCommand = '{"command": "getdeviceinfo", "idx": ' + item + ' }';
 		mqttClient.publish('domoticz/in', myCommand);
 	});
 
-	fans.forEach(function(item) {
+	idxMap.fans.items.forEach(function(item) {
 		myCommand = '{"command": "getdeviceinfo", "idx": ' + item + ' }';
 		mqttClient.publish('domoticz/in', myCommand);
 	});
 
-	temps.forEach(function(item) {
+	idxMap.temps.items.forEach(function(item) {
 		myCommand = '{"command": "getdeviceinfo", "idx": ' + item + ' }';
 		mqttClient.publish('domoticz/in', myCommand);
 	});
 
-	/*scenes.forEach(function(item) {
-		myCommand = '{"command": "getdeviceinfo", "idx": ' + item + ' }';
-		mqttClient.publish('domoticz/in', myCommand);
-	});*/
+for (var k in idxMap.scenes.definitions){
+    myCommand = "{\"idx\" : " + k + ", \"dtype\" : \"Scene\", \"name\" : \"" + idxMap.scenes.definitions[k] + "\"}";
+		mqttClient.publish('domoticz/out', myCommand);
+}
 
 
 	socket.on('dimCommand', function(msg){

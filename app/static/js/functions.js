@@ -55,7 +55,6 @@ $(document).ready(function(){
 				}
 
 
-				//THIS DOES NOT WORK
 				var sceneItems = [];
 
 				if (data.scenes){
@@ -65,7 +64,7 @@ $(document).ready(function(){
 							 sceneItems.push('<div id="' + key + '" class="scene ui-bar ui-bar-a ' + val.Status + '" style="height:80px"><center><h1>' + val.Name + '</h1></center></div>');
 							 $("#" + key + "").replaceWith(sceneItems).enhanceWithin();
 						} else {
-							 sceneItems.push('<div class="ui-block-b"><div id="' + key + '" class="scene ui-bar ui-bar-a ' + val.Status + '" style="height:80px"><center><h1>' + val.Name + '</h1></center></div></div>');
+               sceneItems.push('<div class="ui-block-b"><div id="' + key + '" class="scene ui-bar ui-bar-a ' + val.Status + '" style="height:80px"><center><h1>' + val.Name + '</h1></center></div></div>');
 							 $('#sceneBoard').append(sceneItems).enhanceWithin();
 						}
 
@@ -144,23 +143,28 @@ $(document).ready(function(){
 		return false;
 	});
 
-	$(document).on('click', '.security.disabled', function() {
+	/*$(document).on('click', '.security.disabled', function() {
 		mystatus = $(this).attr("id");
 		$.get('ajax/ajax.php?action=setSecurity&command=' + mystatus);
 		$("#securityBoard").parent().addClass("ui-disabled").delay(30000).queue(function(next){
 			$(this).removeClass("ui-disabled");
 			next();
 		});
-	});
+	});*/
 
-	$(document).on('click', '.Deactivated', function() {
-		$(this).siblings(".Activated").removeClass("Activated");
-		myscene = $(this).attr("id");
-		$.get('ajax/ajax.php?action=setSceneStatus&scene=' + myscene);
-		$("#scenesBoard").parent().addClass("ui-disabled").delay(3000).queue(function(next){
-			$(this).removeClass("ui-disabled");
-			next();
-		});
+	$(document).on('click', '.scene.Deactivated', function() {
+    $(this).siblings(".Activated").removeClass("Activated");
+    $(this).switchClass("Deactivated", "Activated");
+    //$(this).removeClass("Deactivated");
+    setTimeout(function() {
+        //$(this).addClass("Deactivated").clearQueue();
+        $('.scene.Activated').switchClass("Activated", "Deactivated", 5000).clearQueue();
+    },5000);
+    myidx = $(this).attr("id");
+		var myCommand = "";
+		myCommand = '{"command": "switchscene", "idx": ' + myidx + ', "switchcmd": "On" }';
+		socket.emit('dimCommand', myCommand);
+		return false;
 	});
 
 
