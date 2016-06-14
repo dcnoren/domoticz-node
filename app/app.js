@@ -261,16 +261,9 @@ io.on('connection', function(socket){
 		mqttClient.publish('domoticz/in', myCommand);
 	});
 
-  /*idxMap.scenes.definitions.forEach(function(item) {
-		myCommand = item;
+for (var k in idxMap.scenes.ndefinitions){
+    myCommand = "{\"idx\" : " + k + ", \"dtype\" : \"Scene\", \"name\" : \"" + idxMap.scenes.definitions[k] + "\"}";
 		mqttClient.publish('domoticz/out', myCommand);
-	});*/
-
-  //idxMap.scenes.newDefinitions.forEach(function(item) {
-for (var k in idxMap.scenes.newDefinitions){
-    myCommand = "{\"idx\" : " + k + ", \"dtype\" : \"Scene\", \"name\" : \"" + idxMap.scenes.newDefinitions[k] + "\"}";
-		mqttClient.publish('domoticz/out', myCommand);
-	//});
 }
 
 
