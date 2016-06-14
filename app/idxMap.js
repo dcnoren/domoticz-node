@@ -24,8 +24,8 @@ idxMap.scenes.definitions = [
 "{\"idx\" : 2, \"dtype\" : \"Scene\", \"status\" : \"Off\", \"name\" : \"All Off\", \"nvalue\" : 0, \"svalue1\" : \"0\"}"
 ];
 
-idxMap.scenes.newDefinitions.push({"Name" : "All On", "idx" : 1});
-idxMap.scenes.newDefinitions.push({"Name" : "All On", "idx" : 1});
+idxMap.scenes.newDefinitions.push([["Name", "All On"], ["idx", 1]]);
+idxMap.scenes.newDefinitions.push([["Name", "All On"], ["idx", 1]]);
 
 
 
