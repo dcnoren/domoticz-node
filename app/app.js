@@ -251,10 +251,10 @@ io.on('connection', function(socket){
 		mqttClient.publish('domoticz/in', myCommand);
 	});
 
-	/*scenes.forEach(function(item) {
-		myCommand = '{"command": "getdeviceinfo", "idx": ' + item + ' }';
+	scenes.forEach(function(item) {
+		myCommand = '{"command": "getsceneinfo", "idx": ' + item + ' }';
 		mqttClient.publish('domoticz/in', myCommand);
-	});*/
+	});
 
 
 	socket.on('dimCommand', function(msg){
