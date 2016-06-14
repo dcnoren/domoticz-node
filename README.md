@@ -33,7 +33,7 @@ Utilizes Express for static file serving and API handling, and socket.io for web
 
 # To-Do
 
-LOTS!
+Lots!
 
 # Help!
 
