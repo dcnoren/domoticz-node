@@ -266,10 +266,12 @@ io.on('connection', function(socket){
 		mqttClient.publish('domoticz/out', myCommand);
 	});*/
 
-  idxMap.scenes.newDefinitions.forEach(function(item) {
-    myCommand = '{"idx" : ' + item[0] + ', "dtype" : "Scene", "name" : "' + item[1] '"}';
+  //idxMap.scenes.newDefinitions.forEach(function(item) {
+for (var k in idxMap.scenes.newDefinitions){
+    myCommand = '{"idx" : ' + k + ', "dtype" : "Scene", "name" : "' + idxMap.scenes.newDefinitions[k] '"}';
 		mqttClient.publish('domoticz/out', myCommand);
-	});
+	//});
+});
 
 
 	socket.on('dimCommand', function(msg){
