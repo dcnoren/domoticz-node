@@ -27,3 +27,8 @@ Utilizes Express for static file serving and API handling, and socket.io for web
 8) If launched without DOMOTICZ_PORT env variable, it will start on port 3000.
 
 9) Until I have more time to put more info into config files, you will need to check app/app.js to see the IDX for various devices that will or will not be shown on the GUI.
+
+
+# To-Do
+
+LOTS!
