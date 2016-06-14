@@ -55,7 +55,6 @@ $(document).ready(function(){
 				}
 
 
-				//THIS DOES NOT WORK
 				var sceneItems = [];
 
 				if (data.scenes){
@@ -154,13 +153,11 @@ $(document).ready(function(){
 	});
 
 	$(document).on('click', '.Deactivated', function() {
-		$(this).siblings(".Activated").removeClass("Activated");
-		myscene = $(this).attr("id");
-		$.get('ajax/ajax.php?action=setSceneStatus&scene=' + myscene);
-		$("#scenesBoard").parent().addClass("ui-disabled").delay(3000).queue(function(next){
-			$(this).removeClass("ui-disabled");
-			next();
-		});
+    myidx = $(this).attr("id");
+		var myCommand = "";
+		myCommand = '{"command": "switchscene", "idx": ' + myidx + ', "switchcmd": "On" }';
+		socket.emit('switchCommand', myCommand);
+		return false;
 	});
 
 
