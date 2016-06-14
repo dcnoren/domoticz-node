@@ -160,7 +160,7 @@ $(document).ready(function(){
     //$(this).removeClass("Deactivated");
     setTimeout(function() {
         //$(this).addClass("Deactivated").clearQueue();
-        $(this).removeClass("Activated").clearQueue();
+        $(.scene.Activated).removeClass("Activated").clearQueue();
     },5000);
     myidx = $(this).attr("id");
 		var myCommand = "";
