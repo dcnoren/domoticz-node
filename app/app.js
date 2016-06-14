@@ -235,7 +235,9 @@ mqttClient.on('connect', function() {
 
 io.on('connection', function(socket){
 
-	dimmers.forEach(function(item) {
+  io.emit('wit', config.wit.key);
+
+  dimmers.forEach(function(item) {
 		myCommand = '{"command": "getdeviceinfo", "idx": ' + item + ' }';
 		mqttClient.publish('domoticz/in', myCommand);
 	});
