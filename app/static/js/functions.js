@@ -156,7 +156,7 @@ $(document).ready(function(){
     myidx = $(this).attr("id");
 		var myCommand = "";
 		myCommand = '{"command": "switchscene", "idx": ' + myidx + ', "switchcmd": "On" }';
-		socket.emit('switchCommand', myCommand);
+		socket.emit('dimCommand', myCommand);
 		return false;
 	});
 
