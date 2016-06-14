@@ -256,6 +256,8 @@ $(document).ready(function(){
 
 
 
+        socket.on('wit', function (token) {
+
         //MICROPHONE
           var mic = new Wit.Microphone(document.getElementById("microphone"));
           var info = function (msg) {
@@ -305,7 +307,8 @@ $(document).ready(function(){
             info("Microphone is not connected");
           };
 
-          mic.connect("3RKVDARFNBKXOPAHP5B6Z2P5GAMDGNJE");
+
+          mic.connect(token);
           // mic.start();
           // mic.stop();
 
@@ -315,6 +318,8 @@ $(document).ready(function(){
             }
             return k + "=" + v + "\n";
           }
+
+        });
 
 
 

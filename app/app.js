@@ -3,10 +3,10 @@ var config = require('./config.js');
 var express = require('express');
 var app = express();
 
-if(process.env.DOMOTICZ_PORT) { 
+if(process.env.DOMOTICZ_PORT) {
     var runPort = process.env.DOMOTICZ_PORT;
 }
-else { 
+else {
     var runPort = 3000;
 }
 
@@ -29,32 +29,6 @@ authy = function(username, password) {
   };
 };
 
-AWS.config.update({
-  region: "us-east-1"
-});
-
-var docClient = new AWS.DynamoDB.DocumentClient();
-var table = "soaring-dev";
-
-var abc123 = new Date();
-
-var params = {
-	TableName:table,
-	Item:{
-		"timestamp": abc123,
-		"title": "test"
-	}
-}
-
-console.log("Adding a new item...");
-docClient.put(params, function(err, data) {
-    if (err) {
-        console.error("Unable to add item. Error JSON:", JSON.stringify(err, null, 2));
-    } else {
-        console.log("Added item:", JSON.stringify(data, null, 2));
-    }
-});
-
 var router = express.Router();
 
 app.use('/api', router);
@@ -71,7 +45,7 @@ router.get('/all/off', function(req, res) {
 
 app.use(express.static('static'));
 
-app.get('/', authy('noren', '0830'), function(req, res){
+app.get('/', authy(config.security.username, config.security.password), function(req, res){
   res.sendFile(__dirname + '/index.html');
 });
 
@@ -261,7 +235,9 @@ mqttClient.on('connect', function() {
 
 io.on('connection', function(socket){
 
-	dimmers.forEach(function(item) {
+  io.emit('wit', config.wit.key);
+
+  dimmers.forEach(function(item) {
 		myCommand = '{"command": "getdeviceinfo", "idx": ' + item + ' }';
 		mqttClient.publish('domoticz/in', myCommand);
 	});

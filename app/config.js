@@ -2,12 +2,16 @@ var config = {};
 
 config.wit = {};
 config.mqtt = {};
+config.security = {};
 
-config.wit.key = process.env.TWITTER_USER || 'username';
-config.wit.password=  process.env.TWITTER_PASSWORD || 'password';
-config.mqtt.host = process.env.MQTT_HOST || 'm10.cloudmqtt.com';
-config.mqtt.port = process.env.MQTT_PORT || '12556';
-config.mqtt.username = process.env.MQTT_USERNAME || 'soaring';
-config.mqtt.password=  process.env.MQTT_PASSWORD || 'password';
+config.wit.key = '3RKVDARFNBKXOPAHP5B6Z2P5GAMDGNJE';
+
+config.mqtt.host = 'm10.cloudmqtt.com';
+config.mqtt.port = '12556';
+config.mqtt.username = 'soaring';
+config.mqtt.password = 'password';
+
+config.security.username = 'noren';
+config.security.password = '0830';
 
 module.exports = config;
