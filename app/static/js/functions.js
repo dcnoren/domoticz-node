@@ -156,11 +156,11 @@ $(document).ready(function(){
 
 	$(document).on('click', '.scene', function() {
     $(this).siblings(".Activated").removeClass("Activated");
-    $(this).addClass("Activated");
+    $(this).switchClass("Deactivated", "Activated", 10);
     //$(this).removeClass("Deactivated");
     setTimeout(function() {
         //$(this).addClass("Deactivated").clearQueue();
-        $('.scene.Activated').removeClass("Activated").clearQueue();
+        $('.scene.Activated').switchClass("Activated", "Deactivated", 1000).clearQueue();
     },5000);
     myidx = $(this).attr("id");
 		var myCommand = "";
