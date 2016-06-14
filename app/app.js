@@ -261,7 +261,7 @@ io.on('connection', function(socket){
 		mqttClient.publish('domoticz/in', myCommand);
 	});
 
-for (var k in idxMap.scenes.ndefinitions){
+for (var k in idxMap.scenes.definitions){
     myCommand = "{\"idx\" : " + k + ", \"dtype\" : \"Scene\", \"name\" : \"" + idxMap.scenes.definitions[k] + "\"}";
 		mqttClient.publish('domoticz/out', myCommand);
 }
