@@ -154,13 +154,13 @@ $(document).ready(function(){
 		});
 	});*/
 
-	$(document).on('click', '.Deactivated', function() {
+	$(document).on('click', '.scene', function() {
     $(this).siblings(".Activated").removeClass("Activated");
-    $(this).toggleClass("Activated");
+    $(this).addClass("Activated");
     //$(this).removeClass("Deactivated");
     setTimeout(function() {
         //$(this).addClass("Deactivated").clearQueue();
-        $(this).toggleClass("Activated").clearQueue();
+        $(this).removeClass("Activated").clearQueue();
     },5000);
     myidx = $(this).attr("id");
 		var myCommand = "";
