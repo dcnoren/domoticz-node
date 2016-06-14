@@ -267,7 +267,7 @@ io.on('connection', function(socket){
 	});*/
 
   idxMap.scenes.newDefinitions.forEach(function(item) {
-    myCommand = '{"idx" : ' + item.idx + ', "dtype" : "Scene", "name" : "' + item.Name '"}';
+    myCommand = '{"idx" : ' + item[0] + ', "dtype" : "Scene", "name" : "' + item[1] '"}';
 		mqttClient.publish('domoticz/out', myCommand);
 	});
 

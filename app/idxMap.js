@@ -27,10 +27,13 @@ idxMap.fans.items = [37];
 //idxMap.scenes.newDefinitions.one = {"idx" : 1, "Name": "All On"};
 //idxMap.scenes.newDefinitions.two = {"idx" : 2, "Name": "All Off"};
 
-idxMap.scenes.newDefinitions.one.idx=1;
+/*idxMap.scenes.newDefinitions.one.idx=1;
 idxMap.scenes.newDefinitions.one.Name="All Off";
 idxMap.scenes.newDefinitions.two.idx=2;
-idxMap.scenes.newDefinitions.two.Name="All On";
+idxMap.scenes.newDefinitions.two.Name="All On";*/
+
+idxMap.scenes.newDefinitions.push([1, "All On"]);
+idxMap.scenes.newDefinitions.push([2, "All Off"]);
 
 
 
