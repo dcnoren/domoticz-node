@@ -133,8 +133,6 @@ mqttClient.on('connect', function() {
             var status = jsonobj.nvalue;
             var level = jsonobj.svalue1;
 
-			//if (jsonobj.dtype === "Light/Switch" && jsonobj.switchType === "Dimmer") { //This will filter out the MB Runner Light - D
-
             if (jsonobj.switchType === "Dimmer") {
 
                 var cstatus = "";
@@ -203,6 +201,18 @@ mqttClient.on('connect', function() {
 
 
 
+      if (jsonobj.dType === "Scene") {
+
+                      cstatus = "Off";
+
+                      var abcdef = "";
+                      var abcdef = '{"scenes":{"' + idx + '":{"Status":"' + cstatus + '","Name":"' + idxname + '"}}}';
+                      var jsonABC = JSON.parse(abcdef);
+                      io.emit('update',jsonABC);
+      }
+
+
+
 			if ((jsonobj.dtype === "Temp" || jsonobj.dtype === "Temp + Humidity" || jsonobj.dtype === "Thermostat") && idxname != "House Temperature Setpoint") {
 
 				var x = new Date().getTime();
@@ -230,6 +240,11 @@ mqttClient.on('connect', function() {
 io.on('connection', function(socket){
 
   io.emit('wit', config.wit.key);
+
+  idxMap.dimmers.items.forEach(function(item) {
+		myCommand = item;
+		mqttClient.publish('domoticz/out', myCommand);
+	});
 
   idxMap.dimmers.items.forEach(function(item) {
 		myCommand = '{"command": "getdeviceinfo", "idx": ' + item + ' }';
