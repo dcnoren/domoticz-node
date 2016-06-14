@@ -203,7 +203,7 @@ mqttClient.on('connect', function() {
 
       if (jsonobj.dtype === "Scene") {
 
-                cstatus = "Off";
+                cstatus = "Deactivated";
 
                 var abcdef = "";
                 var abcdef = '{"scenes":{"' + idx + '":{"Status":"' + cstatus + '","Name":"' + idxname + '"}}}';
