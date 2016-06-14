@@ -89,7 +89,7 @@ padding: 0;
 	background-position: 50% 80%;
 }
 
-.scene {
+.scene.Deactivated {
 	background-image: url("../images/scene_deactivated.png");
 	background-size: 50px 50px;
 	background-repeat: no-repeat;
