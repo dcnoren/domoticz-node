@@ -24,8 +24,13 @@ idxMap.fans.items = [37];
 "{\"idx\" : 2, \"dtype\" : \"Scene\", \"name\" : \"All Off\"}"
 ];*/
 
-idxMap.scenes.newDefinitions.one = {"idx" : 1, "Name": "All On"};
-idxMap.scenes.newDefinitions.two = {"idx" : 2, "Name": "All Off"};
+//idxMap.scenes.newDefinitions.one = {"idx" : 1, "Name": "All On"};
+//idxMap.scenes.newDefinitions.two = {"idx" : 2, "Name": "All Off"};
+
+idxMap.scenes.newDefinitions.one.idx=1;
+idxMap.scenes.newDefinitions.one.Name="All Off";
+idxMap.scenes.newDefinitions.one.idx=2;
+idxMap.scenes.newDefinitions.one.Name="All On";
 
 
 
