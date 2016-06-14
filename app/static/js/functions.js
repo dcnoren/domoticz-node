@@ -156,6 +156,10 @@ $(document).ready(function(){
     $(this).siblings(".Activated").removeClass("Activated");
     $(this).addClass("Activated");
     $(this).removeClass("Deactivated");
+    setTimeout(function() {
+        $(this).addClass("Deactivated");
+        $(this).removeClass("Activated");
+    },5000);
     myidx = $(this).attr("id");
 		var myCommand = "";
 		myCommand = '{"command": "switchscene", "idx": ' + myidx + ', "switchcmd": "On" }';
