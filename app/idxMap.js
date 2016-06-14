@@ -20,6 +20,11 @@ idxMap.fans.items = [37];
 
 idxMap.scenes.definitions[1] = "All On";
 idxMap.scenes.definitions[2] = "All Off";
+idxMap.scenes.definitions[3] = "Movie";
+idxMap.scenes.definitions[4] = "Night Away";
+idxMap.scenes.definitions[5] = "Entertaining";
+idxMap.scenes.definitions[6] = "Evening Dim";
+idxMap.scenes.definitions[7] = "Garage Test";
 
 
 
