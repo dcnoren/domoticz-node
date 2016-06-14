@@ -16,12 +16,4 @@ idxMap.doors.items = [28, 29, 30];
 idxMap.windows.items = '';
 idxMap.fans.items = [37];
 
-config.mqtt.host = 'MQQT_HOST';
-config.mqtt.port = 'PORT';
-config.mqtt.username = 'USERNAME';
-config.mqtt.password = 'PASSWORD';
-
-config.security.username = 'USERNAME';
-config.security.password = 'PASSWORD';
-
 module.exports = idxMap;
