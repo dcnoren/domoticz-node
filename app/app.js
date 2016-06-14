@@ -271,7 +271,7 @@ for (var k in idxMap.scenes.newDefinitions){
     myCommand = "{\"idx\" : " + k + ", \"dtype\" : \"Scene\", \"name\" : \"" + idxMap.scenes.newDefinitions[k] + "\"}";
 		mqttClient.publish('domoticz/out', myCommand);
 	//});
-});
+}
 
 
 	socket.on('dimCommand', function(msg){
