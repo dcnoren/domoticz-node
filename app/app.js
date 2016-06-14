@@ -1,4 +1,5 @@
 var config = require('./config.js');
+var idxMap = require('./mapping.js');
 
 var express = require('express');
 var app = express();
@@ -34,7 +35,7 @@ var router = express.Router();
 app.use('/api', router);
 
 router.get('/', function(req, res) {
-    res.json({ message: 'hooray! welcome to our api!' });
+    res.json({ message: 'domiticz-node api' });
 });
 
 router.get('/all/off', function(req, res) {
@@ -237,7 +238,7 @@ io.on('connection', function(socket){
 
   io.emit('wit', config.wit.key);
 
-  dimmers.forEach(function(item) {
+  idxMap.dimmers.items.forEach(function(item) {
 		myCommand = '{"command": "getdeviceinfo", "idx": ' + item + ' }';
 		mqttClient.publish('domoticz/in', myCommand);
 	});
