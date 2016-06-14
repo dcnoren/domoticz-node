@@ -28,4 +28,5 @@ idxMap.scenes.newDefinitions.push({"Name" : "All On", "idx" : 1});
 idxMap.scenes.newDefinitions.push({"Name" : "All On", "idx" : 1});
 
 
+
 module.exports = idxMap;
