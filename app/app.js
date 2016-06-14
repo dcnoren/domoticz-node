@@ -201,7 +201,7 @@ mqttClient.on('connect', function() {
 
 
 
-      if (jsonobj.dType === "Scene") {
+      if (jsonobj.dtype === "Scene") {
 
                       cstatus = "Off";
 
