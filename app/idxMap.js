@@ -19,8 +19,8 @@ idxMap.windows.items = '';
 idxMap.fans.items = [37];
 
 idxMap.scenes.definitions = [
-"{'idx': 1, 'dtype': 'Scene', 'status': 'Off', 'name': 'All On'}",
-"{'idx': 2, 'dtype': 'Scene', 'status': 'Off', 'name': 'All Off'}"
+"{\"idx\": 1, \"dtype\": \"Scene\", \"status\": \"Off\", \"name\": \"All On\"}",
+"{\"idx\": 2, \"dtype\": \"Scene\", \"status\": \"Off\", \"name\": \"All Off\"}"
 ];
 
 module.exports = idxMap;
