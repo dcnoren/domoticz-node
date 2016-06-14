@@ -133,7 +133,7 @@ mqttClient.on('connect', function() {
             var status = jsonobj.nvalue;
             var level = jsonobj.svalue1;
 
-          /*  if (jsonobj.switchType === "Dimmer") {
+            if (jsonobj.switchType === "Dimmer") {
 
                 var cstatus = "";
 
@@ -158,10 +158,10 @@ mqttClient.on('connect', function() {
                 var abcdef = '{"lights":{"' + idx + '":{"Status":"' + cstatus + '","Level":' + level + ',"Type":"Light\/Switch","Name":"' + idxname + '"}}}';
                 var jsonABC = JSON.parse(abcdef);
                 io.emit('update',jsonABC);
-            }*/
+            }
 
 
-			/*if (jsonobj.dtype === "Light/Switch" && jsonobj.switchType === "On/Off") {
+			if (jsonobj.dtype === "Light/Switch" && jsonobj.switchType === "On/Off") {
 
                 var cstatus = "";
 
@@ -177,7 +177,7 @@ mqttClient.on('connect', function() {
                 var abcdef = '{"fans":{"' + idx + '":{"Status":"' + cstatus + '","Name":"' + idxname + '"}}}';
                 var jsonABC = JSON.parse(abcdef);
                 io.emit('update',jsonABC);
-            }*/
+            }
 
 
 			if (jsonobj.switchType === "Contact") {
@@ -213,7 +213,7 @@ mqttClient.on('connect', function() {
 
 
 
-			/*if ((jsonobj.dtype === "Temp" || jsonobj.dtype === "Temp + Humidity" || jsonobj.dtype === "Thermostat") && idxname != "House Temperature Setpoint") {
+			if ((jsonobj.dtype === "Temp" || jsonobj.dtype === "Temp + Humidity" || jsonobj.dtype === "Thermostat") && idxname != "House Temperature Setpoint") {
 
 				var x = new Date().getTime();
 
@@ -231,7 +231,7 @@ mqttClient.on('connect', function() {
 
 				//console.log('charted x: ' + x + ' y: ' + f);
 
-            }*/
+            }
 
         });
     });
