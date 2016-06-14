@@ -32,8 +32,8 @@ idxMap.scenes.newDefinitions.one.Name="All Off";
 idxMap.scenes.newDefinitions.two.idx=2;
 idxMap.scenes.newDefinitions.two.Name="All On";*/
 
-idxMap.scenes.newDefinitions.push([1, "All On"]);
-idxMap.scenes.newDefinitions.push([2, "All Off"]);
+idxMap.scenes.newDefinitions[1] = "All On";
+idxMap.scenes.newDefinitions[2] = "All Off";
 
 
 
