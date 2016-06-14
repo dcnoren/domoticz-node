@@ -143,16 +143,19 @@ $(document).ready(function(){
 		return false;
 	});
 
-	$(document).on('click', '.security.disabled', function() {
+	/*$(document).on('click', '.security.disabled', function() {
 		mystatus = $(this).attr("id");
 		$.get('ajax/ajax.php?action=setSecurity&command=' + mystatus);
 		$("#securityBoard").parent().addClass("ui-disabled").delay(30000).queue(function(next){
 			$(this).removeClass("ui-disabled");
 			next();
 		});
-	});
+	});*/
 
 	$(document).on('click', '.Deactivated', function() {
+    $(this).siblings(".Activated").removeClass("Activated");
+    $(this).addClass("Activated");
+    $(this).removeClass("Deactivated");
     myidx = $(this).attr("id");
 		var myCommand = "";
 		myCommand = '{"command": "switchscene", "idx": ' + myidx + ', "switchcmd": "On" }';
