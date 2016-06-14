@@ -18,7 +18,9 @@ idxMap.doors.items = [28, 29, 30];
 idxMap.windows.items = '';
 idxMap.fans.items = [37];
 
-idxMap.scenes.definitions.A = "{'idx': 1, 'dtype': 'Scene', 'status': 'Off', 'name': 'All On'}";
-idxMap.scenes.definitions.B = "{'idx': 2, 'dtype': 'Scene', 'status': 'Off', 'name': 'All Off'}";
+idxMap.scenes.definitions = [
+"{'idx': 1, 'dtype': 'Scene', 'status': 'Off', 'name': 'All On'}",
+"{'idx': 2, 'dtype': 'Scene', 'status': 'Off', 'name': 'All Off'}"
+];
 
 module.exports = idxMap;
