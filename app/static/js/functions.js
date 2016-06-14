@@ -155,10 +155,10 @@ $(document).ready(function(){
 	$(document).on('click', '.Deactivated', function() {
     $(this).siblings(".Activated").removeClass("Activated");
     $(this).addClass("Activated");
-    $(this).removeClass("Deactivated");
+    //$(this).removeClass("Deactivated");
     setTimeout(function() {
-        $(this).addClass("Deactivated");
-        $(this).removeClass("Activated");
+        //$(this).addClass("Deactivated").clearQueue();
+        $(this).removeClass("Activated").clearQueue();
     },5000);
     myidx = $(this).attr("id");
 		var myCommand = "";
