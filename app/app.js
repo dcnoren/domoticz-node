@@ -242,11 +242,6 @@ io.on('connection', function(socket){
   io.emit('wit', config.wit.key);
 
   idxMap.dimmers.items.forEach(function(item) {
-		myCommand = item;
-		mqttClient.publish('domoticz/out', myCommand);
-	});
-
-  idxMap.dimmers.items.forEach(function(item) {
 		myCommand = '{"command": "getdeviceinfo", "idx": ' + item + ' }';
 		mqttClient.publish('domoticz/in', myCommand);
 	});
@@ -266,9 +261,9 @@ io.on('connection', function(socket){
 		mqttClient.publish('domoticz/in', myCommand);
 	});
 
-	idxMap.scenes.items.forEach(function(item) {
-		myCommand = '{"command": "getscenesinfo", "idx": ' + item + ' }';
-		mqttClient.publish('domoticz/in', myCommand);
+  idxMap.dimmers.items.forEach(function(item) {
+		myCommand = item;
+		mqttClient.publish('domoticz/out', myCommand);
 	});
 
 
