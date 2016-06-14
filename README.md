@@ -32,3 +32,7 @@ Utilizes Express for static file serving and API handling, and socket.io for web
 # To-Do
 
 LOTS!
+
+# Help!
+
+Please feel free to fork or contact me or file issues/suggestions!
