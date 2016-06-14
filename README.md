@@ -8,9 +8,9 @@ Utilizes Express for static file serving and API handling, and socket.io for web
 
 1) Make a copy of the default-config file, and name it config.js.
 
-2) Sign up for wit at http://wit.ai and build an application. I will provide a sample to fork at a later date.
+2) Sign up for wit at http://wit.ai and fork my Wit application: https://wit.ai/dcnoren/domoticz-wit
 
-3) Enter wit.ai client access token in config file
+3) Generate a wit.ai access token for the app, and enter it in config file
 
 4) Sign up for an MQTT broker if you do not have one already, and enter details in config file
 
