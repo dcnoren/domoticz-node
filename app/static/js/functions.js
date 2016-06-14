@@ -64,7 +64,9 @@ $(document).ready(function(){
 							 sceneItems.push('<div id="' + key + '" class="scene ui-bar ui-bar-a ' + val.Status + '" style="height:80px"><center><h1>' + val.Name + '</h1></center></div>');
 							 $("#" + key + "").replaceWith(sceneItems).enhanceWithin();
 						} else {
-							 sceneItems.push('<div class="ui-block-b"><div id="' + key + '" class="scene ui-bar ui-bar-a ' + val.Status + '" style="height:80px"><center><h1>' + val.Name + '</h1></center></div></div>');
+               //until scenes can be "activated", we need to not have deactivated listed
+               //sceneItems.push('<div class="ui-block-b"><div id="' + key + '" class="scene ui-bar ui-bar-a ' + val.Status + '" style="height:80px"><center><h1>' + val.Name + '</h1></center></div></div>');
+               sceneItems.push('<div class="ui-block-b"><div id="' + key + '" class="scene ui-bar ui-bar-a" style="height:80px"><center><h1>' + val.Name + '</h1></center></div></div>');
 							 $('#sceneBoard').append(sceneItems).enhanceWithin();
 						}
 
@@ -154,11 +156,11 @@ $(document).ready(function(){
 
 	$(document).on('click', '.Deactivated', function() {
     $(this).siblings(".Activated").removeClass("Activated");
-    $(this).addClass("Activated");
+    $(this).toggleClass("Activated");
     //$(this).removeClass("Deactivated");
     setTimeout(function() {
         //$(this).addClass("Deactivated").clearQueue();
-        $(this).removeClass("Activated").clearQueue();
+        $(this).toggleClass("Activated").clearQueue();
     },5000);
     myidx = $(this).attr("id");
 		var myCommand = "";
