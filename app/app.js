@@ -252,7 +252,7 @@ io.on('connection', function(socket){
 	});
 
 	idxMap.scenes.items.forEach(function(item) {
-		myCommand = '{"command": "getsceneinfo", "idx": ' + item + ' }';
+		myCommand = '{"command": "getscenesinfo", "idx": ' + item + ' }';
 		mqttClient.publish('domoticz/in', myCommand);
 	});
 
