@@ -18,15 +18,17 @@ Utilizes Express for static file serving and API handling, and socket.io for web
 
 6) Fill in remaining items in config
 
-7) Launch using node, or pm2. Make sure you launch from app directory. Ex:
+7) run "npm install" from the app directory
 
-7.1) cd /var/www/domoticz-node/app
+8) Launch using node, or pm2. Make sure you launch from app directory. Ex:
 
-7.2) sudo DOMOTICZ_PORT=80 pm2 start app.js --name="domoticz"
+8.1) cd /var/www/domoticz-node/app
 
-8) If launched without DOMOTICZ_PORT env variable, it will start on port 3000.
+8.2) sudo DOMOTICZ_PORT=80 pm2 start app.js --name="domoticz"
 
-9) Until I have more time to put more info into config files, you will need to check app/app.js to see the IDX for various devices that will or will not be shown on the GUI.
+9) If launched without DOMOTICZ_PORT env variable, it will start on port 3000.
+
+10) Until I have more time to put more info into config files, you will need to check app/app.js to see the IDX for various devices that will or will not be shown on the GUI.
 
 
 # To-Do
