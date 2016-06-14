@@ -180,7 +180,7 @@ mqttClient.on('connect', function() {
             }*/
 
 
-			/*if (jsonobj.switchType === "Contact") {
+			if (jsonobj.switchType === "Contact") {
 
                 var cstatus = "";
 
@@ -197,18 +197,18 @@ mqttClient.on('connect', function() {
                 var abcdef = '{"doors":{"' + idx + '":{"Status":"' + cstatus + '","Name":"' + idxname + '"}}}';
                 var jsonABC = JSON.parse(abcdef);
                 io.emit('update',jsonABC);
-            }*/
+            }
 
 
 
       if (jsonobj.dtype === "Scene") {
 
-                      cstatus = "Off";
+                cstatus = "Off";
 
-                      var abcdef = "";
-                      var abcdef = '{"scenes":{"' + idx + '":{"Status":"' + cstatus + '","Name":"' + idxname + '"}}}';
-                      var jsonABC = JSON.parse(abcdef);
-                      io.emit('update',jsonABC);
+                var abcdef = "";
+                var abcdef = '{"scenes":{"' + idx + '":{"Status":"' + cstatus + '","Name":"' + idxname + '"}}}';
+                var jsonABC = JSON.parse(abcdef);
+                io.emit('update',jsonABC);
       }
 
 

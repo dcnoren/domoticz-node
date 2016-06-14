@@ -19,8 +19,8 @@ idxMap.windows.items = '';
 idxMap.fans.items = [37];
 
 idxMap.scenes.definitions = [
-"{\"idx\": 1, \"dtype\": \"Scene\", \"status\": \"Off\", \"name\": \"All On\", \"nvalue\": 0, \"svalue1\": \"0\"}",
-"{\"idx\": 2, \"dtype\": \"Scene\", \"status\": \"Off\", \"name\": \"All Off\", \"nvalue\": 0, \"svalue1\": \"0\"}"
+"{\"idx\" : 1, \"dtype\" : \"Scene\", \"status\" : \"Off\", \"name\" : \"All On\", \"nvalue\" : 0, \"svalue1\" : \"0\"}",
+"{\"idx\" : 2, \"dtype\" : \"Scene\", \"status\" : \"Off\", \"name\" : \"All Off\", \"nvalue\" : 0, \"svalue1\" : \"0\"}"
 ];
 
 module.exports = idxMap;
