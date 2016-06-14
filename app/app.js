@@ -261,15 +261,15 @@ io.on('connection', function(socket){
 		mqttClient.publish('domoticz/in', myCommand);
 	});
 
-  idxMap.scenes.definitions.forEach(function(item) {
+  /*idxMap.scenes.definitions.forEach(function(item) {
 		myCommand = item;
 		mqttClient.publish('domoticz/out', myCommand);
-	});
-
-  /*idxMap.scenes.newDefinitions.forEach(function(item) {
-		myCommand = '{"idx" : ' + item.idx + ', "dtype" : "Scene", "status" : "Off", "name" : "' + item.Name '", "nvalue" : 0, "svalue1" : "0"}';
-		mqttClient.publish('domoticz/out', myCommand);
 	});*/
+
+  idxMap.scenes.newDefinitions.forEach(function(item) {
+		myCommand = '{"idx" : ' + item.idx + ', "dtype" : "Scene", "name" : "' + item.Name '"}';
+		mqttClient.publish('domoticz/out', myCommand);
+	});
 
 
 	socket.on('dimCommand', function(msg){

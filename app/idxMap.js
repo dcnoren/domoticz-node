@@ -19,18 +19,13 @@ idxMap.doors.items = [28, 29, 30];
 idxMap.windows.items = '';
 idxMap.fans.items = [37];
 
-idxMap.scenes.definitions = [
+/*idxMap.scenes.definitions = [
 "{\"idx\" : 1, \"dtype\" : \"Scene\", \"name\" : \"All On\"}",
 "{\"idx\" : 2, \"dtype\" : \"Scene\", \"name\" : \"All Off\"}"
-];
-
-/*idxMap.scenes.definitions = [
-"{\"idx\" : 1, \"dtype\" : \"Scene\", \"status\" : \"Off\", \"name\" : \"All On\", \"nvalue\" : 0, \"svalue1\" : \"0\"}",
-"{\"idx\" : 2, \"dtype\" : \"Scene\", \"status\" : \"Off\", \"name\" : \"All Off\", \"nvalue\" : 0, \"svalue1\" : \"0\"}"
 ];*/
 
-//idxMap.scenes.newDefinitions.one = {"idx" : 1, "Name": "All On"};
-//idxMap.scenes.newDefinitions.two = {"idx" : 2, "Name": "All Off"};
+idxMap.scenes.newDefinitions.one = {"idx" : 1, "Name": "All On"};
+idxMap.scenes.newDefinitions.two = {"idx" : 2, "Name": "All Off"};
 
 
 
