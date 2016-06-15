@@ -32,7 +32,7 @@ router.get('/all/off', function(req, res) {
 app.use(express.static('static'));
 
 app.get('/', function(req, res){
-  password = req.param('password', 'password');
+  password = req.param('p', 'password');
   if(password !== config.security.password){
     return res.sendStatus(401);
   } else {
