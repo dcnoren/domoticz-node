@@ -10,10 +10,8 @@
 // Do not modify this block ////////
 // /////////////////////////////////
 var idxMap = {};
-idxMap.switches = {};
 idxMap.dimmers = {};
 idxMap.scenes = {};
-idxMap.scenes.definitions = {};
 idxMap.temps = {};
 idxMap.doors = {};
 idxMap.windows = {};
@@ -32,29 +30,11 @@ idxMap.wit = {};
 // has an update or is polled, so Domoticz-node
 // uses this list to know what devices to poll.
 idxMap.dimmers.items = [7, 8, 9, 10, 34, 36, 38, 47, 48];
+idxMap.scenes.items = [1, 2, 3, 4, 5, 6, 7];
 idxMap.temps.items = [43, 15, 22];
 idxMap.doors.items = [28, 29, 30];
 idxMap.windows.items = '';
 idxMap.fans.items = [37];
-// /////////////////////////////////
-
-
-// This needs to be populated based on the scenes
-// defined in Domoticz. These can be found under
-// the devices information in domoticz. You may
-// name the scene whatever you desire here, such
-// as "all on", "all off", etc - and they do not
-// need to match in Domoticz. However, the number
-// in the brackets *must* align with the scene
-// idx in domoticz. Numbers do not need to be
-// sequential and may skip numbers.
-idxMap.scenes.definitions[1] = "All On";
-idxMap.scenes.definitions[2] = "All Off";
-idxMap.scenes.definitions[3] = "Movie";
-idxMap.scenes.definitions[4] = "Night Away";
-idxMap.scenes.definitions[5] = "Entertaining";
-idxMap.scenes.definitions[6] = "Evening Dim";
-idxMap.scenes.definitions[7] = "Garage Test";
 // /////////////////////////////////
 
 

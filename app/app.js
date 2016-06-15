@@ -191,12 +191,12 @@ mqttClient.on('connect', function() {
 
 
 
-      if (jsonobj.dtype === "Scene") {
+      if (jsonobj.Type === "Scene") {
 
                 cstatus = "Deactivated";
 
                 var abcdef = "";
-                var abcdef = '{"scenes":{"' + idx + '":{"Status":"' + cstatus + '","Name":"' + idxname + '"}}}';
+                var abcdef = '{"scenes":{"' + jsonobj.idx + '":{"Status":"' + cstatus + '","Name":"' + jsonobj.Name + '"}}}';
                 var jsonABC = JSON.parse(abcdef);
                 io.emit('update',jsonABC);
       }
@@ -251,10 +251,10 @@ io.on('connection', function(socket){
 		mqttClient.publish('domoticz/in', myCommand);
 	});
 
-for (var k in idxMap.scenes.definitions){
-    myCommand = "{\"idx\" : " + k + ", \"dtype\" : \"Scene\", \"name\" : \"" + idxMap.scenes.definitions[k] + "\"}";
-		mqttClient.publish('domoticz/out', myCommand);
-}
+  idxMap.scenes.items.forEach(function(item) {
+		myCommand = '{"command": "getsceneinfo", "idx": ' + item + ' }';
+		mqttClient.publish('domoticz/in', myCommand);
+	});
 
 
 	socket.on('dimCommand', function(msg){
