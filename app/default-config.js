@@ -11,7 +11,6 @@ config.mqtt.port = 'PORT';
 config.mqtt.username = 'USERNAME';
 config.mqtt.password = 'PASSWORD';
 
-config.security.username = 'USERNAME';
 config.security.password = 'PASSWORD';
 
 module.exports = config;
