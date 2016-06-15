@@ -14,21 +14,6 @@ else {
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var mqtt = require('mqtt'), url = require('url');
-var AWS = require("aws-sdk");
-var basicAuth = require('basic-auth');
-
-authy = function(username, password) {
-  return function(req, res, next) {
-    var user = basicAuth(req);
-
-    if (!user || user.name !== username || user.pass !== password) {
-      res.set('WWW-Authenticate', 'Basic realm=Authorization Required');
-      return res.sendStatus(401);
-    }
-
-    next();
-  };
-};
 
 var router = express.Router();
 
@@ -46,8 +31,13 @@ router.get('/all/off', function(req, res) {
 
 app.use(express.static('static'));
 
-app.get('/', authy(config.security.username, config.security.password), function(req, res){
-  res.sendFile(__dirname + '/index.html');
+app.get('/', function(req, res){
+  password = req.param('password', 'password');
+  if(password !== config.security.password){
+    return res.sendStatus(401);
+  } else {
+    res.sendFile(__dirname + '/index.html');
+  }
 });
 
 var mqttOptions = {
