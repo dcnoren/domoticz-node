@@ -7,6 +7,7 @@ idxMap.temps = {};
 idxMap.doors = {};
 idxMap.windows = {};
 idxMap.fans = {};
+idxMap.wit = {};
 
 idxMap.scenes.definitions = {};
 
@@ -25,6 +26,24 @@ idxMap.scenes.definitions[4] = "Night Away";
 idxMap.scenes.definitions[5] = "Entertaining";
 idxMap.scenes.definitions[6] = "Evening Dim";
 idxMap.scenes.definitions[7] = "Garage Test";
+
+idxMap.wit.devices = {
+  "dining room" : 34,
+  "dining" : 34,
+  "front porch" : 10,
+  "porch" : 10,
+  "garage" : 8,
+  "entry" : 9,
+  "landing" : 38,
+  "family room" : 36,
+  "family" : 36,
+  "downstairs hallway" : 7,
+  "hallway" : 7,
+  "breakfast room" : 47,
+  "breakfast" : 47,
+  "upstairs bathroom" : 40,
+  "bathroom" : 40
+}
 
 
 
