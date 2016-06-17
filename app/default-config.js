@@ -11,6 +11,7 @@ var config = {};
 config.wit = {};
 config.mqtt = {};
 config.security = {};
+config.events = {};
 // /////////////////////////////////
 
 
@@ -49,6 +50,13 @@ config.mqtt.password = 'PASSWORD';
 // your Domoticz-Node instance via
 // http://[ip]:[port]/?p=password
 config.security.password = 'password';
+// /////////////////////////////////
+
+
+// Whether event handling and
+// processing is enabled. uses
+// events.js
+config.security.enabled = false;
 // /////////////////////////////////
 
 

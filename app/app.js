@@ -15,6 +15,8 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var mqtt = require('mqtt'), url = require('url');
 
+var idxHistory = {};
+
 var router = express.Router();
 
 app.use('/api', router);
@@ -106,8 +108,6 @@ function switchLights(msg){
 }
 
 
-
-
 // Create a client connection
 var mqttClient = mqtt.connect(mqttOptions);
 
@@ -122,6 +122,8 @@ mqttClient.on('connect', function() {
             var idxname = jsonobj.name;
             var status = jsonobj.nvalue;
             var level = jsonobj.svalue1;
+
+            //processEvent(jsonobj);
 
             if (jsonobj.switchType === "Dimmer") {
 
@@ -145,6 +147,11 @@ mqttClient.on('connect', function() {
 
 
                 var abcdef = "";
+                idxHistory[idx] = {
+                    this.level = level;
+                    this.status = cstatus;
+                    this.name = idxname;
+                }
                 var abcdef = '{"lights":{"' + idx + '":{"Status":"' + cstatus + '","Level":' + level + ',"Type":"Light\/Switch","Name":"' + idxname + '"}}}';
                 var jsonABC = JSON.parse(abcdef);
                 io.emit('update',jsonABC);
