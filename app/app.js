@@ -344,7 +344,7 @@ function handleDomoticzOut(message){
 
 				//console.log('charted x: ' + x + ' y: ' + f);
 
-            }
+      }
 });
 
 
