@@ -32,7 +32,7 @@ idxHistory[15] = {
     "name" : "name",
     "type" : "Temp",
     "lastSet" : lastSet,
-    "humanSet" : true
+    "humanSet" : false
 };
 
 lastSet = epoch();
@@ -43,7 +43,7 @@ idxHistory[43] = {
     "name" : "name",
     "type" : "Temp",
     "lastSet" : lastSet,
-    "humanSet" : true
+    "humanSet" : false
 };
 
 var router = express.Router();
@@ -136,6 +136,13 @@ function switchLights(msg){
 
 }
 
+function autoAction(msg){
+
+  //console.log('message: ' + msg);
+  mqttClient.publish('domoticz/autoAction', msg);
+
+}
+
 
 // Create a client connection
 var mqttClient = mqtt.connect(mqttOptions);
@@ -184,8 +191,7 @@ mqttClient.on('connect', function() {
                     "status" : cstatus,
                     "name" : idxname,
                     "type" : "Dimmer",
-                    "lastSet" : lastSet,
-                    "humanSet" : true
+                    "lastSet" : lastSet
                 };
 
                 var abcdef = '{"lights":{"' + idx + '":{"Status":"' + cstatus + '","Level":' + level + ',"Type":"Light\/Switch","Name":"' + idxname + '"}}}';
@@ -215,8 +221,7 @@ mqttClient.on('connect', function() {
                     "status" : cstatus,
                     "name" : idxname,
                     "type" : "On/Off",
-                    "lastSet" : lastSet,
-                    "humanSet" : true
+                    "lastSet" : lastSet
                 };
 
                 var abcdef = '{"fans":{"' + idx + '":{"Status":"' + cstatus + '","Name":"' + idxname + '"}}}';
@@ -247,8 +252,7 @@ mqttClient.on('connect', function() {
                     "status" : cstatus,
                     "name" : idxname,
                     "type" : "Contact",
-                    "lastSet" : lastSet,
-                    "humanSet" : true
+                    "lastSet" : lastSet
                 };
 
                 var abcdef = '{"doors":{"' + idx + '":{"Status":"' + cstatus + '","Name":"' + idxname + '"}}}';
@@ -287,8 +291,7 @@ mqttClient.on('connect', function() {
                         "status" : "undefined",
                         "name" : idxname,
                         "type" : "Temp",
-                        "lastSet" : lastSet,
-                        "humanSet" : true
+                        "lastSet" : lastSet
                     };
 
                     tempTemp = idxHistory[15].level - idxHistory[43].level;
@@ -302,11 +305,19 @@ mqttClient.on('connect', function() {
 
                       switchLights(myCommand);
 
+                      alertAutoAction = '{"autoEvent": "true", "idx": 37}';
+
+                      autoAction(alertAutoAction);
+
                     } else {
 
                       myCommand = '{"command": "switchlight", "idx": ' + '37' + ', "switchcmd": "Off", "level": 0 }';
 
                       switchLights(myCommand);
+
+                      alertAutoAction = '{"autoEvent": "true", "idx": 37}';
+
+                      autoAction(alertAutoAction);
 
                     }
 
@@ -323,6 +334,24 @@ mqttClient.on('connect', function() {
             }
 
         });
+
+        mqttClient.subscribe('domoticz/autoAction', function() {
+
+            mqttClient.on('message', function(topic, message, packet) {
+
+                var jsonobj = JSON.parse(message);
+
+                lastSet = epoch();
+
+                idxHistory[jsonobj.idx] = {
+                  "lastSet" : lastSet,
+                  "humanSet" : false
+                };
+
+            });
+
+        });
+
     });
 });
 
