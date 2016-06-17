@@ -324,9 +324,9 @@ function handleDomoticzOut(message){
 
                     } else {
 
-                      myCommand = '{"command": "switchlight", "idx": ' + '37' + ', "switchcmd": "Off", "level": 0 }';
+                      //myCommand = '{"command": "switchlight", "idx": ' + '37' + ', "switchcmd": "Off", "level": 0 }';
 
-                      switchLights(myCommand);
+                      //switchLights(myCommand);
 
                       /*alertAutoAction = '{"autoEvent": "true", "idx": 37}';
 
