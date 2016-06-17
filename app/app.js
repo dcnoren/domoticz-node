@@ -17,18 +17,33 @@ var mqtt = require('mqtt'), url = require('url');
 
 var idxHistory = {};
 
+function epoch(){
+var lastSet = new Date().valueOf();
+lastSet = lastSet/1000;
+lastSet = Math.floor(lastSet);
+return lastSet;
+};
+
+lastSet = epoch();
+
 idxHistory[15] = {
     "level" : 1,
     "status" : "undefined",
     "name" : "name",
-    "type" : "Temp"
+    "type" : "Temp",
+    "lastSet" : lastSet,
+    "humanSet" : true
 };
+
+lastSet = epoch();
 
 idxHistory[43] = {
     "level" : 1,
     "status" : "undefined",
     "name" : "name",
-    "type" : "Temp"
+    "type" : "Temp",
+    "lastSet" : lastSet,
+    "humanSet" : true
 };
 
 var router = express.Router();
@@ -162,11 +177,15 @@ mqttClient.on('connect', function() {
 
                 var abcdef = "";
 
+                lastSet = epoch();
+
                 idxHistory[idx] = {
                     "level" : level,
                     "status" : cstatus,
                     "name" : idxname,
-                    "type" : "Dimmer"
+                    "type" : "Dimmer",
+                    "lastSet" : lastSet,
+                    "humanSet" : true
                 };
 
                 var abcdef = '{"lights":{"' + idx + '":{"Status":"' + cstatus + '","Level":' + level + ',"Type":"Light\/Switch","Name":"' + idxname + '"}}}';
@@ -189,11 +208,15 @@ mqttClient.on('connect', function() {
 
                 var abcdef = "";
 
+                lastSet = epoch();
+
                 idxHistory[idx] = {
                     "level" : "undefined",
                     "status" : cstatus,
                     "name" : idxname,
-                    "type" : "On/Off"
+                    "type" : "On/Off",
+                    "lastSet" : lastSet,
+                    "humanSet" : true
                 };
 
                 var abcdef = '{"fans":{"' + idx + '":{"Status":"' + cstatus + '","Name":"' + idxname + '"}}}';
@@ -217,11 +240,15 @@ mqttClient.on('connect', function() {
 
                 var abcdef = "";
 
+                lastSet = epoch();
+
                 idxHistory[idx] = {
                     "level" : "undefined",
                     "status" : cstatus,
                     "name" : idxname,
-                    "type" : "Contact"
+                    "type" : "Contact",
+                    "lastSet" : lastSet,
+                    "humanSet" : true
                 };
 
                 var abcdef = '{"doors":{"' + idx + '":{"Status":"' + cstatus + '","Name":"' + idxname + '"}}}';
@@ -253,11 +280,15 @@ mqttClient.on('connect', function() {
 		                f = parseFloat(f);
 
 
+                    lastSet = epoch();
+
                     idxHistory[idx] = {
                         "level" : f,
                         "status" : "undefined",
                         "name" : idxname,
-                        "type" : "Temp"
+                        "type" : "Temp",
+                        "lastSet" : lastSet,
+                        "humanSet" : true
                     };
 
                     tempTemp = idxHistory[15].level - idxHistory[43].level;
