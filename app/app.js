@@ -250,6 +250,7 @@ mqttClient.on('connect', function() {
                     if (abs(idxHistory[15].level - idxHistory[43].level) > 5){
 
                       myCommand = '{"command": "switchlight", "idx": ' + '37' + ', "switchcmd": "On", "level": 100 }';
+
                       switchLights(myCommand);
 
                     }
