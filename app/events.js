@@ -17,6 +17,6 @@ if (abs(events.famFan.input[0] - events.famFan.input[1]) > 5){
 
 function processEvent(jsonobj){
 
-  
+  if (jsonobj.idx = events.famFan.)
 
 }

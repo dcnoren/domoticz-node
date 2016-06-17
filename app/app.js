@@ -148,9 +148,9 @@ mqttClient.on('connect', function() {
 
                 var abcdef = "";
                 idxHistory[idx] = {
-                    this.level = level;
-                    this.status = cstatus;
-                    this.name = idxname;
+                    "level" : level,
+                    "status" : cstatus,
+                    "name" : idxname
                 }
                 var abcdef = '{"lights":{"' + idx + '":{"Status":"' + cstatus + '","Level":' + level + ',"Type":"Light\/Switch","Name":"' + idxname + '"}}}';
                 var jsonABC = JSON.parse(abcdef);
