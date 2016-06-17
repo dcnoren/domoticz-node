@@ -151,7 +151,8 @@ mqttClient.on('connect', function() {
                 idxHistory[idx] = {
                     "level" : level,
                     "status" : cstatus,
-                    "name" : idxname
+                    "name" : idxname,
+                    "type" : "Dimmer"
                 };
 
                 var abcdef = '{"lights":{"' + idx + '":{"Status":"' + cstatus + '","Level":' + level + ',"Type":"Light\/Switch","Name":"' + idxname + '"}}}';
@@ -173,6 +174,14 @@ mqttClient.on('connect', function() {
                 }
 
                 var abcdef = "";
+
+                idxHistory[idx] = {
+                    "level" : "undefined",
+                    "status" : cstatus,
+                    "name" : idxname,
+                    "type" : "On/Off"
+                };
+
                 var abcdef = '{"fans":{"' + idx + '":{"Status":"' + cstatus + '","Name":"' + idxname + '"}}}';
                 var jsonABC = JSON.parse(abcdef);
                 io.emit('update',jsonABC);
@@ -193,6 +202,14 @@ mqttClient.on('connect', function() {
                 }
 
                 var abcdef = "";
+
+                idxHistory[idx] = {
+                    "level" : "undefined",
+                    "status" : cstatus,
+                    "name" : idxname,
+                    "type" : "Contact"
+                };
+
                 var abcdef = '{"doors":{"' + idx + '":{"Status":"' + cstatus + '","Name":"' + idxname + '"}}}';
                 var jsonABC = JSON.parse(abcdef);
                 io.emit('update',jsonABC);
@@ -220,6 +237,23 @@ mqttClient.on('connect', function() {
 		                var f = f * 9 / 5 + 32;
 		                f = f.toFixed(1);
 		                f = parseFloat(f);
+
+
+                    idxHistory[idx] = {
+                        "level" : f,
+                        "status" : "undefined",
+                        "name" : idxname,
+                        "type" : "Temp"
+                    };
+
+
+                    if (abs(idxHistory[15].level - idxHistory[43].level) > 5){
+
+                      myCommand = '{"command": "switchlight", "idx": ' + '37' + ', "switchcmd": "On", "level": 100 }';
+                      switchLights(myCommand);
+
+                    }
+
 
 				io.emit('chart', {
 						x: x,
