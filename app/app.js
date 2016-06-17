@@ -246,8 +246,9 @@ mqttClient.on('connect', function() {
                         "type" : "Temp"
                     };
 
+                    //tempTemp = idxHistory[15].level - idxHistory[43].level;
 
-                    if (abs(idxHistory[15].level - idxHistory[43].level) > 5){
+                    if (Math.abs(idxHistory[15].level - idxHistory[43].level) > 5){
 
                       myCommand = '{"command": "switchlight", "idx": ' + '37' + ', "switchcmd": "On", "level": 100 }';
 
