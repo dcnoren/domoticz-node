@@ -344,7 +344,7 @@ mqttClient.on('connect', function() {
 
                 lastSet = epoch();
 
-                idxHistory[jsonobj.idx].lastSet = "lastSet";
+                idxHistory[jsonobj.idx].lastSet = lastSet;
                 idxHistory[jsonobj.idx].humanSet = "false";
 
             });
