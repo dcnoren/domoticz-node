@@ -184,7 +184,7 @@ mqttClient.on('connect', function() {
 
                 var abcdef = "";
 
-                lastSet = epoch();
+                /*lastSet = epoch();
 
                 idxHistory[idx] = {
                     "level" : level,
@@ -192,7 +192,7 @@ mqttClient.on('connect', function() {
                     "name" : idxname,
                     "type" : "Dimmer",
                     "lastSet" : lastSet
-                };
+                };*/
 
                 var abcdef = '{"lights":{"' + idx + '":{"Status":"' + cstatus + '","Level":' + level + ',"Type":"Light\/Switch","Name":"' + idxname + '"}}}';
                 var jsonABC = JSON.parse(abcdef);
@@ -214,7 +214,7 @@ mqttClient.on('connect', function() {
 
                 var abcdef = "";
 
-                lastSet = epoch();
+                /*lastSet = epoch();
 
                 idxHistory[idx] = {
                     "level" : "undefined",
@@ -222,7 +222,7 @@ mqttClient.on('connect', function() {
                     "name" : idxname,
                     "type" : "On/Off",
                     "lastSet" : lastSet
-                };
+                };*/
 
                 var abcdef = '{"fans":{"' + idx + '":{"Status":"' + cstatus + '","Name":"' + idxname + '"}}}';
                 var jsonABC = JSON.parse(abcdef);
@@ -245,7 +245,7 @@ mqttClient.on('connect', function() {
 
                 var abcdef = "";
 
-                lastSet = epoch();
+                /*lastSet = epoch();
 
                 idxHistory[idx] = {
                     "level" : "undefined",
@@ -253,7 +253,7 @@ mqttClient.on('connect', function() {
                     "name" : idxname,
                     "type" : "Contact",
                     "lastSet" : lastSet
-                };
+                };*/
 
                 var abcdef = '{"doors":{"' + idx + '":{"Status":"' + cstatus + '","Name":"' + idxname + '"}}}';
                 var jsonABC = JSON.parse(abcdef);
@@ -306,9 +306,9 @@ mqttClient.on('connect', function() {
 
                       switchLights(myCommand);
 
-                      alertAutoAction = '{"autoEvent": "true", "idx": 37}';
+                      /*alertAutoAction = '{"autoEvent": "true", "idx": 37}';
 
-                      autoAction(alertAutoAction);
+                      autoAction(alertAutoAction);*/
 
                     } else {
 
@@ -316,9 +316,9 @@ mqttClient.on('connect', function() {
 
                       switchLights(myCommand);
 
-                      alertAutoAction = '{"autoEvent": "true", "idx": 37}';
+                      /*alertAutoAction = '{"autoEvent": "true", "idx": 37}';
 
-                      autoAction(alertAutoAction);
+                      autoAction(alertAutoAction);*/
 
                     }
 
@@ -336,7 +336,7 @@ mqttClient.on('connect', function() {
 
         });
 
-        mqttClient.subscribe('domoticz/autoAction', function() {
+        /*mqttClient.subscribe('domoticz/autoAction', function() {
 
             mqttClient.on('message', function(topic, message, packet) {
 
@@ -351,7 +351,7 @@ mqttClient.on('connect', function() {
 
             });
 
-        });
+        });*/
 
     });
 });
