@@ -345,7 +345,7 @@ function handleDomoticzOut(message){
 				//console.log('charted x: ' + x + ' y: ' + f);
 
       }
-});
+};
 
 
 function handleAutoEvent(message){
@@ -357,7 +357,7 @@ function handleAutoEvent(message){
                 //idxHistory[jsonobj.idx].lastSet = lastSet;
                 //idxHistory[jsonobj.idx].humanSet = "false";
 
-});
+};
 
 
 
