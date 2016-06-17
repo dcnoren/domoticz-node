@@ -148,11 +148,23 @@ function autoAction(msg){
 var mqttClient = mqtt.connect(mqttOptions);
 
 mqttClient.on('connect', function() {
-    // subscribe to a topic
-    mqttClient.subscribe('domoticz/out', function() {
+    mqttClient.subscribe('domoticz/out')
+    mqttClient.subscribe('domoticz/autoAction')
+});
         // when a message arrives, do something with it
-        mqttClient.on('message', function(topic, message, packet) {
+        mqttClient.on('message', function(topic, message) {
             //console.log("Received '" + message + "' on '" + topic + "'");
+
+            switch (topic) {
+                case 'domoticz/out':
+                  return handleDomoticzOut(message)
+                case 'domoticz/autoAction':
+                  return handleAutoEvent(message)
+              }
+
+});
+
+function handleDomoticzOut(message){
             var jsonobj = JSON.parse(message);
             var idx = jsonobj.idx;
             var idxname = jsonobj.name;
@@ -333,12 +345,10 @@ mqttClient.on('connect', function() {
 				//console.log('charted x: ' + x + ' y: ' + f);
 
             }
+});
 
-        });
 
-        mqttClient.subscribe('domoticz/autoAction', function() {
-
-            mqttClient.on('message', function(topic, message, packet) {
+function handleAutoEvent(message){
 
                 var jsonobj = JSON.parse(message);
 
@@ -347,12 +357,11 @@ mqttClient.on('connect', function() {
                 //idxHistory[jsonobj.idx].lastSet = lastSet;
                 //idxHistory[jsonobj.idx].humanSet = "false";
 
-            });
-
-        });
-
-    });
 });
+
+
+
+
 
 io.on('connection', function(socket){
 
