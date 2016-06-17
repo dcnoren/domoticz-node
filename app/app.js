@@ -336,7 +336,7 @@ mqttClient.on('connect', function() {
 
         });
 
-        /*mqttClient.subscribe('domoticz/autoAction', function() {
+        mqttClient.subscribe('domoticz/autoAction', function() {
 
             mqttClient.on('message', function(topic, message, packet) {
 
@@ -351,7 +351,7 @@ mqttClient.on('connect', function() {
 
             });
 
-        });*/
+        });
 
     });
 });
