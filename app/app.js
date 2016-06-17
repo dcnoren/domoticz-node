@@ -17,6 +17,20 @@ var mqtt = require('mqtt'), url = require('url');
 
 var idxHistory = {};
 
+idxHistory[15] = {
+    "level" : 1,
+    "status" : "undefined",
+    "name" : "name",
+    "type" : "Temp"
+};
+
+idxHistory[43] = {
+    "level" : 1,
+    "status" : "undefined",
+    "name" : "name",
+    "type" : "Temp"
+};
+
 var router = express.Router();
 
 app.use('/api', router);
