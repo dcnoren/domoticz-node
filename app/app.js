@@ -147,12 +147,14 @@ mqttClient.on('connect', function() {
 
 
                 var abcdef = "";
+
                 idxHistory[idx] = {
                     "level" : level,
                     "status" : cstatus,
                     "name" : idxname
                 };
-                var abcdef = '{"lights":{"' + idx + '":{"Status":"' + cstatus + '","Level":' + level + ',"Type":"Light\/Switch","Name":"' + idxHistory[idx]["idxname"] + '"}}}';
+
+                var abcdef = '{"lights":{"' + idx + '":{"Status":"' + cstatus + '","Level":' + level + ',"Type":"Light\/Switch","Name":"' + idxHistory[idx]["name"] + '"}}}';
                 var jsonABC = JSON.parse(abcdef);
                 io.emit('update',jsonABC);
             }
