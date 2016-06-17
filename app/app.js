@@ -296,7 +296,8 @@ mqttClient.on('connect', function() {
 
                     tempTemp = idxHistory[15].level - idxHistory[43].level;
                     tempTemp = Math.abs(tempTemp);
-
+                    console.log("IDX 15: " + idxHistory[15].level);
+                    console.log("IDX 43: " + idxHistory[43].level);
                     console.log(tempTemp);
 
                     if (tempTemp > 5){
