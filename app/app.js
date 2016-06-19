@@ -252,7 +252,7 @@ function handleDomoticzOut(message){
 
                 if (status === 1){
                     cstatus = "Open";
-                    io.emit('audio');
+                    //io.emit('audio');
                 }
 
                 var abcdef = "";
