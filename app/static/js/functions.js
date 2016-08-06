@@ -11,7 +11,7 @@ $(document).ready(function(){
 
 						if ($('#lightBoard').find("#" + key + "").length>0) {
 							 lightItems.push('<div id="' + key + '" class="light ui-bar ui-bar-a ' + val.Status + '" style="height:80px"><center><h1>' + val.Name + '</h1></center></div>');
-							 $("#" + key + "").replaceWith(lightItems).enhanceWithin();
+							 $("#" + key + ".light").replaceWith(lightItems).enhanceWithin();
 						} else {
 							 lightItems.push('<div class="ui-block-b"><div id="' + key + '" class="light ui-bar ui-bar-a ' + val.Status + '" style="height:80px"><center><h1>' + val.Name + '</h1></center></div></div>');
 							 $('#lightBoard').append(lightItems).enhanceWithin();
@@ -28,7 +28,7 @@ $(document).ready(function(){
 
 						if ($('#doorBoard').find("#" + key + "").length>0) {
 							 doorItems.push('<div id="' + key + '" class="door ui-bar ui-bar-a ' + val.Status + '" style="height:80px"><center><h1>' + val.Name + '</h1></center></div>');
-							 $("#" + key + "").replaceWith(doorItems).enhanceWithin();
+							 $("#" + key + ".door").replaceWith(doorItems).enhanceWithin();
 						} else {
 							 doorItems.push('<div class="ui-block-b"><div id="' + key + '" class="door ui-bar ui-bar-a ' + val.Status + '" style="height:80px"><center><h1>' + val.Name + '</h1></center></div></div>');
 							 $('#doorBoard').append(doorItems).enhanceWithin();
@@ -45,7 +45,7 @@ $(document).ready(function(){
 
 						if ($('#fanBoard').find("#" + key + "").length>0) {
 							 fanItems.push('<div id="' + key + '" class="fan ui-bar ui-bar-a ' + val.Status + '" style="height:80px"><center><h1>' + val.Name + '</h1></center></div>');
-							 $("#" + key + "").replaceWith(fanItems).enhanceWithin();
+							 $("#" + key + ".fan").replaceWith(fanItems).enhanceWithin();
 						} else {
 							 fanItems.push('<div class="ui-block-b"><div id="' + key + '" class="fan ui-bar ui-bar-a ' + val.Status + '" style="height:80px"><center><h1>' + val.Name + '</h1></center></div></div>');
 							 $('#fanBoard').append(fanItems).enhanceWithin();
@@ -62,7 +62,7 @@ $(document).ready(function(){
 
 						if ($('#sceneBoard').find("#" + key + "").length>0) {
 							 sceneItems.push('<div id="' + key + '" class="scene ui-bar ui-bar-a ' + val.Status + '" style="height:80px"><center><h1>' + val.Name + '</h1></center></div>');
-							 $("#" + key + "").replaceWith(sceneItems).enhanceWithin();
+							 $("#" + key + ".scene").replaceWith(sceneItems).enhanceWithin();
 						} else {
                sceneItems.push('<div class="ui-block-b"><div id="' + key + '" class="scene ui-bar ui-bar-a ' + val.Status + '" style="height:80px"><center><h1>' + val.Name + '</h1></center></div></div>');
 							 $('#sceneBoard').append(sceneItems).enhanceWithin();
