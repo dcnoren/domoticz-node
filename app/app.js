@@ -242,8 +242,8 @@ mqttClient.on('connect', function() {
               if (status === 1){
 
                 flagListen = 60;
-                eventQueueIDX = 29;
-                eventQueueValue = 1;
+                //eventQueueIDX = 29;
+                //eventQueueValue = 1;
                 myCommand = '{"command": "getdeviceinfo", "idx": 60 }';
             		mqttClient.publish('domoticz/in', myCommand);
 
