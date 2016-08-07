@@ -253,10 +253,6 @@ mqttClient.on('connect', function() {
 
             if (idx === 60 && flagListen === 60){
 
-              if (eventQueueIDX === 29){
-
-                if (eventQueueValue === 1){
-
                   if (status === 0){
 
                     flagListen = {};
@@ -266,10 +262,6 @@ mqttClient.on('connect', function() {
                     dimLights(myCommand);
 
                   }
-
-                }
-
-              }
 
             }
 
