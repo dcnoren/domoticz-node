@@ -251,13 +251,10 @@ mqttClient.on('connect', function() {
 
             }
 
-            if (idx === 60 && flagListen === 60){
+            if (idx === 60){
 
                   if (status === 0){
 
-                    flagListen = {};
-                    eventQueueIDX = {};
-                    eventQueueValue = {};
                     myCommand = '{"command": "switchlight", "idx": 7, "switchcmd": "On", "level": 100 }';
                     dimLights(myCommand);
 
