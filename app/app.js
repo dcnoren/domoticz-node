@@ -241,9 +241,9 @@ mqttClient.on('connect', function() {
 
               if (status === 1){
 
-                var flagListen = 60;
-                var eventQueueIDX = 29;
-                var eventQueueValue = 1;
+                flagListen = 60;
+                eventQueueIDX = 29;
+                eventQueueValue = 1;
                 myCommand = '{"command": "getdeviceinfo", "idx": 60 }';
             		mqttClient.publish('domoticz/in', myCommand);
 
@@ -259,9 +259,9 @@ mqttClient.on('connect', function() {
 
                   if (status === 0){
 
-                    var flagListen = {};
-                    var eventQueueIDX = {};
-                    var eventQueueValue = {};
+                    flagListen = {};
+                    eventQueueIDX = {};
+                    eventQueueValue = {};
                     myCommand = '{"command": "switchlight", "idx": 7, "switchcmd": "On", "level": 100 }';
                     dimLights(myCommand);
 
