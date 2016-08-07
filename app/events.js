@@ -1,3 +1,7 @@
+var flagListen = {};
+var eventQueueIDX = {};
+var eventQueueValue = {};
+
 
 if (idx === 29){
 
@@ -21,6 +25,9 @@ if (idx === 60 && flagListen === 60){
 
       if (status === 0){
 
+        var flagListen = {};
+        var eventQueueIDX = {};
+        var eventQueueValue = {};
         myCommand = '{"command": "switchlight", "idx": 7, "switchcmd": "On", "level": 100 }';
         dimLights(myCommand);
 

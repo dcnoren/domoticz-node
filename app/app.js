@@ -232,6 +232,11 @@ mqttClient.on('connect', function() {
 
 
 
+            var flagListen = {};
+            var eventQueueIDX = {};
+            var eventQueueValue = {};
+
+
             if (idx === 29){
 
               if (status === 1){
@@ -254,6 +259,9 @@ mqttClient.on('connect', function() {
 
                   if (status === 0){
 
+                    var flagListen = {};
+                    var eventQueueIDX = {};
+                    var eventQueueValue = {};
                     myCommand = '{"command": "switchlight", "idx": 7, "switchcmd": "On", "level": 100 }';
                     dimLights(myCommand);
 
@@ -264,6 +272,7 @@ mqttClient.on('connect', function() {
               }
 
             }
+
 
 
 
