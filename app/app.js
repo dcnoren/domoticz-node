@@ -251,7 +251,7 @@ mqttClient.on('connect', function() {
 
             }
 
-            if (idx === 60 && flagListen === 60){
+            if (idx === 60 && flagListen == '60'){
 
                   if (status === 0){
 
