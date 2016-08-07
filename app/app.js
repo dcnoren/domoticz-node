@@ -151,77 +151,133 @@ mqttClient.on('connect', function() {
             }
 
 
-			if (jsonobj.dtype === "Light/Switch" && jsonobj.switchType === "On/Off") {
+      			if (jsonobj.dtype === "Light/Switch" && jsonobj.switchType === "On/Off") {
 
-                var cstatus = "";
+                      var cstatus = "";
 
-                if (status === 0){
-                    cstatus = "Off";
-                }
+                      if (status === 0){
+                          cstatus = "Off";
+                      }
 
-                if (status === 1){
-                    cstatus = "On";
-                }
+                      if (status === 1){
+                          cstatus = "On";
+                      }
 
-                var abcdef = "";
-                var abcdef = '{"fans":{"' + idx + '":{"Status":"' + cstatus + '","Name":"' + idxname + '"}}}';
-                var jsonABC = JSON.parse(abcdef);
-                io.emit('update',jsonABC);
+                      var abcdef = "";
+                      var abcdef = '{"fans":{"' + idx + '":{"Status":"' + cstatus + '","Name":"' + idxname + '"}}}';
+                      var jsonABC = JSON.parse(abcdef);
+                      io.emit('update',jsonABC);
+                  }
+
+
+      			if (jsonobj.switchType === "Contact") {
+
+                      var cstatus = "";
+
+                      if (status === 0){
+                          cstatus = "Closed";
+                      }
+
+                      if (status === 1){
+                          cstatus = "Open";
+                          //io.emit('audio');
+                      }
+
+                      var abcdef = "";
+                      var abcdef = '{"doors":{"' + idx + '":{"Status":"' + cstatus + '","Name":"' + idxname + '"}}}';
+                      var jsonABC = JSON.parse(abcdef);
+                      io.emit('update',jsonABC);
+                  }
+
+
+
+            if (jsonobj.Type === "Scene") {
+
+                      cstatus = "Deactivated";
+
+                      var abcdef = "";
+                      var abcdef = '{"scenes":{"' + jsonobj.idx + '":{"Status":"' + cstatus + '","Name":"' + jsonobj.Name + '"}}}';
+                      var jsonABC = JSON.parse(abcdef);
+                      io.emit('update',jsonABC);
             }
 
 
-			if (jsonobj.switchType === "Contact") {
 
-                var cstatus = "";
+      			if ((jsonobj.dtype === "Temp" || jsonobj.dtype === "Temp + Humidity" || jsonobj.dtype === "Thermostat") && idxname != "House Temperature Setpoint") {
 
-                if (status === 0){
-                    cstatus = "Closed";
+      				var x = new Date().getTime();
+
+      		                var f = parseFloat(level);
+      		                var f = f * 9 / 5 + 32;
+      		                f = f.toFixed(1);
+      		                f = parseFloat(f);
+
+      				io.emit('chart', {
+      						x: x,
+      						y: f,
+      						idx: idx,
+      						idxname: idxname
+      					});
+
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+            if (idx === 29){
+
+              if (status === 1){
+
+                var flagListen = 60;
+                var eventQueueIDX = 29;
+                var eventQueueValue = 1;
+                myCommand = '{"command": "getdeviceinfo", "idx": 60 }';
+            		mqttClient.publish('domoticz/in', myCommand);
+
+              }
+
+            }
+
+            if (idx === 60 && flagListen === 60){
+
+              if (eventQueueIDX === 29){
+
+                if (eventQueueValue === 1){
+
+                  if (status === 0){
+
+                    myCommand = '{"command": "switchlight", "idx": 7, "switchcmd": "On", "level": 100 }';
+                    dimLights(myCommand);
+
+                  }
+
                 }
 
-                if (status === 1){
-                    cstatus = "Open";
-                    //io.emit('audio');
-                }
+              }
 
-                var abcdef = "";
-                var abcdef = '{"doors":{"' + idx + '":{"Status":"' + cstatus + '","Name":"' + idxname + '"}}}';
-                var jsonABC = JSON.parse(abcdef);
-                io.emit('update',jsonABC);
             }
 
 
 
-      if (jsonobj.Type === "Scene") {
-
-                cstatus = "Deactivated";
-
-                var abcdef = "";
-                var abcdef = '{"scenes":{"' + jsonobj.idx + '":{"Status":"' + cstatus + '","Name":"' + jsonobj.Name + '"}}}';
-                var jsonABC = JSON.parse(abcdef);
-                io.emit('update',jsonABC);
-      }
 
 
 
-			if ((jsonobj.dtype === "Temp" || jsonobj.dtype === "Temp + Humidity" || jsonobj.dtype === "Thermostat") && idxname != "House Temperature Setpoint") {
 
-				var x = new Date().getTime();
 
-		                var f = parseFloat(level);
-		                var f = f * 9 / 5 + 32;
-		                f = f.toFixed(1);
-		                f = parseFloat(f);
 
-				io.emit('chart', {
-						x: x,
-						y: f,
-						idx: idx,
-						idxname: idxname
-					});
 
-				//console.log('charted x: ' + x + ' y: ' + f);
 
-            }
+
+
+
 
         });
     });
