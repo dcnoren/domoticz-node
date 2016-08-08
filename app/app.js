@@ -106,6 +106,9 @@ function switchLights(msg){
 }
 
 
+var flagListen = "";
+var eventQueueIDX = "";
+var eventQueueValue = "";
 
 
 // Create a client connection
@@ -232,9 +235,7 @@ mqttClient.on('connect', function() {
 
 
 
-            var flagListen = "";
-            var eventQueueIDX = "";
-            var eventQueueValue = "";
+
 
 
             if (idx === 29){
