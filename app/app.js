@@ -112,7 +112,7 @@ var eventQueueValue = "";
 
 
 // Create a client connection
-var mqttClient = mqtt.connect(mqttOptions);
+mqttClient = mqtt.connect(mqttOptions);
 
 mqttClient.on('connect', function() {
     // subscribe to a topic
