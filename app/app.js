@@ -106,9 +106,9 @@ function switchLights(msg){
 }
 
 
-var flagListen = "";
-var eventQueueIDX = "";
-var eventQueueValue = "";
+flagListen = "";
+eventQueueIDX = "";
+eventQueueValue = "";
 
 
 // Create a client connection

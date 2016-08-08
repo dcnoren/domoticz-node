@@ -2,9 +2,6 @@ module.exports = {
 
   processEvents: function (jsonobj) {
 
-    var flagListen = "";
-    var eventQueueIDX = "";
-    var eventQueueValue = "";
     var idx = jsonobj.idx;
     var idxname = jsonobj.name;
     var status = jsonobj.nvalue;
