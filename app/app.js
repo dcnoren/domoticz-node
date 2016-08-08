@@ -236,7 +236,7 @@ mqttClient.on('connect', function() {
 
             if (config.features.events == true){
               var events = require('./events');
-              events.processEvents();
+              var eventResult = events.processEvents();
             }
 
 
