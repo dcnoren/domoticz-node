@@ -260,6 +260,8 @@ mqttClient.on('connect', function() {
                     flagListen = {};
                     myCommand = '{"command": "switchlight", "idx": 7, "switchcmd": "On", "level": 100 }';
                     dimLights(myCommand);
+                    myCommand = '{"command": "switchlight", "idx": 60, "switchcmd": "Off"}';
+                    switchLights(myCommand);
                     console.log("IDX 60 event ran");
 
                   }
