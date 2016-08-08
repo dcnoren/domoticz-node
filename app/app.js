@@ -106,13 +106,13 @@ function switchLights(msg){
 }
 
 
-flagListen = "";
-eventQueueIDX = "";
-eventQueueValue = "";
+var flagListen = "";
+var eventQueueIDX = "";
+var eventQueueValue = "";
 
 
 // Create a client connection
-mqttClient = mqtt.connect(mqttOptions);
+var mqttClient = mqtt.connect(mqttOptions);
 
 mqttClient.on('connect', function() {
     // subscribe to a topic
@@ -235,8 +235,39 @@ mqttClient.on('connect', function() {
 
 
             if (config.features.events == true){
-              var events = require('./events');
-              var eventResult = events.processEvents(jsonobj);
+              //var events = require('./events');
+              //var eventResult = events.processEvents(jsonobj);
+
+              if (idx === 29){
+
+                if (status === 1){
+
+                  flagListen = "60";
+                  //eventQueueIDX = 29;
+                  //eventQueueValue = 1;
+                  myCommand = '{"command": "getdeviceinfo", "idx": 60 }';
+                  mqttClient.publish('domoticz/in', myCommand);
+                  console.log("IDX 29 event ran");
+
+                }
+
+              }
+
+              if (idx === 60 && flagListen == "60"){
+
+                    if (status === 0){
+
+                      flagListen = {};
+                      myCommand = '{"command": "switchlight", "idx": 7, "switchcmd": "On", "level": 100 }';
+                      dimLights(myCommand);
+                      myCommand = '{"command": "switchlight", "idx": 60, "switchcmd": "Off"}';
+                      switchLights(myCommand);
+                      console.log("IDX 60 event ran");
+
+                    }
+
+              }
+
             }
 
 
