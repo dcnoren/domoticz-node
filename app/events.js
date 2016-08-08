@@ -28,7 +28,7 @@ module.exports = {
 
     if (idx === 60 && flagListen == "60"){
 
-          if (status === 1){
+          if (status === 0){
 
             flagListen = {};
             myCommand = '{"command": "switchlight", "idx": 7, "switchcmd": "On", "level": 100 }';
