@@ -255,7 +255,7 @@ mqttClient.on('connect', function() {
 
             if (idx === 60 && flagListen == "60"){
 
-                  if (status === 0){
+                  if (status === 1){
 
                     flagListen = {};
                     myCommand = '{"command": "switchlight", "idx": 7, "switchcmd": "On", "level": 100 }';
