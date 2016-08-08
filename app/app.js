@@ -246,6 +246,7 @@ mqttClient.on('connect', function() {
                 //eventQueueValue = 1;
                 myCommand = '{"command": "getdeviceinfo", "idx": 60 }';
             		mqttClient.publish('domoticz/in', myCommand);
+                console.log("IDX 29 event ran");
 
               }
 
@@ -258,7 +259,7 @@ mqttClient.on('connect', function() {
                     flagListen = {};
                     myCommand = '{"command": "switchlight", "idx": 7, "switchcmd": "On", "level": 100 }';
                     dimLights(myCommand);
-                    console.log("Hello!")
+                    console.log("IDX 60 event ran");
 
                   }
 
