@@ -232,16 +232,16 @@ mqttClient.on('connect', function() {
 
 
 
-            var flagListen = {};
-            var eventQueueIDX = {};
-            var eventQueueValue = {};
+            var flagListen = "";
+            var eventQueueIDX = "";
+            var eventQueueValue = "";
 
 
             if (idx === 29){
 
               if (status === 1){
 
-                flagListen = 60;
+                flagListen = "60";
                 //eventQueueIDX = 29;
                 //eventQueueValue = 1;
                 myCommand = '{"command": "getdeviceinfo", "idx": 60 }';
@@ -251,7 +251,7 @@ mqttClient.on('connect', function() {
 
             }
 
-            if (idx === 60 && flagListen == '60'){
+            if (idx === 60 && flagListen == "60"){
 
                   if (status === 0){
 
