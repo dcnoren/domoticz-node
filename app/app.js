@@ -258,6 +258,7 @@ mqttClient.on('connect', function() {
                     flagListen = {};
                     myCommand = '{"command": "switchlight", "idx": 7, "switchcmd": "On", "level": 100 }';
                     dimLights(myCommand);
+                    console.log("Hello!")
 
                   }
 
