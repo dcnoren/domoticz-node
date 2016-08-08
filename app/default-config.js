@@ -11,6 +11,7 @@ var config = {};
 config.wit = {};
 config.mqtt = {};
 config.security = {};
+config.features = {};
 // /////////////////////////////////
 
 
@@ -49,6 +50,14 @@ config.mqtt.password = 'PASSWORD';
 // your Domoticz-Node instance via
 // http://[ip]:[port]/?p=password
 config.security.password = 'password';
+// /////////////////////////////////
+
+
+// By default, event processing
+// is disabled. Set this to
+// "enabled" and tweak events.js
+// to enable event processing.
+config.features.events = false;
 // /////////////////////////////////
 
 
