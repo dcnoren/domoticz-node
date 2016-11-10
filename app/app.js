@@ -35,6 +35,18 @@ router.get('/standard/on', function(req, res) {
     mqttClient.publish('domoticz/in', myCommand);
 });
 
+router.get('/37/on', function(req, res) {
+    res.json({ message: '200 OK' });
+    myCommand = '{"command": "switchlight", "idx": 37, "switchcmd": "On" }';
+    mqttClient.publish('domoticz/in', myCommand);
+});
+
+router.get('/37/off', function(req, res) {
+    res.json({ message: '200 OK' });
+    myCommand = '{"command": "switchlight", "idx": 37, "switchcmd": "Off" }';
+    mqttClient.publish('domoticz/in', myCommand);
+});
+
 app.use(express.static('static'));
 
 app.get('/', function(req, res){
